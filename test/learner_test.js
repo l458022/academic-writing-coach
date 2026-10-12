@@ -20,6 +20,14 @@ const patched = src.replace(/^const Learner =/m, 'globalThis.Learner =');
 new Function(patched)();
 const L = globalThis.Learner;
 
+// ---- 加载 stylometry.js ----
+// learner 的原始特征抽取（rawFeatures）会调用 Stylometry 的 burstiness/
+// readability/... 等函数，故测试环境也必须把它挂到全局。
+const sSrc = fs.readFileSync(
+  path.join(__dirname, '..', 'web', 'assets', 'stylometry.js'), 'utf8');
+new Function(sSrc.replace(/^const Stylometry =/m, 'globalThis.Stylometry ='))();
+const Stylometry = globalThis.Stylometry;
+
 console.log('=== Learner 加载 ===');
 console.log('DEFAULT_TUNING =', JSON.stringify(L.DEFAULT_TUNING));
 
@@ -105,6 +113,46 @@ L.reset();
 const s3 = L.summarize();
 ok(s3.total === 0, '重置后 total = 0');
 ok(L.getTuning().statCap === 48, '重置后阈值回默认 48');
+
+// ---- 9. 匿名贡献包 ----
+console.log('\n=== 9. 匿名贡献包 ===');
+{
+  // 文本要够长，否则 burstiness/lexical 等特征会判为 unusable 而返回 null
+  const T9 = "The thing that surprised me most about working through the accounting literature was how much disagreement there still is about something as basic as what earnings quality actually means. Dechow and Dichev (2002) treat it as the extent to which accruals map onto realised cash flows, but I am not convinced that this captures everything practitioners worry about when they use the phrase. When I looked at the disclosure notes in the annual reports of three Malaysian listed firms, the accrual to cash flow gap was small in all three, yet two of them had been criticised publicly for aggressive revenue recognition in the same period.\n\nThat said, the measure clearly has value. It is simple to compute, it relies on data that is already in the statements, and it seems to predict restatements reasonably well in the studies I read. Ball and Shivakumar (2006) extend the idea by bringing in asymmetric timeliness, which I found harder to follow, but which does address one of the obvious weaknesses of the original model.\n\nWhat I take from all this is that no single number is going to tell you whether a set of accounts is trustworthy. The literature gives you several imperfect signals, and the judgement about which one matters in a particular case is still down to the analyst.";
+  const st9 = Stylometry.analyze(T9, { ai_tells: [] });
+  const rec9 = L.observe(T9, st9, { score: 0 }, 'HELP');
+
+  // 原始特征（重标定的前提）
+  ok(!!rec9.raw, '条目记录了原始特征值 raw');
+  ok(rec9.raw && Object.keys(rec9.raw).length === 12,
+    `raw 含 12 个特征（实际 ${rec9.raw ? Object.keys(rec9.raw).length : 0}）`);
+  ok(rec9.raw && typeof rec9.raw.cv === 'number', 'raw.cv 是数值（原始 CV，非折算分）');
+
+  L.feedback(undefined, 'human');
+
+  const pkg = JSON.parse(L.exportContribution());
+  ok(pkg.format === 'wb-coach-contribution-v1', '贡献包 format 正确');
+  ok(pkg.count === 1, `贡献包样本数 = 1（实际 ${pkg.count}）`);
+  ok(/^anon-/.test(pkg.contributor), '含匿名贡献者 ID');
+  ok(pkg.samples[0].label === 'human', '样本标注正确（human）');
+  ok(!!pkg.samples[0].raw, '样本含原始特征');
+  ok(/^\d{4}-\d{2}-\d{2}$/.test(pkg.samples[0].day), '时间只精确到「日」');
+
+  // 隐私红线：不得含原文 / 文件名 / 毫秒时间戳
+  const full = JSON.stringify(pkg);
+  ok(!full.includes('surprised'), '贡献包不含原文片段');
+  ok(!/\.docx|\.txt/.test(full), '贡献包不含文件名');
+  ok(!/\d{13}/.test(full), '贡献包不含毫秒时间戳');
+
+  // 统计
+  const cs = L.contributionStats();
+  ok(cs.usable === 1 && cs.human === 1, `统计正确（可贡献 ${cs.usable}，真人 ${cs.human}）`);
+
+  // 重置匿名 ID → 与旧数据脱钩
+  const before = L.getAnonId();
+  const after = L.resetAnonId();
+  ok(after !== before && /^anon-/.test(after), '重置匿名 ID 后 ID 改变（可撤回）');
+}
 
 console.log(`\n=== 结果：${pass} 通过 / ${fail} 失败 ===`);
 process.exit(fail ? 1 : 0);

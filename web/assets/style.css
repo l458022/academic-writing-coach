@@ -363,6 +363,20 @@ button{font-family:inherit;font-size:13px;cursor:pointer;border-radius:7px;trans
 .ln-edits li{list-style:disc;font-size:11.5px;color:var(--fg2);line-height:1.7;margin-bottom:4px}
 .ln-edits i{color:var(--fg3)}
 
+/* 匿名贡献区块 */
+.ln-contrib{
+  background:var(--bg3);border:1px solid var(--line);
+  border-radius:6px;padding:13px 15px;margin-bottom:6px;
+}
+.ln-bd{margin:9px 0}
+.ln-bd-row{font-size:11.5px;line-height:1.7;color:var(--fg2);padding:4px 0}
+.ln-bd-row b.ok{color:var(--green)}
+.ln-bd-row b.no{color:var(--red)}
+.ln-contrib code{
+  background:var(--bg2);padding:1px 6px;border-radius:3px;
+  font-size:11px;color:var(--accent2);
+}
+
 @media (max-width:640px){
   .ln-stat{flex:1 1 42%}
   .fb-btn{flex:1 1 100%}

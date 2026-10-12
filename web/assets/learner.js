@@ -24,6 +24,7 @@
 const Learner = (() => {
 
   const STORE_KEY = 'wb_learner_v1';
+  const ANON_KEY = 'wb_coach_anon_id';   // 匿名贡献者 ID（本地生成、可重置）
   const MAX_RECORDS = 400;          // 经验条目上限（超出淘汰最旧的）
   const MAX_EDITS = 60;             // 调参历史上限
 
@@ -90,6 +91,43 @@ const Learner = (() => {
 
   /* ---------------- 经验条目：脱敏指纹 ---------------- */
   /* 只抽取统计量，绝不保留任何原文片段 */
+
+  /* 保留 3 位小数：既是统计量本身需要的精度，
+     也能避免把浮点尾数当作"指纹"存下来。 */
+  const r3 = (x) => (x == null || !isFinite(x)) ? null : Math.round(x * 1000) / 1000;
+
+  /* 原始特征值（**不是**折算分）。
+     ⚠️ 为什么必须单独存这一份：
+       `signals` 里是**折算分**（已按当前阈值映射到 0-100），
+       而折算分 = f(原始值, 当前阈值)。要改进阈值就必须拿到**原始值**，
+       用折算分反推是不可能的（映射含分段与 clamp）。
+       这就是"积累了数据却无法用于重标定"的根因。
+     全部是统计量（变异系数、类符形符比…），不含任何原文片段。 */
+  function rawFeatures(text) {
+    try {
+      if (typeof Stylometry === 'undefined') return null;
+      const bu = Stylometry.burstiness(text), rd = Stylometry.readability(text),
+        pu = Stylometry.punctuationProfile(text), fw = Stylometry.functionWordProfile(text),
+        lr = Stylometry.lexicalRichness(text);
+      return {
+        cv: bu.usable ? r3(bu.cv) : null,                       // 句式变异系数
+        delta: bu.usable ? r3(bu.meanDelta) : null,             // 相邻句长差
+        mean: bu.usable ? r3(bu.mean) : null,                   // 平均句长
+        longWord: rd.usable ? r3(rd.longWordRatio) : null,      // 长词占比
+        asw: rd.usable ? r3(rd.asw) : null,                     // 平均音节
+        richPunct: r3(pu.semicolonPer1k + pu.dashPer1k + pu.parenPer1k),
+        colon: r3(pu.colonPer1k),
+        fwRatio: fw.usable ? r3(fw.fwRatio) : null,             // 虚词占比
+        ttr: lr.usable ? r3(lr.ttr) : null,                     // 类符形符比
+        hapax: lr.usable ? r3(lr.hapaxRatio) : null,
+        density: lr.usable ? r3(lr.lexicalDensity) : null,
+        awl: lr.usable ? r3(lr.avgWordLen) : null,              // 平均词长
+      };
+    } catch (e) {
+      return null;   // 特征抽取失败不得阻断分析主流程
+    }
+  }
+
   function fingerprint(text, stylo, dup, uniId) {
     const wc = (stylo && stylo.wordCount) || 0;
     const sig = {};
@@ -114,7 +152,8 @@ const Learner = (() => {
       ai: stylo ? Math.round(stylo.score) : null,     // AI 倾向分
       dup: dup ? Math.round(dup.score) : null,        // 重复风险分
       reliable: stylo ? !!stylo.reliable : false,
-      signals: sig,                                   // 各特征分
+      signals: sig,                                   // 各特征分（折算分）
+      raw: rawFeatures(text),                         // 原始特征值（用于重标定）
       clicheTypes,                                    // 命中的套话类别（非原文）
       uni: uniId || '',                               // 院校（便于分组）
       verdict: null                                   // 用户反馈：'ai' | 'human' | null
@@ -354,6 +393,78 @@ const Learner = (() => {
     return d;
   }
 
+  /* ---------------- 匿名贡献包 ----------------
+     用途：把本机积累的特征分布导出成**可汇总**的匿名数据，
+     供重标定检测阈值使用（项目最缺的正是"现代真实语料的特征分布"）。
+
+     ⚠️ 隐私边界（导出前必须让用户知道）：
+       · 只含统计量：词数、各特征原始值/折算分、长度档位
+       · **不含**原文、不含文件名、不含精确时间戳（只到日）
+       · `uni` 是用户在下拉框里选的院校，属公开信息，非个人身份
+       · `contributor` 是本地随机生成的匿名 ID，可随时重置
+
+     导出 ≠ 上传。本函数只在本机生成一个 JSON 字符串，
+     是否把它交出去完全由用户决定。 */
+  function getAnonId() {
+    try {
+      let id = localStorage.getItem(ANON_KEY);
+      if (!id) {
+        id = 'anon-' + Math.random().toString(36).slice(2, 10);
+        localStorage.setItem(ANON_KEY, id);
+      }
+      return id;
+    } catch (e) {
+      return 'anon-local';
+    }
+  }
+
+  /* 重置匿名 ID：此后导出的数据与前一批无法关联（相当于"撤回"） */
+  function resetAnonId() {
+    try {
+      const id = 'anon-' + Math.random().toString(36).slice(2, 10);
+      localStorage.setItem(ANON_KEY, id);
+      return id;
+    } catch (e) {
+      return 'anon-local';
+    }
+  }
+
+  /* 统计"可贡献"的样本数（供界面显示，避免导出空包） */
+  function contributionStats() {
+    const recs = load().records;
+    const usable = recs.filter(r => r.raw);
+    return {
+      total: recs.length,
+      usable: usable.length,
+      labeled: usable.filter(r => r.verdict === 'ai' || r.verdict === 'human').length,
+      ai: usable.filter(r => r.verdict === 'ai').length,
+      human: usable.filter(r => r.verdict === 'human').length,
+    };
+  }
+
+  /* 生成匿名贡献包（纯本地字符串，不发起任何网络请求） */
+  function exportContribution() {
+    const recs = load().records.filter(r => r.raw);
+    const samples = recs.map(r => ({
+      label: r.verdict === 'ai' ? 'ai' : (r.verdict === 'human' ? 'human' : 'unknown'),
+      wc: r.wc,
+      band: r.band,
+      ai: r.ai,
+      dup: r.dup,
+      signals: r.signals || {},
+      raw: r.raw,
+      uni: r.uni || '',
+      day: new Date(r.t).toISOString().slice(0, 10),   // 只到日，不存毫秒
+    }));
+    return JSON.stringify({
+      format: 'wb-coach-contribution-v1',
+      exported_at: new Date().toISOString().slice(0, 10),
+      contributor: getAnonId(),
+      count: samples.length,
+      samples,
+    }, null, 2);
+  }
+
   function exportJSON() {
     return JSON.stringify(load(), null, 2);
   }
@@ -382,6 +493,8 @@ const Learner = (() => {
     observe, feedback, summarize,
     applyTuning, reset, clearRecords,
     exportJSON, importJSON,
+    // 匿名贡献包（只导出统计量，不含原文；导出≠上传）
+    exportContribution, contributionStats, getAnonId, resetAnonId,
     getTuning: () => load().tuning,
     load, save
   };

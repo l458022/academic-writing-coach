@@ -884,6 +884,13 @@ function paintLearner(box, s, full) {
 
   const T = s.tuning;
 
+  /* 匿名贡献统计（只读，不发起任何网络请求） */
+  const cs = (typeof Learner !== 'undefined' && Learner.contributionStats)
+    ? Learner.contributionStats()
+    : { total: 0, usable: 0, labeled: 0, ai: 0, human: 0 };
+  const anonId = (typeof Learner !== 'undefined' && Learner.getAnonId)
+    ? Learner.getAnonId() : '--';
+
   if (!full) {
     // 结果区速览：极简版，避免结果页过长
     box.innerHTML = `
@@ -930,6 +937,29 @@ function paintLearner(box, s, full) {
       <button class="ghost danger" id="lnClear">清空经验记录</button>
     </div>
 
+    <h3 class="ln-h">匿名贡献（帮助改进检测器）</h3>
+    <div class="ln-contrib">
+      <p class="muted ln-tip">
+        本工具靠<b>真实的现代语料</b>改进阈值，但单机积累太慢。
+        你可以把本机记录的<b>匿名特征</b>导出，汇总后用于校准检测器。
+      </p>
+      <div class="ln-bd">
+        <div class="ln-bd-row"><b class="ok">会导出：</b>词数、各特征原始值（句式 CV、类符形符比…）、你的标注、院校</div>
+        <div class="ln-bd-row"><b class="no">不会导出：</b>原文、文件名、精确时间戳，以及任何可识别你身份的信息</div>
+      </div>
+      <p class="muted ln-tip">
+        当前可贡献 <b>${cs.usable}</b> 条（已标注 <b>${cs.labeled}</b> 条：AI ${cs.ai} / 真人 ${cs.human}）。
+        匿名 ID：<code>${esc(anonId)}</code>
+      </p>
+      <div class="ln-actions">
+        <button class="ghost" id="lnContrib">导出匿名贡献包</button>
+        <button class="ghost" id="lnAnon">重置匿名 ID</button>
+      </div>
+      <p class="muted ln-tip">
+        ⚠️ 导出只是在本机生成一个 JSON 文件，<b>不会自动上传</b>。是否交出去完全由你决定。
+      </p>
+    </div>
+
     <h3 class="ln-h">调参历史</h3>
     ${editHtml}`;
 
@@ -966,6 +996,28 @@ function paintLearner(box, s, full) {
       fr.readAsText(f);
     });
     inp.click();
+  });
+  /* 匿名贡献包：只在本机生成 JSON，不发起任何网络请求 */
+  const contrib = $('#lnContrib');
+  if (contrib) contrib.addEventListener('click', () => {
+    const st = Learner.contributionStats();
+    if (!st.usable) {
+      alert('还没有可贡献的样本。\n\n先分析几篇文章，再给判定做标注（「确实像 AI 写的」/「确实是真人写的」），就能导出了。');
+      return;
+    }
+    const blob = new Blob([Learner.exportContribution()], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'writing-coach-contribution.json';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+  });
+  const anon = $('#lnAnon');
+  if (anon) anon.addEventListener('click', () => {
+    if (confirm('重置匿名 ID？\n\n此后导出的数据将无法与你之前的贡献关联（相当于撤回）。\n本地经验记录不受影响。')) {
+      Learner.resetAnonId();
+      renderLearner();
+    }
   });
   const clr = $('#lnClear');
   if (clr) clr.addEventListener('click', () => {
