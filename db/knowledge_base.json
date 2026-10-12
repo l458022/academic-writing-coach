@@ -1,0 +1,3590 @@
+{
+  "meta": {
+    "name": "查重降AI · 马来西亚中国留学生学术写作辅导知识库",
+    "version": "0.1.0",
+    "built_at": "2026-10-12 20:30:02",
+    "scope": "中国留学生 · 本科 · 马来西亚",
+    "positioning": "写作辅导工具（帮学生自己改），非代写工具",
+    "stats": {
+      "universities": 18,
+      "universities_with_policy": 10,
+      "pain_points": 18,
+      "competitors": 12,
+      "chinglish": 48,
+      "ai_tells": 88,
+      "rewrite_examples": 36,
+      "majors": 8,
+      "citation_patterns": 8,
+      "format_styles": 2,
+      "format_structure_sections": 3
+    }
+  },
+  "universities": [
+    {
+      "id": "UM",
+      "name_zh": "马来亚大学",
+      "name_en": "Universiti Malaya",
+      "abbr": "UM",
+      "type": "公立",
+      "city": "吉隆坡",
+      "has_policy": "明确",
+      "ai_stance": "允许辅助，需声明",
+      "framework": "0-4 五级 AI 使用框架（L0禁止/L1极少量语法拼写/L2有限生成想法/L3开放须透明报告/L4整合AI为评估必需）",
+      "exam_rule": "笔试原则上禁用 AI；口试/Viva 一律禁止；论文需导师授权并正式声明",
+      "penalty": "未在AI政策中单列罚则，纳入既有《学术不端/抄袭》规章处理；未声明AI可能被认定为学术不端",
+      "detection": "Turnitin（含AI Detector）、GPTZero、Originality.AI",
+      "threshold": "未公布统一相似度阈值",
+      "key_note": "明确「检测软件不得作为学术不端的唯一定案证据」",
+      "source_url": "https://spm.um.edu.my/policy-on-the-use-of-artificial-intelligence-ai-in-teaching-and-learning/"
+    },
+    {
+      "id": "UKM",
+      "name_zh": "马来西亚国立大学",
+      "name_en": "Universiti Kebangsaan Malaysia",
+      "abbr": "UKM",
+      "type": "公立",
+      "city": "万宜",
+      "has_policy": "明确",
+      "ai_stance": "允许辅助，需声明",
+      "framework": "L1无AI/L2规划用途/L3协作/L4全程使用/L5探索（改制自 AI Assessment Scale）",
+      "exam_rule": "形成性评估可获批使用AI辅助；总结性评估除明确许可外默认禁止",
+      "penalty": "三级递进：①书面警告+学术诚信模块可重交扣分；②该作业甚至整门课判零分+上报；③反复/恶劣=停学或开除",
+      "detection": "Turnitin（含 AI Writing 检测）",
+      "threshold": "AI 检测 <20% 视为低风险（Level 1）",
+      "key_note": "明确AI检测分数为概率性信号，可能误报，不得作为唯一依据；66页指引，全马最详尽之一",
+      "source_url": "https://www.ukm.my/kita/wp-content/uploads/Garis-Panduan-GEN-AI-Universiti-Kebangsaan-Malaysia-2025.pdf"
+    },
+    {
+      "id": "USM",
+      "name_zh": "马来西亚理科大学",
+      "name_en": "Universiti Sains Malaysia",
+      "abbr": "USM",
+      "type": "公立",
+      "city": "槟城",
+      "has_policy": "部分",
+      "ai_stance": "在高校指引框架下审慎、合乎伦理使用，定位「支持而非替代学生角色」",
+      "framework": "校层面为通用高教指引；期刊层面 AI 仅可用于提升可读性与语言",
+      "exam_rule": "未查到校级单列条款",
+      "penalty": "沿用既有学术不端规章",
+      "detection": "图书馆提供 Turnitin",
+      "threshold": "未查到统一阈值",
+      "key_note": "查到的多为期刊出版政策与通用高教指引，未检索到校级《学生GenAI使用政策》原文",
+      "source_url": "https://cdae.usm.my/images/DownloadPDF/GARIS%20PANDUAN%20PENGGUNAAN%20TEKNOLOGI%20KECERDASAN%20BUATAN%20GENERATIF%20KBG%20DALAM%20PENGAJARAN%20DAN%20PEMBELAJARAN%20PdP%20PENDIDIKAN%20TINGGI.pdf"
+    },
+    {
+      "id": "UPM",
+      "name_zh": "马来西亚博特拉大学",
+      "name_en": "Universiti Putra Malaysia",
+      "abbr": "UPM",
+      "type": "公立",
+      "city": "沙登",
+      "has_policy": "明确",
+      "ai_stance": "允许作辅助工具，须正式声明",
+      "framework": "研究生论文明确：AI为「辅助写作工具，而非原创思考/分析/研究的替代」",
+      "exam_rule": "口头答辩时须当场声明AI使用情况",
+      "penalty": "未查到专门罚则，违规按学术规章处理",
+      "detection": "未查到统一检测工具说明",
+      "threshold": "未查到统一阈值",
+      "key_note": "须说明在何处、为何使用AI，区分AI生成内容与学生本人贡献；主要覆盖研究生论文/答辩",
+      "source_url": "https://ai.upm.edu.my/guideline.php"
+    },
+    {
+      "id": "UTM",
+      "name_zh": "马来西亚理工大学",
+      "name_en": "Universiti Teknologi Malaysia",
+      "abbr": "UTM",
+      "type": "公立",
+      "city": "新山/吉隆坡",
+      "has_policy": "明确",
+      "ai_stance": "允许使用，须逐项声明",
+      "framework": "Pekeliling Akademik Bil.3/2024（2024-03-27生效），适用本科与研究生课程",
+      "exam_rule": "作业须标注工具开发商、名称、版本、访问日期、URL；优先采用持续性评估（演示/汇报/辩论/面试）",
+      "penalty": "未声明=可归类为抄袭，按《UTM学术规章》处理",
+      "detection": "未查到统一阈值",
+      "threshold": "未查到统一阈值",
+      "key_note": "AI不得列为共同作者；政策覆盖教学+科研+出版",
+      "source_url": "https://cdex-apps.utm.my/files/guidelines/GP-KBG-PP-Terkini-1.pdf"
+    },
+    {
+      "id": "UUM",
+      "name_zh": "马来西亚北方大学",
+      "name_en": "Universiti Utara Malaysia",
+      "abbr": "UUM",
+      "type": "公立",
+      "city": "新笃",
+      "has_policy": "未知",
+      "ai_stance": "未查到校级统一GenAI成文政策",
+      "framework": "未查到",
+      "exam_rule": "闭卷在线期末考试：禁止协作、须签诚信声明表",
+      "penalty": "未查到",
+      "detection": "在线考试场景提及 Turnitin",
+      "threshold": "未查到统一阈值",
+      "key_note": "政策模糊/未公开，未检索到校级《生成式AI使用政策》明文",
+      "source_url": "http://hea.uum.edu.my/images/2020/10/19/GL_TAKE_HOME_4_JULY_2020.pdf"
+    },
+    {
+      "id": "Taylor",
+      "name_zh": "泰莱大学",
+      "name_en": "Taylor's University",
+      "abbr": "Taylor's",
+      "type": "私立",
+      "city": "梳邦再也",
+      "has_policy": "部分",
+      "ai_stance": "明确鼓励使用 GenAI（含ChatGPT）支持学习",
+      "framework": "有学生指引，非完整成文政策；学术诚信定为全校「共同体责任」",
+      "exam_rule": "未查到",
+      "penalty": "Turnitin AI 高分不会自动触发不端处理，且 AI 分数通常不作为唯一证据",
+      "detection": "Turnitin（含 AI Writing Detector）",
+      "threshold": "未查到统一阈值",
+      "key_note": "态度最开放之一；公开页需校内账号访问",
+      "source_url": "https://mytimes.taylors.edu.my/mod/forum/discuss.php?d=104875"
+    },
+    {
+      "id": "Monash",
+      "name_zh": "莫纳什大学马来西亚分校",
+      "name_en": "Monash University Malaysia",
+      "abbr": "Monash MY",
+      "type": "海外分校",
+      "city": "双威镇",
+      "has_policy": "明确",
+      "ai_stance": "按考核逐项规定（必需/可选/禁止）",
+      "framework": "每门考核在Moodle明确AI为「必需/可选/禁止」；允许时须书面声明并保留记录/对话日志",
+      "exam_rule": "禁止使用时使用=违反考核条件（学术不端）；论文评审人禁止用GenAI写评审报告",
+      "penalty": "未声明AI或违规使用=违反《Student Academic Integrity Procedure》，可至停学/开除",
+      "detection": "Turnitin（含 Similarity Report）",
+      "threshold": "未查到统一阈值",
+      "key_note": "入学须完成必修学术诚信模块；本部自2026-01-01关闭 Turnitin GenAI 检测",
+      "source_url": "https://www.monash.edu.my/education-excellence/Education-Policy-and-Procedure/academic-integrity"
+    },
+    {
+      "id": "UCSI",
+      "name_zh": "思特雅大学",
+      "name_en": "UCSI University",
+      "abbr": "UCSI",
+      "type": "私立",
+      "city": "吉隆坡",
+      "has_policy": "部分",
+      "ai_stance": "论文层面须声明GenAI使用",
+      "framework": "论文/研究生层面成文；本科手册以纪律条款为主",
+      "exam_rule": "AI不得用于绕过学习或替代原创研究/数据解读/论证；机密或敏感数据不得输入第三方AI工具；考试禁用电子设备",
+      "penalty": "重复抄袭：该课程模块自动判不及格，屡犯可至停学/开除",
+      "detection": "Turnitin（图书馆提供）",
+      "threshold": "未查到统一阈值",
+      "key_note": "本科层面未见专门GenAI政策页",
+      "source_url": "https://www.ucsiuniversity.edu.my/sites/default/files/thesisguidelines.pdf"
+    },
+    {
+      "id": "APU",
+      "name_zh": "亚太科技大学",
+      "name_en": "Asia Pacific University",
+      "abbr": "APU",
+      "type": "私立",
+      "city": "吉隆坡",
+      "has_policy": "未知",
+      "ai_stance": "未查到校级成文AI政策",
+      "framework": "未查到",
+      "exam_rule": "未查到",
+      "penalty": "未查到校级GenAI罚则",
+      "detection": "所属期刊 JATI（非校级）用 iThenticate",
+      "threshold": "JATI期刊（非校级）：总相似≤15%、单一来源≤2%、AI辅助≤20%",
+      "key_note": "未查到公开政策；网传「APU AI政策」多为日本立命馆APU，勿混淆",
+      "source_url": "https://jati.apu.edu.my/index.php/jati/plagiarismpolicy"
+    },
+    {
+      "id": "INTI",
+      "name_zh": "英迪国际大学",
+      "name_en": "INTI International University",
+      "abbr": "INTI",
+      "type": "私立",
+      "city": "汝来",
+      "has_policy": "明确",
+      "ai_stance": "鼓励合乎伦理地负责任使用 GenAI",
+      "framework": "《Student Guidelines for Using Generative AI (GenAI) in Academic Work V4》+ 声明表",
+      "exam_rule": "须参照校方指引并在作业中作 AI 使用声明",
+      "penalty": "未查到公开罚则细则，沿用校学术诚信/纪律程序",
+      "detection": "未查到统一阈值",
+      "threshold": "未查到统一阈值",
+      "key_note": "有专门的学生GenAI指引与声明表；指引PDF需校内权限",
+      "source_url": "https://canvasguides.newinti.edu.my/genai-academic-integrity"
+    },
+    {
+      "id": "Sunway",
+      "name_zh": "双威大学",
+      "name_en": "Sunway University",
+      "abbr": "Sunway",
+      "type": "私立",
+      "city": "双威镇",
+      "has_policy": "未知",
+      "ai_stance": "仅查到宣导性文章，非正式政策",
+      "framework": "未查到",
+      "exam_rule": "未查到",
+      "penalty": "未查到",
+      "detection": "未查到",
+      "threshold": "未查到",
+      "key_note": "开放政策库仅含HR/运营类，无学术诚信或AI政策；政策模糊/未公开",
+      "source_url": "https://sunwayuniversity.edu.my/about/open-policies"
+    },
+    {
+      "id": "MMU",
+      "name_zh": "多媒体大学",
+      "name_en": "Multimedia University",
+      "abbr": "MMU",
+      "type": "私立",
+      "city": "赛城/马六甲",
+      "has_policy": "无",
+      "ai_stance": "2023版学术手册无GenAI条款，仅有传统抄袭/学术不端规定",
+      "framework": "未查到",
+      "exam_rule": "未经授权翻译他人作品、代交等列为抄袭",
+      "penalty": "抄袭等学术不端最高可开除（《MMU Students' Discipline Rule》第53条）",
+      "detection": "图书馆提供 Turnitin",
+      "threshold": "未查到统一阈值",
+      "key_note": "截至所查2023版手册无GenAI政策；第三方博客说法未见官方原文佐证，不采信",
+      "source_url": "https://creative.mmu.edu.my/wp-content/uploads/2024/03/i2296_Academic-Handbook-MMU-July-2023.pdf"
+    },
+    {
+      "id": "UTAR",
+      "name_zh": "拉曼大学",
+      "name_en": "Universiti Tunku Abdul Rahman",
+      "abbr": "UTAR",
+      "type": "私立",
+      "city": "金宝/双溪龙",
+      "has_policy": "部分",
+      "ai_stance": "未查到成文使用政策，工具层面已覆盖AI检测",
+      "framework": "未查到成文政策",
+      "exam_rule": "未查到",
+      "penalty": "未查到AI专门罚则",
+      "detection": "Turnitin（相似度比对 + AI写作检测）",
+      "threshold": "AI写作分数<20%标记为较不可靠",
+      "key_note": "工具层面已覆盖AI检测；制度层面成文政策未公开",
+      "source_url": "https://library.utar.edu.my/documents/Lib-Announcement-2026/Announcement/Turnitin_202603.pdf"
+    },
+    {
+      "id": "HELP",
+      "name_zh": "HELP大学",
+      "name_en": "HELP University",
+      "abbr": "HELP",
+      "type": "私立",
+      "city": "吉隆坡",
+      "has_policy": "明确",
+      "ai_stance": "允许审慎使用 ChatGPT/Bing/Bard 等",
+      "framework": "本科生手册明文含AI条款+三份配套文件（AI政策与实践指引/高级AI工具使用指南/AI禁用课程清单）",
+      "exam_rule": "参照 MQA 2/2023 通函；有AI禁用课程清单",
+      "penalty": "三级递进：①强制心理咨询；②该课程不及格+停学1学期+强制咨询；③开除",
+      "detection": "Turnitin",
+      "threshold": "本科项目可接受相似度上限 ≤ 20%（第4.12条）",
+      "key_note": "政策+阈值最明确之一",
+      "source_url": "https://university.help.edu.my/wp-content/uploads/2026/02/Undergraduate-Handbook-2026.pdf"
+    },
+    {
+      "id": "Curtin",
+      "name_zh": "科廷大学马来西亚分校",
+      "name_en": "Curtin University Malaysia",
+      "abbr": "Curtin MY",
+      "type": "海外分校",
+      "city": "美里",
+      "has_policy": "明确",
+      "ai_stance": "支持「教会学生恰当使用GenAI」理念，分课程规定使用范围",
+      "framework": "沿用澳洲本部GenAI政策",
+      "exam_rule": "分课程规定使用范围",
+      "penalty": "未单独查到马来西亚分校罚则，沿用科廷学术诚信程序",
+      "detection": "Turnitin Gen-AI writing indicator",
+      "threshold": "未查到统一阈值",
+      "key_note": "本部自2026-01-01关闭 Turnitin GenAI 检测",
+      "source_url": "https://curtin.edu.my/about/learning-and-teaching/office-learning-teaching/academic-integrity/"
+    },
+    {
+      "id": "Swinburne",
+      "name_zh": "斯威本大学砂拉越分校",
+      "name_en": "Swinburne University Sarawak",
+      "abbr": "Swinburne SWK",
+      "type": "海外分校",
+      "city": "古晋",
+      "has_policy": "明确",
+      "ai_stance": "允许在任课教师指示下使用 GenAI 并须恰当致谢",
+      "framework": "学生GenAI使用指引（沿用本部）；提交时须附 GenAI 提示与输出清单作为附录",
+      "exam_rule": "未获许可或未声明的AI生成作业=学术不端",
+      "penalty": "课程不及格、停学或除名；国际学生若被停学/除名可能影响签证",
+      "detection": "Turnitin（Similarity Report）",
+      "threshold": "未查到统一阈值",
+      "key_note": "有专门学生GenAI指南（需校内Canvas访问）",
+      "source_url": "https://www.swinburne.edu.my/current-students/manage-course/exams-results-assessment/academic-integrity/"
+    },
+    {
+      "id": "Nottingham",
+      "name_zh": "诺丁汉大学马来西亚分校",
+      "name_en": "University of Nottingham Malaysia",
+      "abbr": "Nottingham MY",
+      "type": "海外分校",
+      "city": "士毛月",
+      "has_policy": "明确",
+      "ai_stance": "按考核逐项规定「必需/可选/禁止」",
+      "framework": "沿用英国本部政策；允许时须致谢并保留AI对话记录",
+      "exam_rule": "禁止使用却使用=「虚假署名（False Authorship）」=学术不端",
+      "penalty": "使用违规可构成 False Authorship 学术不端，按校《学术不端规章》处理",
+      "detection": "未查到统一阈值",
+      "threshold": "未查到统一阈值",
+      "key_note": "推荐使用校内登录的 Microsoft Copilot",
+      "source_url": "https://www.nottingham.ac.uk/studyingeffectively/ai/ai-assessment.aspx"
+    }
+  ],
+  "pain_points": [
+    {
+      "id": "P01",
+      "pain_point": "AI检测报告默认对学生不可见，只能在老师后台看到，学生提交前无法自查AI率",
+      "scene": "提交作业后能查到的只有重复率，AI率多少、有没有被标记自己完全不知情，直到老师约谈才知道出事",
+      "frequency": "极高",
+      "source": "58sci.com/content/399.html（2026-06）；知乎 p/17148799051",
+      "quote": "AI检测报告默认只有老师后台能看到，学生自己是看不到的……直到老师找你谈话才知道出事了。你能反复自查重复率，却没法提前自查AI率",
+      "category": "信息不对称",
+      "evidence_type": "事实（多来源一致）"
+    },
+    {
+      "id": "P02",
+      "pain_point": "非英语母语/ESL 学生被 AI 检测误判概率显著更高",
+      "scene": "纯手写也被标红；规整句式、保守用词与AI文本特征重合",
+      "frequency": "极高",
+      "source": "58sci.com/content/399.html 引斯坦福2023研究；gpthumanizer.ai、eyesift.com（Stanford HAI）",
+      "quote": "斯坦福大学2023年的一项研究显示，非英语母语者写的文章，被AI检测器误判的比例高达61.2%",
+      "category": "误判",
+      "evidence_type": "事实（引用学术研究，二手转述）"
+    },
+    {
+      "id": "P03",
+      "pain_point": "用 Grammarly 等工具润色后 AI 率飙升，被误判",
+      "scene": "自己手写初稿AI率仅8%，用Grammarly高级版润色后飙到32%",
+      "frequency": "高",
+      "source": "58sci.com/content/399.html（2026-06）",
+      "quote": "纯自己写的初稿AI率只有8%，用Grammarly高级版润色完再查，直接飙到32%，连他自己都懵了",
+      "category": "误判",
+      "evidence_type": "事实（个案）"
+    },
+    {
+      "id": "P04",
+      "pain_point": "『中文打草稿→翻译→润色』是最常见写法，但恰恰最容易被判AI",
+      "scene": "中国留学生先用中文写，DeepL翻译后用Quillbot润色，句式逻辑像中文、用词又标准，酷似AI翻译",
+      "frequency": "高",
+      "source": "58sci.com/content/399.html；知乎 p/17148799051",
+      "quote": "这是绝大多数中国留学生的写作方式……被误判的概率特别高，尤其是商科、理工科 Essay，更容易中枪",
+      "category": "误判",
+      "evidence_type": "事实（多来源一致）"
+    },
+    {
+      "id": "P05",
+      "pain_point": "AI 率超标导致被约谈/听证会/指控学术不端，产生强烈恐慌",
+      "scene": "收到学术不端通知邮件，或被叫去非正式会谈，面临F/重修/停学",
+      "frequency": "高",
+      "source": "知乎 p/2052786414228713696；studymy.org.cn 学术不端申诉指南",
+      "quote": "如果你刚刚收到学校发来的学术不端通知，不要慌……AI率偏高被标记，不等于你一定会被处罚",
+      "category": "后果恐惧",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P06",
+      "pain_point": "Turnitin 官方承认 AI 检测有 ±15 个百分点浮动误差，结果本身不可靠",
+      "scene": "显示30%的文章真实可能是15%，也可能是45%",
+      "frequency": "高",
+      "source": "58sci.com/content/399.html（2026-06）",
+      "quote": "Turnitin官方自己也承认，AI检测结果有±15个百分点的浮动误差……本身就不是个精确数字",
+      "category": "工具不可靠",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P07",
+      "pain_point": "查重率超标但不会改写/降重，尤其文献综述与研究方法章节重复率最高",
+      "scene": "文献综述大量引用前人研究，重复率失控；改写只会同义词替换，被判『改写指数』可疑",
+      "frequency": "高",
+      "source": "studymy.org.cn 毕业论文格式与查重指南；studymy.org.cn 学术诚信制度解析",
+      "quote": "文献综述章节往往是查重率最高的部分……单纯替换同义词的降重效果已明显减弱",
+      "category": "能力不足",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P08",
+      "pain_point": "『伪释义』——边看边改几个词，句式与逻辑仍与原文吻合，构成抄袭",
+      "scene": "打开文献边看边改写，只替换关键词，整体句式逻辑吻合，被判定抄袭",
+      "frequency": "高",
+      "source": "studymy.org.cn 学术诚信制度解析",
+      "quote": "中国留学生常犯的错误是『伪释义』……这在马来西亚高校的判定中，依然构成抄袭",
+      "category": "能力不足",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P09",
+      "pain_point": "把国内文献翻译后使用仍会被查重，且用百度百科/知乎作论据不可接受",
+      "scene": "将中文文献翻译成英文使用，或引用百度百科/知乎，被Turnitin标记或不被学术语境接受",
+      "frequency": "中高",
+      "source": "studymy.org.cn 学术诚信制度解析",
+      "quote": "Turnitin的比对范围包括中文资料的英译版本，简单地将国内文献翻译后使用，依然会被标记……百度百科或知乎作为论据来源完全不可接受",
+      "category": "认知误区",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P10",
+      "pain_point": "AI使用规范模糊——各校政策不一，『允许润色但须声明』，学生怕踩线",
+      "scene": "马来西亚多数高校尚无专门禁令，但将AI生成内容提交等同于代写；学生不知边界在哪",
+      "frequency": "中高",
+      "source": "studymy.org.cn 学术诚信制度解析；Turnitin 吉隆坡圆桌博客",
+      "quote": "除非教师明确授权，否则使用AI生成内容并作为自己的作业提交，等同于代写，属于严重学术不端",
+      "category": "政策不明",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P11",
+      "pain_point": "自我抄袭/一稿多投在同校不同课程也属违规，学生普遍不知情",
+      "scene": "把同一份作业提交给不同课程，即便全是自己写的也构成学术不端",
+      "frequency": "中",
+      "source": "studymy.org.cn 学术不端申诉指南；学术诚信制度解析",
+      "quote": "自我抄袭在马来西亚同样受到严格限制……即使该作品完全由本人完成，也构成学术不端",
+      "category": "认知误区",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P12",
+      "pain_point": "第25%-30% 相似度警戒线模糊，且『单源匹配率』另有更严标准",
+      "scene": "本科一般要求低于25%，硕士15-20%；博士单源匹配率不得超过3%，学生常只盯总相似度",
+      "frequency": "中",
+      "source": "studymy.org.cn 学术诚信制度解析；毕业论文格式与查重指南",
+      "quote": "本科生论文的总体相似度通常要求低于25%，研究生论文则更为严格，多数设在15%至20%之间",
+      "category": "标准不清",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P13",
+      "pain_point": "降重/降AI存在大量『野路子』与钓鱼工具，学生花了钱反被认定为刻意掩盖",
+      "scene": "用翻译法/替换词/打乱句式降AI，被新模型识别，或被认定『刻意掩盖AI使用』加重处分",
+      "frequency": "中高",
+      "source": "58sci.com/content/399.html；CSDN 降AI教程多篇",
+      "quote": "别信『AI降重/降AI率』的野路子……还可能被认定为『刻意掩盖AI使用』，属于更严重的学术不端",
+      "category": "解决方案风险",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P14",
+      "pain_point": "OCR/公式转换文本排版极度规整，易被整体拉高AI率",
+      "scene": "理工科手写公式、图表用OCR识别插入论文，排版规整被误判AI，最夸张一例公式部分把整体AI率拉到82%",
+      "frequency": "中（理工科为主）",
+      "source": "58sci.com/content/399.html",
+      "quote": "我见过最夸张的一例，光公式部分就把整体AI率拉到了82%",
+      "category": "误判（理工科）",
+      "evidence_type": "事实（个案）"
+    },
+    {
+      "id": "P15",
+      "pain_point": "申诉流程陌生、时限紧（7-21天），举证责任落在学生身上",
+      "scene": "收到指控后不知如何申诉，举证责任在于解释为何出现高重复率/AI率；逾期无法申诉",
+      "frequency": "中高",
+      "source": "studymy.org.cn 学术不端申诉指南；知乎 p/2052786414228713696",
+      "quote": "举证责任往往在于解释为何出现高重复率或数据异常……逾期申请除非有不可抗力证明，否则不予受理",
+      "category": "程序焦虑",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P16",
+      "pain_point": "学术不端后果涉及签证与毕业——停学/开除会被报告移民局，风险极高",
+      "scene": "被停学或开除，学校有义务向移民局报告，学生签证可能被缩短或取消；毕业论文抄袭可撤销已授学位",
+      "frequency": "中（但后果极重）",
+      "source": "studymy.org.cn 学术不端申诉指南",
+      "quote": "2026年第一季度，有47名国际学生因学术不端导致签证被撤销……泰莱大学一名硕士生因论文核心章节抄袭率达62%而被撤销已授予的学位",
+      "category": "后果恐惧",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P17",
+      "pain_point": "英文essay降AI比中文更难——连接词/指代紧密，乱改破坏逻辑；学术术语与引用格式不能动",
+      "scene": "改一句容易破坏前后逻辑；methodology/theoretical framework 等固定表达不能乱换；APA引用格式不能被工具改动",
+      "frequency": "中高",
+      "source": "CSDN why_not_do_som/article/details/159254372",
+      "quote": "英文句子之间连接词、指代关系紧密，改一句容易破坏前后逻辑……References和in-text citation部分不被修改，否则格式乱掉比AI率高更麻烦",
+      "category": "能力不足",
+      "evidence_type": "事实（服务方教程，可能含营销倾向）"
+    },
+    {
+      "id": "P18",
+      "pain_point": "同校各学院双率（查重率+AI率）标准不统一，学生信息混乱",
+      "scene": "普通essay要求similarity index低于10-30%，具体要求各老师不同；AI率红线各校从0-5%到15-30%不等",
+      "frequency": "中",
+      "source": "知乎 p/562883700；58sci.com/content/399.html",
+      "quote": "学校普通essay的要求是similarity index低于10-30%（具体要求各个老师有区别）",
+      "category": "标准不清",
+      "evidence_type": "事实"
+    }
+  ],
+  "competitors": [
+    {
+      "id": "grammarly",
+      "name": "Grammarly (现隶属 Superhuman)",
+      "category": "通用写作助手 + 查重 + AI检测",
+      "target_users": "全球通用写作人群（学生/职场/英文非母语者）",
+      "core_features": {
+        "语法拼写检查": true,
+        "全文改写rewrite": true,
+        "语气调整tone": true,
+        "查重plagiarism": true,
+        "AI文本检测": true,
+        "改写paraphrase": true,
+        "生成式AI写作": true,
+        "引用管理": false,
+        "降AI率humanize": false,
+        "Turnitin兼容报告": false,
+        "中文本地化": false,
+        "马来语支持": false,
+        "实时协作/团队": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {
+            "name": "Free",
+            "price_annual": 0,
+            "price_monthly": 0,
+            "note": "100 AI prompts/月，基础语法"
+          },
+          {
+            "name": "Pro",
+            "price_annual_effective_monthly": 12,
+            "price_monthly": 30,
+            "price_annual_total": 144,
+            "quarterly": 60,
+            "note": "含查重+AI检测，2000 AI prompts/月，7天试用"
+          },
+          {
+            "name": "Business (Superhuman suite)",
+            "price_annual_effective_monthly": 33,
+            "price_monthly": 40
+          },
+          {
+            "name": "Enterprise",
+            "price": "contact sales"
+          }
+        ],
+        "student_discount": "无明确公开学生折扣"
+      },
+      "strengths": [
+        "品牌认知度最高",
+        "免安装/多平台集成好",
+        "免费档能覆盖基础语法",
+        "查重+AI检测同一入口"
+      ],
+      "weaknesses": [
+        "面向通用英文写作，非学术/非查重专精",
+        "查重库远小于 Turnitin/知网",
+        "AI检测非强项，与 Turnitin 结果不一致",
+        "无中文/马来语本地化",
+        "无降AI率功能"
+      ],
+      "localization": "多语言但以英文为核心，无中文/马来语深度支持",
+      "compliance_stance": "中性；官方不鼓励学术作弊，但未反对使用；提供AI检测间接服务于院校",
+      "malaysia_relevance": "低-中：学生可能用作语法检查，但无法满足马来西亚大学 Turnitin 报告要求"
+    },
+    {
+      "id": "turnitin_draft_coach",
+      "name": "Turnitin Draft Coach",
+      "category": "院校授权 - 学生自查工具",
+      "target_users": "已购 Turnitin Feedback Studio / Originality 的院校学生",
+      "access_model": "必须由院校购买 Turnitin 授权；学生无法单独订阅",
+      "core_features": {
+        "相似度自查similarity": true,
+        "引用格式检查citation": true,
+        "语法检查grammar": true,
+        "AI检测": false,
+        "降AI率humanize": false,
+        "改写paraphrase": false,
+        "Google Docs支持": true,
+        "Word for the web支持": true,
+        "中文本地化": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "note": "学生端免费（由院校统一付费）",
+        "institutional_price": "机构定制报价，未公开"
+      },
+      "limitations": [
+        "仍为 Beta 状态",
+        "仅覆盖相似度/引用/语法，不含AI检测",
+        "依赖院校订阅，学生无法自购",
+        "有单次检查次数限制",
+        "仅支持 Google Docs 和 Word 网页版"
+      ],
+      "strengths": [
+        "与最终 Turnitin 提交系统同源，结果与学校一致",
+        "学生免费",
+        "官方定位为'提交前自查'，合规无争议"
+      ],
+      "weaknesses": [
+        "无自购通道，未订阅院校学生用不上",
+        "不含AI检测（学生最担心的恰恰是AI率）",
+        "无降重/降AI服务",
+        "无中文界面外的本地化服务"
+      ],
+      "localization": "有简体中文界面；但服务模式为机构授权，非个人化服务",
+      "compliance_stance": "强反对学术作弊；工具本身即诚信工具",
+      "malaysia_relevance": "高（院校依托）但学生不可自购 → 产生付费代检/代降的灰色需求"
+    },
+    {
+      "id": "writefull",
+      "name": "Writefull",
+      "category": "学术写作专精工具",
+      "target_users": "科研作者、ESL 研究人员、期刊投稿者",
+      "core_features": {
+        "学术语法/措辞": true,
+        "改写paraphrase": true,
+        "标题生成": true,
+        "摘要生成": true,
+        "Academic Phrasebank句式库": true,
+        "Word集成": true,
+        "Overleaf/LaTeX集成": true,
+        "查重plagiarism": false,
+        "AI检测": false,
+        "降AI率humanize": false,
+        "中文本地化": false,
+        "Turnitin兼容": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {
+            "name": "Free",
+            "price": 0,
+            "note": "有限额度"
+          },
+          {
+            "name": "Premium",
+            "price_annual_effective_monthly": 5.46,
+            "price_monthly": 15,
+            "note": "按年约 $5.46/月"
+          },
+          {
+            "name": "Institutional",
+            "price": "机构定制"
+          }
+        ]
+      },
+      "strengths": [
+        "学术语域训练，纠正符合期刊规范",
+        "Overleaf 集成近唯一",
+        "价格极低",
+        "被多家出版社采用"
+      ],
+      "weaknesses": [
+        "功能窄（只做语言）",
+        "无查重、无AI检测、无引用检索",
+        "界面偏旧，非LLM原生",
+        "无中文/马来语支持",
+        "无降AI率"
+      ],
+      "localization": "无中文支持，仅英文（部分学术语言）",
+      "compliance_stance": "中性偏学术诚信；定位语言辅助，非规避工具",
+      "malaysia_relevance": "低-中：适合硕博投稿，不适合本科作业场景"
+    },
+    {
+      "id": "quillbot",
+      "name": "QuillBot",
+      "category": "改写/paraphrase 工具",
+      "target_users": "学生、非母语写作者、内容写手",
+      "core_features": {
+        "改写paraphrase": true,
+        "语法检查": true,
+        "查重plagiarism": true,
+        "AI检测": true,
+        "总结summarizer": true,
+        "翻译translator": true,
+        "生成式AI": true,
+        "降AI率humanize": true,
+        "中文本地化": "部分（支持多语言但非本土化）",
+        "Turnitin兼容": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {
+            "name": "Free",
+            "price": 0,
+            "note": "改写上限125词/次，2种模式，AI检测1200词"
+          },
+          {
+            "name": "Premium",
+            "price_monthly": 19.95,
+            "price_annual_effective_monthly": 4.17,
+            "note": "无限改写、查重25000词/月、无限AI检测"
+          },
+          {
+            "name": "Team",
+            "price_annual_effective_monthly": 3.75,
+            "note": "2-10人$3.75；11-50人$3.33；51+ $2.91"
+          }
+        ]
+      },
+      "strengths": [
+        "改写好用、价格便宜（年付$4.17/月）",
+        "与学生需求高度匹配",
+        "含查重+AI检测"
+      ],
+      "weaknesses": [
+        "查重库小，结果与院校不一致",
+        "AI检测被报告为不可靠",
+        "易被误用于学术不端，部分院校限制",
+        "转换/改写痕迹易被2026版Turnitin AI改写子分数识别",
+        "无本地化服务"
+      ],
+      "localization": "多语言但无中文/马来语本土化服务",
+      "compliance_stance": "声称反对学术不端，但工具本身常被院校限制/警告",
+      "malaysia_relevance": "中：学生用于改写降重，但2026 Turnitin升级后效果下降，风险升高"
+    },
+    {
+      "id": "undetectable_ai",
+      "name": "Undetectable.ai",
+      "category": "降AI/人性化工具",
+      "target_users": "需规避AI检测的用户（含学生）",
+      "core_features": {
+        "降AI率humanize": true,
+        "AI检测": true,
+        "查重": false,
+        "语法": true,
+        "可读性": true,
+        "API": true,
+        "中文本地化": "有中文页面（/zh/pricing）",
+        "退款保证": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {
+            "name": "10K词/月",
+            "price_monthly": 9.99,
+            "price_annual_effective_monthly": 5.0,
+            "price_annual_total": 60
+          },
+          {
+            "name": "20K词/月",
+            "price_monthly": 19.0,
+            "price_annual_effective_monthly": 9.5,
+            "price_annual_total": 114
+          },
+          {
+            "name": "35K词/月",
+            "price_monthly": 31.0,
+            "price_annual_effective_monthly": 15.75,
+            "price_annual_total": 189
+          },
+          {
+            "name": "50K词/月",
+            "price_monthly": 42.5,
+            "price_annual_effective_monthly": 21.25
+          },
+          {
+            "name": "Enterprise",
+            "price": "contact"
+          }
+        ],
+        "guarantee": "被标记非人类则退款"
+      },
+      "strengths": [
+        "价格档位低（年付$5/月起）",
+        "宣称通过多家检测器",
+        "有API/白标"
+      ],
+      "weaknesses": [
+        "合规风险最高：定位即规避检测",
+        "效果随检测器升级而衰减",
+        "售后/水印争议",
+        "无院校/学术场景公信力"
+      ],
+      "localization": "有中文界面，但无中文本地化服务",
+      "compliance_stance": "消极/回避；本质是规避工具，明面上不承诺学术用途",
+      "malaysia_relevance": "中-高（学生需求端）但风险极高，不宜作为产品主体"
+    },
+    {
+      "id": "stealthgpt",
+      "name": "StealthGPT",
+      "category": "降AI/人性化工具",
+      "target_users": "学生、内容写手",
+      "core_features": {
+        "降AI率humanize": true,
+        "AI检测": true,
+        "100+语言支持": true,
+        "iOS app": true,
+        "Chrome扩展": true,
+        "MCP (Claude/Cursor)": true,
+        "中文本地化": "无独立中文站"
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {
+            "name": "Pro",
+            "price": "首3天$1，随后$6.99/周",
+            "words_per_week": 12500,
+            "per_request": 1000
+          },
+          {
+            "name": "Max",
+            "price": "首3天$1，随后$19.99/周",
+            "words_per_week": 50000,
+            "per_request": 2000,
+            "seats": 3
+          },
+          {
+            "name": "Enterprise",
+            "price_monthly": 179.99,
+            "words_per_month": "1000000+",
+            "seats": 5
+          }
+        ]
+      },
+      "strengths": [
+        "周付低门槛($1试用)",
+        "语言覆盖广",
+        "有MCP/API集成"
+      ],
+      "weaknesses": [
+        "按周计费长期成本高",
+        "定位规避检测，合规风险高",
+        "无学术公信力"
+      ],
+      "localization": "无本地化服务",
+      "compliance_stance": "回避；营销直接面向'作业/报告'，风险高",
+      "malaysia_relevance": "中（需求端）但风险高"
+    },
+    {
+      "id": "hix_bypass",
+      "name": "HIX Bypass (HIX.AI suite)",
+      "category": "降AI/人性化工具",
+      "target_users": "学生、内容创作者",
+      "core_features": {
+        "降AI率humanize": true,
+        "内置AI检测": true,
+        "多语言": true,
+        "两种humanizer模式": true,
+        "中文本地化": "有中文站",
+        "套装锁定": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "note": "订阅隶属 HIX.AI 套装，价格随档位浮动；具体数字建议以官网/实测为准",
+        "indicative": "约 $14.99/月起（参考第三方评测）"
+      },
+      "strengths": [
+        "有中文界面",
+        "套装集成多工具"
+      ],
+      "weaknesses": [
+        "套装锁定（billing reality 复杂）",
+        "退款条款受限",
+        "检测对抗效果不稳定",
+        "合规风险高"
+      ],
+      "localization": "有中文站，无本地化服务",
+      "compliance_stance": "回避；定位规避工具",
+      "malaysia_relevance": "中（需求端）风险高"
+    },
+    {
+      "id": "originality_ai",
+      "name": "Originality.ai",
+      "category": "AI检测 + 查重（面向机构/内容团队）",
+      "target_users": "出版社、内容机构、SEO团队、HR",
+      "core_features": {
+        "AI检测": true,
+        "查重plagiarism": true,
+        "事实核查fact-check": true,
+        "可读性": true,
+        "API": true,
+        "团队席位": true,
+        "降AI率": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans_note": "按扫描credits/按100词计费，含免费试用与按月订阅档（Starter/Pro/Enterprise）+ API credits",
+        "indicative": "起步档约 $14.95/月起(参考)，API 按量计费"
+      },
+      "strengths": [
+        "检测准确率较高（改写内容96.7%）",
+        "API 成熟",
+        "面向机构采购"
+      ],
+      "weaknesses": [
+        "非面向学生个人",
+        "对原生AI检测弱于GPTZero",
+        "无降AI/改写服务",
+        "无中文本地化工作流"
+      ],
+      "localization": "英文为主",
+      "compliance_stance": "强立场反AI滥用；面向诚信检测场景",
+      "malaysia_relevance": "低（学生端）：机构工具，学生不直接使用"
+    },
+    {
+      "id": "gptzero",
+      "name": "GPTZero",
+      "category": "AI检测（教育市场领先）",
+      "target_users": "教师、学生、院校（宣称10M+师生，100+国家）",
+      "core_features": {
+        "AI检测": true,
+        "句级高亮": true,
+        "多模型检测(Gemini/Claude/LLaMa等)": true,
+        "改写/绕过工具检测": true,
+        "查重plagiarism": true,
+        "语法": true,
+        "引用生成": true,
+        "LMS集成(Canvas/Google Classroom)": true,
+        "API": true,
+        "降AI率": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {
+            "name": "Free",
+            "price": 0,
+            "words_per_month": 10000,
+            "note": "1次高级扫描，NZ$0显示"
+          },
+          {
+            "name": "Premium",
+            "price_monthly_annual_billed": 12.99,
+            "words_per_month": 300000,
+            "note": "多语言检测、下载报告、Chrome高亮"
+          },
+          {
+            "name": "Professional",
+            "price_monthly_annual_billed": 24.99,
+            "words_per_month": 500000,
+            "note": "批扫250文件、逐页扫描、LMS集成；多席位$49.98/mo for 2"
+          },
+          {
+            "name": "Enterprise/Team",
+            "price": "contact sales",
+            "note": "共享额度、统一账单"
+          }
+        ],
+        "api": "提供 API（17种语言示例代码），具体按量报价需 contact sales",
+        "education_partner": "美国教师联合会(AFT)官方AI检测合作伙伴"
+      },
+      "strengths": [
+        "教育市场品牌最强",
+        "多语言检测（利于留学生）",
+        "句级高亮易解释",
+        "有LMS集成"
+      ],
+      "weaknesses": [
+        "误报争议（非母语者误报率高）",
+        "无降AI/改写服务",
+        "无中文/马来西亚本地化服务与人工服务",
+        "价格按词量，重用户成本不低"
+      ],
+      "localization": "多语言检测能力，但无中文/马来语本地化服务",
+      "compliance_stance": "强立场反AI作弊；官方诚信工具",
+      "malaysia_relevance": "中：部分马来西亚院校在用；学生看到GPTZero报告往往高AI率 → 产生辅导需求"
+    },
+    {
+      "id": "cnki_zhiwang",
+      "name": "知网 CNKI",
+      "category": "中文查重（权威）+ AIGC检测",
+      "target_users": "中国本硕博毕业生、院校",
+      "core_features": {
+        "查重": true,
+        "AIGC检测": "部分高校支持（非公开对外）"
+      },
+      "pricing": {
+        "currency": "RMB",
+        "plans": [
+          {
+            "name": "本科论文查重",
+            "price": "约 200-300 元/篇"
+          },
+          {
+            "name": "硕士论文查重",
+            "price": "约 300-500 元/篇"
+          },
+          {
+            "name": "官方 AIGC 检测",
+            "price": "不公开对外销售"
+          }
+        ]
+      },
+      "strengths": [
+        "国内权威、院校认可",
+        "库最全"
+      ],
+      "weaknesses": [
+        "贵、不能反复查",
+        "无降重/降AI官方服务",
+        "对马来西亚院校无认可度"
+      ],
+      "localization": "纯中文",
+      "compliance_stance": "强反抄袭",
+      "malaysia_relevance": "极低：马来西亚院校用 Turnitin，不看知网"
+    },
+    {
+      "id": "vip_wanfang_paperpass_paperyy",
+      "name": "维普 / 万方 / PaperPass / PaperYY / PaperRed 等中文查重",
+      "category": "中文查重（中低成本）+ 部分AIGC检测",
+      "target_users": "中国学生（初筛/中期查重）",
+      "core_features": {
+        "查重": true,
+        "AIGC检测": "PaperPass/PaperRed等支持",
+        "降重": "部分平台提供AI降重"
+      },
+      "pricing": {
+        "currency": "RMB",
+        "plans": [
+          {
+            "name": "维普",
+            "price": "约 3 元/千字（3万字≈90元）/ 或 50-80元/次"
+          },
+          {
+            "name": "万方",
+            "price": "约 3 元/千字"
+          },
+          {
+            "name": "PaperPass",
+            "price": "约 3 元/千字（含空格标点）；新用户免费1-2千字"
+          },
+          {
+            "name": "PaperRed",
+            "price": "万字内几元, 10-20元/篇"
+          }
+        ]
+      },
+      "strengths": [
+        "便宜、可高频自查",
+        "AIGC检测部分覆盖",
+        "PaperRed等提供查重+AI检测一次完成"
+      ],
+      "weaknesses": [
+        "库小于知网，重复率虚高（PaperPass平均高出知网6.4个百分点）",
+        "不能作定稿依据",
+        "免费渠道有泄露论文风险",
+        "对马来西亚院校无认可度"
+      ],
+      "localization": "纯中文",
+      "compliance_stance": "反抄袭，部分提供AI降重（合规灰区）",
+      "malaysia_relevance": "低：马来西亚用Turnitin；但中文查重方法论（高频自查+终审）可借鉴"
+    },
+    {
+      "id": "yimipass",
+      "name": "一米学术 (yimipass.com)",
+      "category": "直接竞品：面向海外留学生的人工降重+降AI+Turnitin查重服务",
+      "target_users": "海外留学生（含马来西亚）、SCI投稿者",
+      "core_features": {
+        "Turnitin查重+AI检测": true,
+        "人工降重": true,
+        "人工降AI率": true,
+        "英文润色": true,
+        "人工深度改写（非工具）": true,
+        "附官方AI检测报告": true,
+        "不达标免费重做": true,
+        "中文本地化": true,
+        "马来西亚专向内容": true
+      },
+      "pricing": {
+        "currency": "RMB",
+        "plans": [
+          {
+            "name": "英文论文人工润色",
+            "price": "¥0.35/词起（加急¥0.55/词起）"
+          },
+          {
+            "name": "Turnitin论文降重",
+            "price": "¥0.50/词起（加急¥0.70/词起）"
+          },
+          {
+            "name": "Turnitin降AI率",
+            "price": "¥0.60/词起（加急¥0.80/词起）"
+          },
+          {
+            "name": "Turnitin查重+AI检测",
+            "price": "¥15/篇/次（加急最快2小时）"
+          }
+        ],
+        "turnaround": "常规3-5个工作日；加急48小时；查重当天/2小时",
+        "payment": "微信、支付宝、PayPal",
+        "sample_quote": "500词 × ¥0.35 = ¥175起"
+      },
+      "strengths": [
+        "精准切入马来西亚中国留学生场景",
+        "人工深度改写，附官方报告",
+        "中文本地化+微信支付",
+        "有马来西亚专向内容营销（Turnitin安全线解释、申诉指导）"
+      ],
+      "weaknesses": [
+        "人工交付，产能与规模化受限",
+        "客单价按词计费，长文成本高（3000词降AI约¥1800起）",
+        "人工服务难以标准化/质检",
+        "存在合规灰区（帮学生降AI率）",
+        "无自助工具/产品化"
+      ],
+      "localization": "强本地化（中文+马来西亚场景内容）",
+      "compliance_stance": "弱-中性；定位'人工深度改写、保留原创观点'，回避'作弊'表述，但业务本质是帮降AI率",
+      "malaysia_relevance": "极高 —— 这是本项目最应盯防的直接竞品"
+    }
+  ],
+  "risk_cases": [
+    {
+      "case": "Adelphi University (Orion Newby) 诉校方案",
+      "date": "2026-02",
+      "court": "纽约州最高法院 / 联邦",
+      "summary": "Turnitin 判其论文100% AI生成，实际相似度仅4%；学生提交Grammarly与ZeroGPT人工写作证明仍被处分。2026年2月法院裁定校方'缺乏依据'。",
+      "significance": "确立：AI检测分数不能作为自证证据，学生享有正当程序权"
+    },
+    {
+      "case": "斯坦福研究：非母语者误报",
+      "date": "2023起持续引用至2026",
+      "summary": "AI检测器将61.3%的非母语英语者作文误判为AI生成。",
+      "significance": "直接说明中国留学生是误报高危人群 → 申诉/辅导刚需"
+    },
+    {
+      "case": "澳洲天主教大学(ACU)弃用Turnitin AI检测",
+      "date": "2024-2025",
+      "summary": "2024年约6000起学术不端指控，约90%为AI相关，大量被撤销；ACU随后弃用Turnitin AI检测。",
+      "significance": "机构层面信任崩塌；多校（Vanderbilt/Michigan State/Northwestern/Temple）暂停或退出"
+    },
+    {
+      "case": "Turnitin 是否用学生数据训练AI 争议",
+      "date": "2026-09",
+      "summary": "媒体质疑Turnitin用学生论文数据训练AI，Turnitin否认。",
+      "significance": "隐私与数据伦理风险，可作为差异化卖点（隐私承诺）"
+    }
+  ],
+  "chinglish": [
+    {
+      "id": "CH01",
+      "wrong": "In my opinion, I think that...",
+      "issue": "观点引导语叠加，两种表态词重复，属中式冗余习惯（中文常说『在我看来，我认为』）",
+      "suggestion": "直接用 I argue / I contend / This paper argues，或删去引导语让论点自己说话",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH02",
+      "wrong": "very very important / extremely extremely useful",
+      "issue": "用副词叠加强调，而非换用更精确的形容词，口语化且显稚嫩",
+      "suggestion": "改用单一强形容词：crucial / pivotal / critical / indispensable",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH03",
+      "wrong": "The reason is because...",
+      "issue": "reason 与 because 语义重叠，中文『原因是……因为』直译",
+      "suggestion": "The reason is that... / This is because... / 直接用 because 引导",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH04",
+      "wrong": "repeat again / return back / advance forward / discuss together",
+      "issue": "动词已含方向或重复义，再加副词属同义重复",
+      "suggestion": "删去冗余副词：repeat / return / advance / discuss",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH05",
+      "wrong": "In recent years, with the rapid development of society, ...",
+      "issue": "万能开头套话，信息量为零，几乎所有作文同构",
+      "suggestion": "用具体的时间、现象或数据切入：Since 2018, ... / The rise of X has...",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH06",
+      "wrong": "first of all, last but not least, all in all, in a word",
+      "issue": "口语化套话堆砌，学术写作中显空泛",
+      "suggestion": "用 First / Finally / In sum / Overall，或直接以论点句替代",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH07",
+      "wrong": "make a research / do a research",
+      "issue": "research 作不可数名词，不与 make/do 搭配；研究本身用 conduct",
+      "suggestion": "conduct research / carry out a study",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH08",
+      "wrong": "discuss about the issue",
+      "issue": "discuss 是及物动词，无需 about，中文『讨论关于』直译",
+      "suggestion": "discuss the issue / debate the issue",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH09",
+      "wrong": "learn knowledge / study knowledge",
+      "issue": "knowledge 不能 learn，只能 acquire/gain/obtain；中文『学习知识』直译",
+      "suggestion": "acquire knowledge / gain knowledge / learn about X",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH10",
+      "wrong": "open the light / close the light",
+      "issue": "中文『开灯/关灯』直译，英语用 turn on/off",
+      "suggestion": "turn on the light / switch off the light",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH11",
+      "wrong": "How to say this in English?",
+      "issue": "疑问句缺主语，中文『怎么说』直译",
+      "suggestion": "How do you say this in English? / What is the English for this?",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH12",
+      "wrong": "I very like this theory.",
+      "issue": "very 不能修饰动词，中文『很喜欢』直译",
+      "suggestion": "I like this theory very much. / I am strongly drawn to this theory.",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH13",
+      "wrong": "Although..., but...",
+      "issue": "英语中 although 与 but 不能同现，中文『虽然……但是』直译",
+      "suggestion": "Although X, Y. / X, but Y.（二选一）",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH14",
+      "wrong": "Because..., so...",
+      "issue": "because 与 so 不能同现，中文『因为……所以』直译",
+      "suggestion": "Because X, Y. / X, so Y.（二选一）",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH15",
+      "wrong": "With the development of..., people's living standard has improved.",
+      "issue": "『随着……的发展』句式模板化，缺乏具体论据",
+      "suggestion": "以具体机制或证据开头：Falling infant mortality since 1990 reflects...",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH16",
+      "wrong": "more and more students / more and more important",
+      "issue": "『越来越』直译，口语化且笼统",
+      "suggestion": "a growing number of students / increasingly important / rising",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH17",
+      "wrong": "Nowadays, ... / With the rapid development of modern society...",
+      "issue": "Nowadays 起手为典型中式作文开头，信息空泛",
+      "suggestion": "用具体时间或语境：In contemporary Malaysia, ... / Since the 2020 pandemic, ...",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH18",
+      "wrong": "give a suggestion / give an advice",
+      "issue": "advice 不可数，不用 an；give 与 advice 搭配弱",
+      "suggestion": "offer a suggestion / provide advice / recommend that...",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH19",
+      "wrong": "pay attention on / focus in",
+      "issue": "介词搭配错误，应为 pay attention to / focus on",
+      "suggestion": "pay attention to / focus on / concentrate on",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH20",
+      "wrong": "according to my opinion",
+      "issue": "according to 只引他人/来源，不引自己观点",
+      "suggestion": "In my view / I believe / From my perspective",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH21",
+      "wrong": "affect to / influence on the result（动词误用）",
+      "issue": "affect 为及物动词，不加 to；influence 作动词亦及物",
+      "suggestion": "affect the result / influence the result / have an influence on the result",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH22",
+      "wrong": "play an important role in...（滥用）",
+      "issue": "该短语被无限套用，成为模板填充物，缺乏具体动词",
+      "suggestion": "改用具体动词：X drives / enables / constrains / shapes Y",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH23",
+      "wrong": "Firstly, ... Secondly, ... Thirdly, ... Lastly, ...",
+      "issue": "序数连接词机械排列，段落沦为清单，缺乏逻辑层级",
+      "suggestion": "用逻辑关系连接：First / In addition / A further factor is / Finally，或省去显式标记",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH24",
+      "wrong": "Moreover, ... Furthermore, ... In addition, ...（连续堆叠）",
+      "issue": "近义递进词连用，逻辑关系被稀释，读来重复",
+      "suggestion": "交替使用 Moreover / Also / Beyond this / Equally，并让句子本身承载递进",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH25",
+      "wrong": "In conclusion, as mentioned above, to sum up, in a nutshell...",
+      "issue": "结论段引导语叠加，中文『综上所述』多次出现",
+      "suggestion": "一段一个收束表达：In sum / Overall / These findings suggest that...",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH26",
+      "wrong": "On the one hand, ... On the other hand, ...（每段硬套）",
+      "issue": "强行平衡句式，为对仗而配对，观点其实并不对立",
+      "suggestion": "仅在真正对立/权衡时使用；否则用 However / Conversely / By contrast",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH27",
+      "wrong": "It is worth noting that... / It should be noted that...（频繁使用）",
+      "issue": "提示语滥用，稀释信息密度，属典型论文腔填充",
+      "suggestion": "直接陈述该内容，或改用 Notably, / Importantly,",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH28",
+      "wrong": "The problem was solved by us. / The data was analyzed by the researcher.",
+      "issue": "无必要使用被动语态，中文习惯『被……』迁移；主动更直接",
+      "suggestion": "We solved the problem. / I analyzed the data.（方法学中被动可保留，但勿滥用）",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH29",
+      "wrong": "The implementation of the optimization of the system is necessary.",
+      "issue": "名词化堆叠（implementation/optimization），动词被抽象化，句意模糊",
+      "suggestion": "The system must be optimized. / We need to optimize the system.",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH30",
+      "wrong": "There is a growing tendency for the majority of the students to...",
+      "issue": "there be + 抽象名词 + of 结构，冗长绕口",
+      "suggestion": "Most students now... / Students increasingly...",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH31",
+      "wrong": "make an investigation of / conduct an analysis of / perform a comparison of",
+      "issue": "轻动词 + 名词化结构，啰嗦且书面冗余",
+      "suggestion": "investigate / analyze / compare",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH32",
+      "wrong": "a lot of / lots of / plenty of（学术语境）",
+      "issue": "口语化量词，学术写作不当",
+      "suggestion": "many / numerous / a substantial number of / considerable",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH33",
+      "wrong": "good / bad / nice / big / small（无具体性）",
+      "issue": "笼统评价词，缺乏学术精确度",
+      "suggestion": "effective / beneficial / detrimental / substantial / negligible",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH34",
+      "wrong": "get / got（学术语境）",
+      "issue": "get 过于口语，且语义模糊",
+      "suggestion": "obtain / receive / acquire / become / achieve",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH35",
+      "wrong": "the society / the nature / the life（抽象名词误加冠词）",
+      "issue": "泛指抽象概念时误加定冠词，中文无冠词系统迁移",
+      "suggestion": "society / nature / life（泛指）",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH36",
+      "wrong": "many researches / several knowledges / various informations",
+      "issue": "不可数名词误用复数，中文名词无复数形态迁移",
+      "suggestion": "much research / several studies / various pieces of information",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH37",
+      "wrong": "a research / an evidence / a feedback",
+      "issue": "不可数名词误加不定冠词",
+      "suggestion": "a study / a piece of evidence / some feedback",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH38",
+      "wrong": "In this essay I will write about...（可写性陈述）",
+      "issue": "声明『我要写什么』而非直接写，属中文作文习惯",
+      "suggestion": "直接进入论证：This essay examines... 或直接陈述论点",
+      "category": "语序与句式"
+    },
+    {
+      "id": "CH39",
+      "wrong": "I think maybe probably it is...",
+      "issue": "情态词叠加，立场含糊，显得不确定",
+      "suggestion": "I argue that... / It is likely that... / The evidence suggests...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH40",
+      "wrong": "Everyone knows that... / As we all know, ...",
+      "issue": "诉诸常识，未提供引用，学术论证缺失",
+      "suggestion": "删除，或补充引用：As Smith (2020) demonstrates, ...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH41",
+      "wrong": "It is undoubted that... / There is no doubt that...",
+      "issue": "绝对化断言，缺乏限定语，易被质疑",
+      "suggestion": "加限定：The evidence strongly suggests that... / It is widely accepted that...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH42",
+      "wrong": "The company should be responsible for...（应然陈述未加论证）",
+      "issue": "直接下价值判断，缺中间论证步骤",
+      "suggestion": "补论证：Because X, the company bears responsibility for...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH43",
+      "wrong": "He didn't went / She have went",
+      "issue": "时态错误，助动词后误用动词过去式，中文无时态屈折迁移",
+      "suggestion": "He didn't go / She has gone",
+      "category": "时态与语态"
+    },
+    {
+      "id": "CH44",
+      "wrong": "In the past ten years, the technology change rapidly.",
+      "issue": "现在完成/一般时态与时间状语不匹配，主语单复数与动词不一致",
+      "suggestion": "Over the past decade, technology has changed rapidly.",
+      "category": "时态与语态"
+    },
+    {
+      "id": "CH45",
+      "wrong": "Please give me some good advices about my study.",
+      "issue": "advice 不可数误加 s，study 单复数与语境不符，口语化请求",
+      "suggestion": "I would welcome any advice on my studies.",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH46",
+      "wrong": "The data shows that... / The data is...（单复数误判）",
+      "issue": "data 在学术写作中常作复数（datum 的复数），部分语境已语法化为单数，需一致",
+      "suggestion": "The data show that... / The dataset shows...（全篇统一）",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH47",
+      "wrong": "I believe the theory which is proposed by Smith is very useful for us to solve the problem.",
+      "issue": "定语从句冗长、which is 冗余、very useful for us to 结构笨重",
+      "suggestion": "Smith's theory offers a useful framework for solving the problem.",
+      "category": "语序与句式"
+    },
+    {
+      "id": "CH48",
+      "wrong": "As a student, we should study hard.",
+      "issue": "主语人称不一致（As a student 单数 vs we 复数），中文泛指迁移",
+      "suggestion": "As students, we should... / As a student, one should...",
+      "category": "语序与句式"
+    }
+  ],
+  "ai_tells": [
+    {
+      "id": "AI01",
+      "phrase": "It is important to note that",
+      "type": "元话语填充",
+      "severity": "high",
+      "rewrite_hint": "直接陈述内容；若需强调改用 Notably, / Importantly, 或删去该引导语"
+    },
+    {
+      "id": "AI02",
+      "phrase": "In today's fast-paced world",
+      "type": "过渡词套话",
+      "severity": "high",
+      "rewrite_hint": "替换为具体时空语境，如 In contemporary urban Malaysia, / Since 2020,"
+    },
+    {
+      "id": "AI03",
+      "phrase": "plays a crucial role in",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "换用具体动词：drives / enables / underpins / constrains"
+    },
+    {
+      "id": "AI04",
+      "phrase": "delve into",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 examine / investigate / explore / analyse"
+    },
+    {
+      "id": "AI05",
+      "phrase": "a rich tapestry of",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "删除比喻式抽象短语，直接列出具体成分"
+    },
+    {
+      "id": "AI06",
+      "phrase": "underscores the importance of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 demonstrates / highlights / confirms，并说明具体指向"
+    },
+    {
+      "id": "AI07",
+      "phrase": "In the realm of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 in / within / in the field of，或直接名词作主语"
+    },
+    {
+      "id": "AI08",
+      "phrase": "It is worth noting that",
+      "type": "元话语填充",
+      "severity": "high",
+      "rewrite_hint": "删去引导语，直接陈述事实"
+    },
+    {
+      "id": "AI09",
+      "phrase": "navigating the complexities of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 manage / address / work through + 具体难题"
+    },
+    {
+      "id": "AI10",
+      "phrase": "In conclusion, it is clear that",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为 In sum, / Overall, 并陈述具体结论而非『显而易见』"
+    },
+    {
+      "id": "AI11",
+      "phrase": "the key to success lies in",
+      "type": "模板句式",
+      "severity": "high",
+      "rewrite_hint": "改用具体因果陈述：X depends on Y because Z"
+    },
+    {
+      "id": "AI12",
+      "phrase": "a testament to",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 evidence of / illustrates / reflects"
+    },
+    {
+      "id": "AI13",
+      "phrase": "unlock the potential of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 realise / develop / improve the potential of，或直接动词"
+    },
+    {
+      "id": "AI14",
+      "phrase": "embark on a journey",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "删除比喻，改用 begin / undertake / start"
+    },
+    {
+      "id": "AI15",
+      "phrase": "In an era where",
+      "type": "过渡词套话",
+      "severity": "high",
+      "rewrite_hint": "改为 When / As / Since + 具体条件"
+    },
+    {
+      "id": "AI16",
+      "phrase": "the ever-evolving landscape of",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "删除 landscape/ever-evolving，改用具体领域名词"
+    },
+    {
+      "id": "AI17",
+      "phrase": "Moreover, Furthermore, Additionally（三段连用）",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "交替或省略，用句意本身承载递进关系"
+    },
+    {
+      "id": "AI18",
+      "phrase": "On the one hand... On the other hand...",
+      "type": "语义过度平衡",
+      "severity": "medium",
+      "rewrite_hint": "仅当真对立/权衡时使用；否则用 However / Conversely"
+    },
+    {
+      "id": "AI19",
+      "phrase": "Firstly... Secondly... Thirdly... Finally...",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改为逻辑连接：First / A further factor is / Finally"
+    },
+    {
+      "id": "AI20",
+      "phrase": "This is not just about X, it's about Y",
+      "type": "模板句式",
+      "severity": "high",
+      "rewrite_hint": "改直陈：X and Y matter because..."
+    },
+    {
+      "id": "AI21",
+      "phrase": "not only... but also...（高频）",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改为 X as well as Y / X and Y alike，避免模板感"
+    },
+    {
+      "id": "AI22",
+      "phrase": "serves as a reminder that",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为 This shows / demonstrates + 具体结论"
+    },
+    {
+      "id": "AI23",
+      "phrase": "the importance of X cannot be overstated",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为 X is critical because + 具体论据"
+    },
+    {
+      "id": "AI24",
+      "phrase": "opens up new avenues for",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 enables / allows / creates opportunities for，并具体说明"
+    },
+    {
+      "id": "AI25",
+      "phrase": "a double-edged sword",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改用 has both benefits and costs，或直接分述利弊"
+    },
+    {
+      "id": "AI26",
+      "phrase": "sheds light on",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 clarifies / explains / reveals"
+    },
+    {
+      "id": "AI27",
+      "phrase": "paves the way for",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 enables / facilitates / contributes to"
+    },
+    {
+      "id": "AI28",
+      "phrase": "In the digital age, ...",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "替换为具体语境：With the spread of X, ... / Since Y, ..."
+    },
+    {
+      "id": "AI29",
+      "phrase": "It goes without saying that",
+      "type": "元话语填充",
+      "severity": "high",
+      "rewrite_hint": "直接陈述，或补充引用支撑"
+    },
+    {
+      "id": "AI30",
+      "phrase": "Needless to say",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "删除，直接陈述"
+    },
+    {
+      "id": "AI31",
+      "phrase": "It is no exaggeration to say that",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改为直接陈述，或以数据支撑"
+    },
+    {
+      "id": "AI32",
+      "phrase": "Last but not least",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "改用 Finally / Ultimately"
+    },
+    {
+      "id": "AI33",
+      "phrase": "In a nutshell",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改用 In sum / Overall（学术写作用语）"
+    },
+    {
+      "id": "AI34",
+      "phrase": "When it comes to",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改用 Regarding / As for，或直接以名词短语作主语"
+    },
+    {
+      "id": "AI35",
+      "phrase": "At the end of the day",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改用 Ultimately / In the final analysis"
+    },
+    {
+      "id": "AI36",
+      "phrase": "With that being said",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "改用 However / Nevertheless"
+    },
+    {
+      "id": "AI37",
+      "phrase": "It is undeniable that",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为 The evidence suggests / It is widely accepted"
+    },
+    {
+      "id": "AI38",
+      "phrase": "This highlights the need for",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为 Consequently, X should...，直接给出行动指向"
+    },
+    {
+      "id": "AI39",
+      "phrase": "the multifaceted nature of",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "删除 multifaceted，具体列出各面：X involves A, B and C"
+    },
+    {
+      "id": "AI40",
+      "phrase": "the intricate interplay between",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "改用 the relationship between / how X and Y interact"
+    },
+    {
+      "id": "AI41",
+      "phrase": "a holistic approach",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 an integrated approach，或说明整合了哪些要素"
+    },
+    {
+      "id": "AI42",
+      "phrase": "paradigm shift",
+      "type": "泛化修饰",
+      "severity": "low",
+      "rewrite_hint": "若为实质范式转移可保留，否则改用 major change"
+    },
+    {
+      "id": "AI43",
+      "phrase": "transformative / groundbreaking / revolutionary（高频叠加）",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 significant / novel，并以证据说明其影响"
+    },
+    {
+      "id": "AI44",
+      "phrase": "seamlessly integrate",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 integrate，并说明整合方式"
+    },
+    {
+      "id": "AI45",
+      "phrase": "robust and comprehensive framework",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "改用 sound framework，或描述框架构成"
+    },
+    {
+      "id": "AI46",
+      "phrase": "In essence, ...",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为直接陈述核心结论"
+    },
+    {
+      "id": "AI47",
+      "phrase": "Taken together, these findings suggest",
+      "type": "空洞总结",
+      "severity": "low",
+      "rewrite_hint": "学术可用，但避免与 In sum/Overall 连用造成重复"
+    },
+    {
+      "id": "AI48",
+      "phrase": "further research is needed（作为结尾万能句）",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为具体方向：Future work should test X in Y setting"
+    },
+    {
+      "id": "AI49",
+      "phrase": "It is a widely held belief that",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改用 Many researchers argue that + 引用"
+    },
+    {
+      "id": "AI50",
+      "phrase": "This paper aims to explore/delve into",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改用 This paper examines / argues that，明确研究问题"
+    },
+    {
+      "id": "AI51",
+      "phrase": "In order to better understand",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改为 To understand / To explain，简洁化"
+    },
+    {
+      "id": "AI52",
+      "phrase": "a myriad of / a plethora of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 many / numerous / a range of"
+    },
+    {
+      "id": "AI53",
+      "phrase": "It should come as no surprise that",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为直接陈述，或省略"
+    },
+    {
+      "id": "AI54",
+      "phrase": "the ever-growing demand for",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 the rising demand for，或给出具体数据"
+    },
+    {
+      "id": "AI55",
+      "phrase": "In conclusion, ... In summary, ... To conclude, ...（结论段重复收束）",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "结论段仅用一个收束表达，其余改为具体结论句"
+    },
+    {
+      "id": "AI56",
+      "phrase": "is very important for",
+      "type": "空洞评价",
+      "severity": "medium",
+      "rewrite_hint": "给出具体原因或数据，而非空泛评价"
+    },
+    {
+      "id": "AI57",
+      "phrase": "play an important role in",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "换具体动词：determines / constrains / enables"
+    },
+    {
+      "id": "AI58",
+      "phrase": "play a vital role in",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "换具体动词，指出实际机制"
+    },
+    {
+      "id": "AI59",
+      "phrase": "is essential for",
+      "type": "空洞评价",
+      "severity": "medium",
+      "rewrite_hint": "说明为什么必要，或改成条件句"
+    },
+    {
+      "id": "AI60",
+      "phrase": "is crucial for",
+      "type": "空洞评价",
+      "severity": "medium",
+      "rewrite_hint": "改为具体因果：without X, Y fails because..."
+    },
+    {
+      "id": "AI61",
+      "phrase": "it is clear that",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "直接陈述，删去引导语"
+    },
+    {
+      "id": "AI62",
+      "phrase": "there are many",
+      "type": "空泛数量",
+      "severity": "medium",
+      "rewrite_hint": "给出具体数字或范围"
+    },
+    {
+      "id": "AI63",
+      "phrase": "there are several",
+      "type": "空泛数量",
+      "severity": "low",
+      "rewrite_hint": "列出具体项"
+    },
+    {
+      "id": "AI64",
+      "phrase": "many things",
+      "type": "空泛数量",
+      "severity": "high",
+      "rewrite_hint": "具体化：which aspects?"
+    },
+    {
+      "id": "AI65",
+      "phrase": "leads to better",
+      "type": "空洞因果",
+      "severity": "medium",
+      "rewrite_hint": "给出机制与衡量方式"
+    },
+    {
+      "id": "AI66",
+      "phrase": "this will help them",
+      "type": "空洞承诺",
+      "severity": "medium",
+      "rewrite_hint": "改为可验证的结果"
+    },
+    {
+      "id": "AI67",
+      "phrase": "in modern business",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "替换为具体年份/行业/地区"
+    },
+    {
+      "id": "AI68",
+      "phrase": "in recent years",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "写出具体年份区间"
+    },
+    {
+      "id": "AI69",
+      "phrase": "has become increasingly",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "给出起点与数据"
+    },
+    {
+      "id": "AI70",
+      "phrase": "it is hard to",
+      "type": "空泛表述",
+      "severity": "low",
+      "rewrite_hint": "直接说明困难所在"
+    },
+    {
+      "id": "AI71",
+      "phrase": "we should pay attention to",
+      "type": "空洞建议",
+      "severity": "high",
+      "rewrite_hint": "改为具体行动项"
+    },
+    {
+      "id": "AI72",
+      "phrase": "achieve success",
+      "type": "空洞目标",
+      "severity": "medium",
+      "rewrite_hint": "定义成功指标"
+    },
+    {
+      "id": "AI73",
+      "phrase": "long-term sustainability",
+      "type": "空洞目标",
+      "severity": "low",
+      "rewrite_hint": "给出可持续性的衡量口径"
+    },
+    {
+      "id": "AI74",
+      "phrase": "cannot be overstated",
+      "type": "夸张套话",
+      "severity": "high",
+      "rewrite_hint": "删去夸张，用数据支撑重要性"
+    },
+    {
+      "id": "AI75",
+      "phrase": "serves as a critical foundation",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为具体功能描述"
+    },
+    {
+      "id": "AI76",
+      "phrase": "strike a balance between",
+      "type": "语义过度平衡",
+      "severity": "high",
+      "rewrite_hint": "指出实际取舍标准"
+    },
+    {
+      "id": "AI77",
+      "phrase": "the key is to",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "删去，直接给结论"
+    },
+    {
+      "id": "AI78",
+      "phrase": "ultimately",
+      "type": "过渡词套话",
+      "severity": "low",
+      "rewrite_hint": "过度使用；多数情况可删"
+    },
+    {
+      "id": "AI79",
+      "phrase": "comprehensive disclosure",
+      "type": "抽象名词堆砌",
+      "severity": "low",
+      "rewrite_hint": "具体到披露项目"
+    },
+    {
+      "id": "AI80",
+      "phrase": "robust mechanisms",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "换成具体控制手段"
+    },
+    {
+      "id": "AI81",
+      "phrase": "informed decision-making",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "改为具体决策场景"
+    },
+    {
+      "id": "AI82",
+      "phrase": "decision-useful information",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "具体说明谁用它做什么决策"
+    },
+    {
+      "id": "AI83",
+      "phrase": "exercise professional judgment",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "改为具体判断内容"
+    },
+    {
+      "id": "AI84",
+      "phrase": "fundamentally transformed",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "给出变化前后对比"
+    },
+    {
+      "id": "AI85",
+      "phrase": "rapidly evolving",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "给出变化速度的证据"
+    },
+    {
+      "id": "AI86",
+      "phrase": "it affects many",
+      "type": "空洞陈述",
+      "severity": "medium",
+      "rewrite_hint": "具体说明影响哪些方面"
+    },
+    {
+      "id": "AI87",
+      "phrase": "good governance leads",
+      "type": "空洞因果",
+      "severity": "low",
+      "rewrite_hint": "给出治理与结果的机制"
+    },
+    {
+      "id": "AI88",
+      "phrase": "in conclusion",
+      "type": "过渡词套话",
+      "severity": "low",
+      "rewrite_hint": "结论段可删此引导"
+    }
+  ],
+  "rewrite_examples": [
+    {
+      "id": "RW01",
+      "before": "In my opinion, I think that online learning is very very good for students.",
+      "after": "Online learning benefits students in several concrete ways.",
+      "technique": "去套话 + 增加具体性 + 删除冗余",
+      "note": "删去观点引导词叠加与 very very，把笼统评价转为可展开的论点句，便于后续给出具体理由"
+    },
+    {
+      "id": "RW02",
+      "before": "With the rapid development of society, more and more people pay attention to mental health.",
+      "after": "Public concern with mental health has grown sharply since 2015, when Malaysia's national health survey first reported a rise in diagnosed anxiety.",
+      "technique": "增加具体性 + 去套话",
+      "note": "以具体时间、事件和数据替换『随着……发展』『越来越』等模板开头"
+    },
+    {
+      "id": "RW03",
+      "before": "Although the theory is old, but it is still useful for us.",
+      "after": "Although the theory is dated, it still offers a useful analytical lens.",
+      "technique": "精确化用词 + 删除冗余",
+      "note": "修正 although/but 同现错误；old/useful for us 改为更精确的 dated / analytical lens"
+    },
+    {
+      "id": "RW04",
+      "before": "The research was done by our group, and we found that the result is very important.",
+      "after": "Our group's study found the result to be significant.",
+      "technique": "主动化 + 合并碎句 + 精确化用词",
+      "note": "删去无必要被动 was done by，合并两个分句；important 在统计语境应为 significant"
+    },
+    {
+      "id": "RW05",
+      "before": "Firstly, the cost is high. Secondly, the quality is not good. Thirdly, the service is slow.",
+      "after": "Three linked problems undermine the service: high cost, poor quality and slow response.",
+      "technique": "合并碎句 + 调整语序",
+      "note": "将机械清单合并为主题句 + 并列，把序数连接词换成逻辑关系，节奏更自然"
+    },
+    {
+      "id": "RW06",
+      "before": "It is important to note that the implementation of the optimization of the system is necessary.",
+      "after": "The system needs to be optimized.",
+      "technique": "去套话 + 去名词化",
+      "note": "删去元话语引导语，拆解 implementation/optimization 名词化堆叠，还原动词"
+    },
+    {
+      "id": "RW07",
+      "before": "This paper will delve into the multifaceted nature of the intricate interplay between AI and education.",
+      "after": "This paper examines how AI tools affect classroom assessment in Malaysian secondary schools.",
+      "technique": "去套话 + 增加具体性",
+      "note": "删去 delve into / multifaceted / intricate interplay 等 AI 腔抽象词，明确研究对象与范围"
+    },
+    {
+      "id": "RW08",
+      "before": "Technology plays a crucial role in modern society.",
+      "after": "Digital payments now handle 60% of retail transactions in urban Malaysia.",
+      "technique": "增加具体性 + 去套话",
+      "note": "把 plays a crucial role 这一空洞论断替换为可核验的具体事实"
+    },
+    {
+      "id": "RW09",
+      "before": "In today's fast-paced world, students need to learn knowledge quickly. Moreover, they should also develop skills. Furthermore, they must adapt to change.",
+      "after": "Students today must acquire knowledge rapidly and keep adapting as conditions shift.",
+      "technique": "去套话 + 合并碎句 + 变换句式节奏",
+      "note": "删去 fast-paced world 开头与 Moreover/Furthermore 堆叠，合并三句为一，长句承载递进"
+    },
+    {
+      "id": "RW10",
+      "before": "It is widely believed that exercise is good for health. Everyone knows that.",
+      "after": "Regular exercise reduces the risk of cardiovascular disease (WHO, 2020).",
+      "technique": "补充论证 + 去套话",
+      "note": "把诉诸常识的断言改为带引用的具体结论"
+    },
+    {
+      "id": "RW11",
+      "before": "I think maybe probably the government should do something to solve this problem.",
+      "after": "The government could address the problem by tightening emission standards.",
+      "technique": "加入限定语 + 补充论证",
+      "note": "删去情态词叠加，把『做点什么』具体化为可操作的举措，同时保留 could 的审慎语气"
+    },
+    {
+      "id": "RW12",
+      "before": "The company should be responsible for the pollution. They must be punished.",
+      "after": "Because the company knowingly discharged waste, it bears legal responsibility for the resulting pollution.",
+      "technique": "补充论证 + 精确化用词",
+      "note": "补上因果前提，把价值判断转为有依据的推论；punished 改为更中性的 legal responsibility"
+    },
+    {
+      "id": "RW13",
+      "before": "There is a growing tendency for the majority of the students to use social media every day.",
+      "after": "Most students now use social media daily.",
+      "technique": "去名词化 + 删除冗余",
+      "note": "there be + 抽象名词结构改为直陈主谓，信息量不变而更简洁"
+    },
+    {
+      "id": "RW14",
+      "before": "We need to make an investigation of the causes and conduct an analysis of the data.",
+      "after": "We investigated the causes and analysed the data.",
+      "technique": "去名词化 + 精确化用词",
+      "note": "拆解轻动词 + 名词化结构，还原为单一动词"
+    },
+    {
+      "id": "RW15",
+      "before": "As we all know, education is very important for a country's development.",
+      "after": "Education strongly predicts a country's long-run economic growth (Hanushek & Woessmann, 2015).",
+      "technique": "去套话 + 补充论证 + 增加具体性",
+      "note": "删去 As we all know，把空泛断言转为可引用的实证结论"
+    },
+    {
+      "id": "RW16",
+      "before": "The problem is very serious. It affects many people. It needs to be solved as soon as possible.",
+      "after": "The problem affects millions and demands urgent attention.",
+      "technique": "合并碎句 + 变换句式节奏 + 精确化用词",
+      "note": "三句短句合并为一句，用 demands urgent attention 收束，避免同构短句堆叠"
+    },
+    {
+      "id": "RW17",
+      "before": "In conclusion, in a nutshell, to sum up, AI is important for education.",
+      "after": "Overall, AI is reshaping how students are assessed.",
+      "technique": "删除冗余 + 去套话 + 增加具体性",
+      "note": "删去重复收束语，只保留一个，并把 important 落到具体作用上"
+    },
+    {
+      "id": "RW18",
+      "before": "On the one hand, AI saves time. On the other hand, AI saves money.",
+      "after": "AI cuts both time and cost.",
+      "technique": "去套话 + 合并碎句",
+      "note": "两点并非对立，不应套用 on one hand/on the other hand 平衡句式"
+    },
+    {
+      "id": "RW19",
+      "before": "The reason is because the data was not collected properly.",
+      "after": "The problem arose because the data were collected inconsistently.",
+      "technique": "删除冗余 + 精确化用词 + 主动化",
+      "note": "修正 reason/because 重复，data 复数一致，not properly 改为更具体的 inconsistently"
+    },
+    {
+      "id": "RW20",
+      "before": "He didn't went to the library yesterday because he must prepare for the exam.",
+      "after": "He did not go to the library yesterday because he had to prepare for the exam.",
+      "technique": "精确化用词",
+      "note": "修正 didn't went 时态错误；过去语境中 must 应改为 had to"
+    },
+    {
+      "id": "RW21",
+      "before": "In recent years, with the development of the Internet, online shopping has become more and more popular among the young people.",
+      "after": "Online shopping has grown fastest among young adults since 2018.",
+      "technique": "去套话 + 增加具体性 + 变换句式节奏",
+      "note": "删去双重套话开头与 more and more，用具体群体与时间替代"
+    },
+    {
+      "id": "RW22",
+      "before": "The essay will discuss about the advantages and disadvantages of working from home. It is worth noting that this is a hot topic.",
+      "after": "This essay weighs the benefits of remote work against its costs.",
+      "technique": "拆分长句 + 去套话 + 精确化用词",
+      "note": "修正 discuss about 搭配错误，删去 It is worth noting 元话语与 hot topic 空话"
+    },
+    {
+      "id": "RW23",
+      "before": "This is not just about saving money, it's about saving the environment.",
+      "after": "The policy reduces both household costs and carbon emissions.",
+      "technique": "去套话 + 增加具体性",
+      "note": "删去 not just about... it's about 模板句式，直接列出两个具体效果"
+    },
+    {
+      "id": "RW24",
+      "before": "A myriad of studies have shed light on the importance of sleep.",
+      "after": "Numerous studies have linked poor sleep to reduced academic performance.",
+      "technique": "去套话 + 增加具体性 + 精确化用词",
+      "note": "a myriad of 改为 numerous；shed light on the importance 改为具体因果结论"
+    },
+    {
+      "id": "RW25",
+      "before": "As a student, we should study hard to get a bright future.",
+      "after": "As students, we study hard partly because it widens our career options.",
+      "technique": "调整语序 + 补充论证",
+      "note": "修正主谓人称不一致；get a bright future 改为可论证的具体理由"
+    },
+    {
+      "id": "RW26",
+      "before": "The implementation of the new policy has caused a significant reduction in the number of accidents.",
+      "after": "The new policy has significantly reduced accidents.",
+      "technique": "去名词化 + 精确化用词",
+      "note": "implementation/has caused a reduction 名词化链缩短，还原为动词 reduced"
+    },
+    {
+      "id": "RW27",
+      "before": "Nowadays, many people think that the education system should be changed. I agree with it.",
+      "after": "Public opinion increasingly favours reforming the education system.",
+      "technique": "去套话 + 合并碎句 + 精确化用词",
+      "note": "删去 Nowadays 与 I agree with it 这类表态句，把观点融进主句"
+    },
+    {
+      "id": "RW28",
+      "before": "The data shows that the result is statistically significant, and it proves our hypothesis is correct.",
+      "after": "The data indicate a statistically significant result, which supports our hypothesis.",
+      "technique": "精确化用词 + 加入限定语",
+      "note": "data 复数一致；proves 过强，改为 supports；避免宣称『证明』"
+    },
+    {
+      "id": "RW29",
+      "before": "In order to better understand the problem, it is important to note that we need more research.",
+      "after": "Understanding the problem requires further research into its causes.",
+      "technique": "去套话 + 合并碎句",
+      "note": "删去 In order to better understand 与 It is important to note 双重填充，压缩为一句"
+    },
+    {
+      "id": "RW30",
+      "before": "The ever-evolving landscape of technology has transformed the way we live and work in today's digital age.",
+      "after": "Mobile computing has changed how Malaysians shop, study and bank.",
+      "technique": "去套话 + 增加具体性 + 变换句式节奏",
+      "note": "删去 ever-evolving landscape / digital age，落到具体技术、地域与活动，句子由抽象变具体"
+    },
+    {
+      "id": "RW31",
+      "before": "The theory which is proposed by Zhang is very useful for us to solve this problem.",
+      "after": "Zhang's theory offers a workable solution to the problem.",
+      "technique": "拆分长句 + 精确化用词 + 删除冗余",
+      "note": "which is proposed by 改为所有格；very useful for us to 改为 workable，结构紧凑"
+    },
+    {
+      "id": "RW32",
+      "before": "Many researches show that feedback is good for learning, but some researches disagree.",
+      "after": "Most studies find that feedback improves learning, although findings on its timing remain mixed.",
+      "technique": "精确化用词 + 加入限定语",
+      "note": "researches 改为 studies；笼统的 some disagree 改为有分歧点的具体限定"
+    },
+    {
+      "id": "RW33",
+      "before": "It is undeniable that climate change is a serious problem that we must face together.",
+      "after": "Malaysia's mean temperature has risen about 0.9°C since 1970, intensifying flood risk along the east coast.",
+      "technique": "去套话 + 增加具体性",
+      "note": "删去 It is undeniable that 与 we must face together 空话，用具体数据与后果替代"
+    },
+    {
+      "id": "RW34",
+      "before": "The study of the cultural influence on consumer behavior was carried out by the researcher, and the result obtained shows that culture has an important effect.",
+      "after": "The study shows that culture strongly shapes consumer behaviour.",
+      "technique": "主动化 + 去名词化 + 合并碎句",
+      "note": "删去 was carried out by / the result obtained，合并为一句；an important effect 改为 strongly shapes"
+    },
+    {
+      "id": "RW35",
+      "before": "Last but not least, I want to say that protecting the environment is good. In a word, we should protect it.",
+      "after": "Protecting the environment ultimately benefits both public health and the economy.",
+      "technique": "去套话 + 删除冗余 + 增加具体性",
+      "note": "删去 Last but not least / I want to say / In a word，把 good 落到具体受益面"
+    },
+    {
+      "id": "RW36",
+      "before": "With the development of the economy, the living standard of people becomes higher and higher, and this phenomenon is very significant in the society.",
+      "after": "Rising incomes have steadily improved living standards across Malaysian cities.",
+      "technique": "去套话 + 合并碎句 + 精确化用词 + 变换句式节奏",
+      "note": "删去套话开头与 higher and higher；多个分句合并为一句，避免『现象很显著』这类自证式收尾"
+    }
+  ],
+  "majors": [
+    {
+      "major": "Business / Management 工商管理",
+      "terms": [
+        {
+          "en": "strategic management",
+          "zh": "战略管理"
+        },
+        {
+          "en": "competitive advantage",
+          "zh": "竞争优势"
+        },
+        {
+          "en": "core competency",
+          "zh": "核心竞争力"
+        },
+        {
+          "en": "market segmentation",
+          "zh": "市场细分"
+        },
+        {
+          "en": "value chain",
+          "zh": "价值链"
+        },
+        {
+          "en": "supply chain management",
+          "zh": "供应链管理"
+        },
+        {
+          "en": "stakeholder",
+          "zh": "利益相关者"
+        },
+        {
+          "en": "corporate governance",
+          "zh": "公司治理"
+        },
+        {
+          "en": "organisational behaviour",
+          "zh": "组织行为学"
+        },
+        {
+          "en": "SWOT analysis",
+          "zh": "SWOT 分析"
+        },
+        {
+          "en": "business model",
+          "zh": "商业模式"
+        },
+        {
+          "en": "economies of scale",
+          "zh": "规模经济"
+        },
+        {
+          "en": "market entry strategy",
+          "zh": "市场进入策略"
+        },
+        {
+          "en": "customer relationship management",
+          "zh": "客户关系管理"
+        },
+        {
+          "en": "brand equity",
+          "zh": "品牌资产"
+        },
+        {
+          "en": "human resource management",
+          "zh": "人力资源管理"
+        },
+        {
+          "en": "organisational culture",
+          "zh": "组织文化"
+        },
+        {
+          "en": "risk management",
+          "zh": "风险管理"
+        },
+        {
+          "en": "business ethics",
+          "zh": "商业伦理"
+        },
+        {
+          "en": "return on investment (ROI)",
+          "zh": "投资回报率"
+        },
+        {
+          "en": "break-even point",
+          "zh": "盈亏平衡点"
+        },
+        {
+          "en": "entrepreneurship",
+          "zh": "创业学"
+        }
+      ]
+    },
+    {
+      "major": "Computer Science / IT 计算机科学",
+      "terms": [
+        {
+          "en": "algorithm",
+          "zh": "算法"
+        },
+        {
+          "en": "data structure",
+          "zh": "数据结构"
+        },
+        {
+          "en": "time complexity",
+          "zh": "时间复杂度"
+        },
+        {
+          "en": "machine learning",
+          "zh": "机器学习"
+        },
+        {
+          "en": "neural network",
+          "zh": "神经网络"
+        },
+        {
+          "en": "database management system",
+          "zh": "数据库管理系统"
+        },
+        {
+          "en": "API (application programming interface)",
+          "zh": "应用程序接口"
+        },
+        {
+          "en": "version control",
+          "zh": "版本控制"
+        },
+        {
+          "en": "software development life cycle",
+          "zh": "软件开发生命周期"
+        },
+        {
+          "en": "object-oriented programming",
+          "zh": "面向对象编程"
+        },
+        {
+          "en": "encryption",
+          "zh": "加密"
+        },
+        {
+          "en": "cloud computing",
+          "zh": "云计算"
+        },
+        {
+          "en": "operating system",
+          "zh": "操作系统"
+        },
+        {
+          "en": "compiler",
+          "zh": "编译器"
+        },
+        {
+          "en": "recursion",
+          "zh": "递归"
+        },
+        {
+          "en": "artificial intelligence",
+          "zh": "人工智能"
+        },
+        {
+          "en": "natural language processing",
+          "zh": "自然语言处理"
+        },
+        {
+          "en": "bandwidth",
+          "zh": "带宽"
+        },
+        {
+          "en": "latency",
+          "zh": "延迟"
+        },
+        {
+          "en": "debugging",
+          "zh": "调试"
+        },
+        {
+          "en": "user interface / user experience (UI/UX)",
+          "zh": "用户界面/用户体验"
+        },
+        {
+          "en": "scalability",
+          "zh": "可扩展性"
+        }
+      ]
+    },
+    {
+      "major": "Engineering 工程学",
+      "terms": [
+        {
+          "en": "mechanical engineering",
+          "zh": "机械工程"
+        },
+        {
+          "en": "civil engineering",
+          "zh": "土木工程"
+        },
+        {
+          "en": "electrical engineering",
+          "zh": "电气工程"
+        },
+        {
+          "en": "tensile strength",
+          "zh": "抗拉强度"
+        },
+        {
+          "en": "stress and strain",
+          "zh": "应力与应变"
+        },
+        {
+          "en": "load-bearing capacity",
+          "zh": "承载能力"
+        },
+        {
+          "en": "finite element analysis",
+          "zh": "有限元分析"
+        },
+        {
+          "en": "tolerance",
+          "zh": "公差"
+        },
+        {
+          "en": "renewable energy",
+          "zh": "可再生能源"
+        },
+        {
+          "en": "energy efficiency",
+          "zh": "能效"
+        },
+        {
+          "en": "thermal conductivity",
+          "zh": "导热系数"
+        },
+        {
+          "en": "circuit design",
+          "zh": "电路设计"
+        },
+        {
+          "en": "prototype",
+          "zh": "原型"
+        },
+        {
+          "en": "quality assurance",
+          "zh": "质量保证"
+        },
+        {
+          "en": "structural integrity",
+          "zh": "结构完整性"
+        },
+        {
+          "en": "fluid dynamics",
+          "zh": "流体力学"
+        },
+        {
+          "en": "corrosion resistance",
+          "zh": "耐腐蚀性"
+        },
+        {
+          "en": "hydraulic system",
+          "zh": "液压系统"
+        },
+        {
+          "en": "manufacturing process",
+          "zh": "制造工艺"
+        },
+        {
+          "en": "design specification",
+          "zh": "设计规范"
+        },
+        {
+          "en": "maintenance schedule",
+          "zh": "维护计划"
+        },
+        {
+          "en": "sustainability",
+          "zh": "可持续性"
+        }
+      ]
+    },
+    {
+      "major": "Accounting / Finance 会计与金融",
+      "terms": [
+        {
+          "en": "financial statement",
+          "zh": "财务报表"
+        },
+        {
+          "en": "balance sheet",
+          "zh": "资产负债表"
+        },
+        {
+          "en": "income statement",
+          "zh": "利润表"
+        },
+        {
+          "en": "cash flow statement",
+          "zh": "现金流量表"
+        },
+        {
+          "en": "double-entry bookkeeping",
+          "zh": "复式记账"
+        },
+        {
+          "en": "accrual basis",
+          "zh": "权责发生制"
+        },
+        {
+          "en": "depreciation",
+          "zh": "折旧"
+        },
+        {
+          "en": "amortisation",
+          "zh": "摊销"
+        },
+        {
+          "en": "audit",
+          "zh": "审计"
+        },
+        {
+          "en": "internal control",
+          "zh": "内部控制"
+        },
+        {
+          "en": "liquidity ratio",
+          "zh": "流动比率"
+        },
+        {
+          "en": "profit margin",
+          "zh": "利润率"
+        },
+        {
+          "en": "accounts receivable",
+          "zh": "应收账款"
+        },
+        {
+          "en": "accounts payable",
+          "zh": "应付账款"
+        },
+        {
+          "en": "equity",
+          "zh": "所有者权益"
+        },
+        {
+          "en": "liability",
+          "zh": "负债"
+        },
+        {
+          "en": "asset valuation",
+          "zh": "资产估值"
+        },
+        {
+          "en": "cost accounting",
+          "zh": "成本会计"
+        },
+        {
+          "en": "financial ratio analysis",
+          "zh": "财务比率分析"
+        },
+        {
+          "en": "budgeting",
+          "zh": "预算编制"
+        },
+        {
+          "en": "taxation",
+          "zh": "税务"
+        },
+        {
+          "en": "capital structure",
+          "zh": "资本结构"
+        }
+      ]
+    },
+    {
+      "major": "Mass Communication 大众传播",
+      "terms": [
+        {
+          "en": "agenda-setting theory",
+          "zh": "议程设置理论"
+        },
+        {
+          "en": "framing",
+          "zh": "框架理论/框架化"
+        },
+        {
+          "en": "gatekeeping",
+          "zh": "把关人理论"
+        },
+        {
+          "en": "media literacy",
+          "zh": "媒介素养"
+        },
+        {
+          "en": "public relations",
+          "zh": "公共关系"
+        },
+        {
+          "en": "target audience",
+          "zh": "目标受众"
+        },
+        {
+          "en": "press release",
+          "zh": "新闻稿"
+        },
+        {
+          "en": "editorial",
+          "zh": "社论"
+        },
+        {
+          "en": "content analysis",
+          "zh": "内容分析法"
+        },
+        {
+          "en": "propaganda",
+          "zh": "宣传"
+        },
+        {
+          "en": "advertising campaign",
+          "zh": "广告活动"
+        },
+        {
+          "en": "broadcast media",
+          "zh": "广播媒体"
+        },
+        {
+          "en": "print media",
+          "zh": "印刷媒体"
+        },
+        {
+          "en": "digital media",
+          "zh": "数字媒体"
+        },
+        {
+          "en": "media convergence",
+          "zh": "媒介融合"
+        },
+        {
+          "en": "credibility",
+          "zh": "可信度"
+        },
+        {
+          "en": "audience segmentation",
+          "zh": "受众细分"
+        },
+        {
+          "en": "crisis communication",
+          "zh": "危机传播"
+        },
+        {
+          "en": "journalism ethics",
+          "zh": "新闻伦理"
+        },
+        {
+          "en": "social media engagement",
+          "zh": "社交媒体互动"
+        },
+        {
+          "en": "communication theory",
+          "zh": "传播理论"
+        },
+        {
+          "en": "two-step flow of communication",
+          "zh": "两级传播理论"
+        }
+      ]
+    },
+    {
+      "major": "Psychology 心理学",
+      "terms": [
+        {
+          "en": "cognitive psychology",
+          "zh": "认知心理学"
+        },
+        {
+          "en": "behaviourism",
+          "zh": "行为主义"
+        },
+        {
+          "en": "operant conditioning",
+          "zh": "操作性条件反射"
+        },
+        {
+          "en": "classical conditioning",
+          "zh": "经典条件反射"
+        },
+        {
+          "en": "attachment theory",
+          "zh": "依恋理论"
+        },
+        {
+          "en": "working memory",
+          "zh": "工作记忆"
+        },
+        {
+          "en": "bias",
+          "zh": "偏差/偏见"
+        },
+        {
+          "en": "reinforcement",
+          "zh": "强化"
+        },
+        {
+          "en": "perception",
+          "zh": "知觉"
+        },
+        {
+          "en": "personality trait",
+          "zh": "人格特质"
+        },
+        {
+          "en": "clinical psychology",
+          "zh": "临床心理学"
+        },
+        {
+          "en": "developmental psychology",
+          "zh": "发展心理学"
+        },
+        {
+          "en": "social psychology",
+          "zh": "社会心理学"
+        },
+        {
+          "en": "depression",
+          "zh": "抑郁症"
+        },
+        {
+          "en": "anxiety disorder",
+          "zh": "焦虑障碍"
+        },
+        {
+          "en": "coping mechanism",
+          "zh": "应对机制"
+        },
+        {
+          "en": "self-efficacy",
+          "zh": "自我效能"
+        },
+        {
+          "en": "empirical study",
+          "zh": "实证研究"
+        },
+        {
+          "en": "control group",
+          "zh": "对照组"
+        },
+        {
+          "en": "correlation",
+          "zh": "相关性"
+        },
+        {
+          "en": "validity and reliability",
+          "zh": "效度与信度"
+        },
+        {
+          "en": "qualitative method",
+          "zh": "定性方法"
+        }
+      ]
+    },
+    {
+      "major": "Nursing 护理学",
+      "terms": [
+        {
+          "en": "patient care",
+          "zh": "患者护理"
+        },
+        {
+          "en": "vital signs",
+          "zh": "生命体征"
+        },
+        {
+          "en": "infection control",
+          "zh": "感染控制"
+        },
+        {
+          "en": "medication administration",
+          "zh": "给药"
+        },
+        {
+          "en": "clinical practice",
+          "zh": "临床实践"
+        },
+        {
+          "en": "evidence-based practice",
+          "zh": "循证实践"
+        },
+        {
+          "en": "nursing assessment",
+          "zh": "护理评估"
+        },
+        {
+          "en": "care plan",
+          "zh": "护理计划"
+        },
+        {
+          "en": "postoperative care",
+          "zh": "术后护理"
+        },
+        {
+          "en": "triage",
+          "zh": "分诊"
+        },
+        {
+          "en": "hand hygiene",
+          "zh": "手卫生"
+        },
+        {
+          "en": "chronic illness management",
+          "zh": "慢性病管理"
+        },
+        {
+          "en": "patient safety",
+          "zh": "患者安全"
+        },
+        {
+          "en": "holistic care",
+          "zh": "整体护理"
+        },
+        {
+          "en": "informed consent",
+          "zh": "知情同意"
+        },
+        {
+          "en": "wound dressing",
+          "zh": "伤口换药"
+        },
+        {
+          "en": "pain management",
+          "zh": "疼痛管理"
+        },
+        {
+          "en": "intravenous therapy",
+          "zh": "静脉输液治疗"
+        },
+        {
+          "en": "health promotion",
+          "zh": "健康促进"
+        },
+        {
+          "en": "palliative care",
+          "zh": "临终关怀/姑息护理"
+        },
+        {
+          "en": "nurse-patient ratio",
+          "zh": "护患比"
+        },
+        {
+          "en": "clinical governance",
+          "zh": "临床治理"
+        }
+      ]
+    },
+    {
+      "major": "Education 教育学",
+      "terms": [
+        {
+          "en": "pedagogy",
+          "zh": "教学法"
+        },
+        {
+          "en": "curriculum design",
+          "zh": "课程设计"
+        },
+        {
+          "en": "learning outcomes",
+          "zh": "学习成果"
+        },
+        {
+          "en": "formative assessment",
+          "zh": "形成性评价"
+        },
+        {
+          "en": "summative assessment",
+          "zh": "终结性评价"
+        },
+        {
+          "en": "student-centred learning",
+          "zh": "以学生为中心的学习"
+        },
+        {
+          "en": "scaffolding",
+          "zh": "支架式教学"
+        },
+        {
+          "en": "blended learning",
+          "zh": "混合式学习"
+        },
+        {
+          "en": "differentiated instruction",
+          "zh": "差异化教学"
+        },
+        {
+          "en": "classroom management",
+          "zh": "课堂管理"
+        },
+        {
+          "en": "teaching methodology",
+          "zh": "教学方法论"
+        },
+        {
+          "en": "educational psychology",
+          "zh": "教育心理学"
+        },
+        {
+          "en": "cognitive load",
+          "zh": "认知负荷"
+        },
+        {
+          "en": "assessment rubric",
+          "zh": "评分标准"
+        },
+        {
+          "en": "inclusive education",
+          "zh": "融合教育"
+        },
+        {
+          "en": "lifelong learning",
+          "zh": "终身学习"
+        },
+        {
+          "en": "instructional design",
+          "zh": "教学设计"
+        },
+        {
+          "en": "peer feedback",
+          "zh": "同伴反馈"
+        },
+        {
+          "en": "motivation",
+          "zh": "学习动机"
+        },
+        {
+          "en": "educational policy",
+          "zh": "教育政策"
+        },
+        {
+          "en": "literacy",
+          "zh": "读写能力"
+        },
+        {
+          "en": "critical thinking",
+          "zh": "批判性思维"
+        }
+      ]
+    }
+  ],
+  "citation_checks": {
+    "meta": {
+      "name": "文献真实性溯源审查知识库",
+      "purpose": "识别 AI 生成的『编造文献』（幻觉引用）—— 即引用了看起来像真、实则不存在或无法核实的文献",
+      "positioning": "写作辅导工具：帮学生发现自己文章里的可疑引用，避免因编造文献构成学术不端",
+      "version": "1.0",
+      "created": "2026-10-11",
+      "honest_scope": "本模块**不做联网核验**（离线运行、无 DOI 数据库访问权限）。它做的是『可疑度筛查』：把看起来像幻觉的引用挑出来，提示你逐条去 DOI/Google Scholar 核查。因此它的结论是『可疑 / 需人工核实』，不是『确定为假』。",
+      "reference": [
+        "GPTZero / Turnitin 均在其技术说明中指出：AI 幻觉引用（fabricated citations）是 AI 写作最典型、也最难被表面语法检查发现的缺陷",
+        "学术出版实践中，Crossref 可核验的 DOI 是判断文献真伪的最低成本手段",
+        "Retraction Watch 统计：2023-2025 年撤稿论文中相当比例涉及引用链污染"
+      ]
+    },
+    "hallucination_patterns": [
+      {
+        "id": "HC01",
+        "type": "作者名存疑",
+        "severity": "medium",
+        "pattern": "et\\s+al\\.\\s*,?\\s*(19|20)\\d{2}",
+        "desc": "「et al. + 年份」是 AI 最常编造的引用形态，因为模型只需编出一个像样的姓氏与年份组合",
+        "hint": "核对第一位作者是否真实存在、以及该年是否确有该文；常见的幻觉形态是作者姓名组合看起来合理但从无合作"
+      },
+      {
+        "id": "HC02",
+        "type": "期刊名泛化",
+        "severity": "medium",
+        "pattern": "(Journal of Advanced|Journal of Modern|International Journal of|Research in|Studies in)\\s+([A-Z][a-z]+\\s+){0,3}(Studies|Research|Science|Technology|Management|Education|Economics|Analysis|Innovation|Perspectives)",
+        "desc": "AI 倾向生成「国际某某研究杂志」这类听起来权威但可能根本不存在的期刊名",
+        "hint": "去 ISSN 门户或 JCR 名单查该期刊是否真实收录；不存在于任何数据库的刊名高度可疑"
+      },
+      {
+        "id": "HC03",
+        "type": "DOI 形态异常",
+        "severity": "high",
+        "pattern": "10\\.\\d{4}/[A-Za-z]{1,6}\\b",
+        "desc": "DOI 是 AI 幻觉的重灾区：格式看似标准，但后缀常过短、只含字母，实际并不存在",
+        "hint": "把 DOI 粘到 doi.org 或 Crossref 查询——真 DOI 会立即解析；查不到的几乎可确定为编造"
+      },
+      {
+        "id": "HC04",
+        "type": "顶刊卷期异常",
+        "severity": "medium",
+        "pattern": "(Nature|Science|Cell|The Lancet|NEJM|JAMA)[^.]{0,40}\\b(19|20)\\d{2}\\b[^.]{0,30}(pp?\\.|pages)",
+        "desc": "顶刊常被 AI 拿来当『权威背书』，但给出的卷期页码往往对不上",
+        "hint": "顶刊文献需精确到卷/期/页码核对，AI 编造的页码常与真实论文不符"
+      },
+      {
+        "id": "HC05",
+        "type": "统计数字无出处",
+        "severity": "high",
+        "pattern": "\\b\\d{1,3}(\\.\\d+)?\\s*%",
+        "desc": "出现具体百分比但附近没有引用标记，是 AI 编造数据与真实学术写作的分水岭",
+        "hint": "学术写作中每一个具体数字都应有来源；找不到出处的数字必须删除或补引用"
+      },
+      {
+        "id": "HC06",
+        "type": "'研究表明'类空引",
+        "severity": "high",
+        "pattern": "(studies|research|researchers|scholars|experts|evidence|findings)\\s+(have\\s+|has\\s+)?(shown|suggests?|suggested|indicates?|indicated|finds?|found|reveals?|revealed|demonstrates?|demonstrated|confirms?|confirmed|proves?|proven)\\s+that",
+        "desc": "『研究表明/研究发现』却不说谁的研究 —— AI 极爱用这种『有背书但无出处』的句式",
+        "hint": "补上具体作者与年份（如 Smith et al., 2021），否则删除该论断"
+      },
+      {
+        "id": "HC07",
+        "type": "'大量研究'类模糊量化",
+        "severity": "medium",
+        "pattern": "(a\\s+(growing|large|significant|substantial)\\s+body\\s+of\\s+(research|literature|evidence)|numerous\\s+studies|many\\s+researchers|extensive\\s+research|prior\\s+studies\\s+have)",
+        "desc": "『越来越多的研究』『大量研究表明』也是无出处的模糊背书，AI 高频句式",
+        "hint": "改为引用 2-3 篇具体文献，或删去该笼统论断"
+      },
+      {
+        "id": "HC08",
+        "type": "作者名重复异常",
+        "severity": "medium",
+        "pattern": "\\b(Smith|Johnson|Williams|Brown|Jones|Davis|Miller|Wilson|Anderson|Lee|Wang|Zhang|Chen|Liu|Yang|Kumar|Singh|Ahmed)\\s+et\\s+al\\.",
+        "desc": "AI 编造引用时高度偏好少数几个常见姓氏，同一篇文章里反复出现同一批『万能作者』极可疑",
+        "hint": "检查文中引用的作者是否集中在极少数常见姓氏上；真实文献综述的作者谱通常更分散"
+      }
+    ],
+    "fabrication_signals": {
+      "note": "以下信号用于加权『编造风险分』，非独立判定依据",
+      "signals": [
+        {
+          "key": "no_reference_section",
+          "desc": "文中出现大量引用标记却没有任何参考文献列表",
+          "weight": 18
+        },
+        {
+          "key": "dangling_marker",
+          "desc": "正文有 (Author, 2020) 形式标记，但文献列表里找不到对应条目",
+          "weight": 22
+        },
+        {
+          "key": "orphan_entry",
+          "desc": "文献列表有条目，但正文从未引用过它",
+          "weight": 10
+        },
+        {
+          "key": "doi_unformatted",
+          "desc": "有 DOI 字样但格式不完整（缺 10. 前缀或后缀过短）",
+          "weight": 16
+        },
+        {
+          "key": "unsourced_number",
+          "desc": "具体统计数字附近无任何引用标记",
+          "weight": 20
+        },
+        {
+          "key": "vague_attribution",
+          "desc": "『研究表明』类空引句出现",
+          "weight": 14
+        },
+        {
+          "key": "author_concentration",
+          "desc": "引用作者过度集中在少数常见姓氏",
+          "weight": 12
+        },
+        {
+          "key": "year_anomaly",
+          "desc": "出现未来年份或不合理久远的引用年份",
+          "weight": 14
+        },
+        {
+          "key": "journal_not_verifiable",
+          "desc": "期刊名形态可疑",
+          "weight": 16
+        }
+      ]
+    },
+    "verification_guide": {
+      "title": "手动核验清单（本工具做不到的，必须你自己做）",
+      "steps": [
+        "把每个 DOI 复制到 https://doi.org —— 能解析 = 真实存在",
+        "作者+年份+标题丢进 Google Scholar —— 找不到完全匹配 = 高度可疑",
+        "期刊名到 https://portal.issn.org 或 Scopus 期刊列表 —— 查不到 ISSN = 期刊可能不存在",
+        "顶刊文献到 PubMed/官网核对卷期页码",
+        "核对参考文献列表与正文引用是否一一对应（正文有的列表要有，列表有的正文要引）",
+        "数字类论断：找到原始出处，找不到就删掉数字或标注为估算"
+      ],
+      "disclaimer": "本工具不联网、不查 DOI 数据库，无法给出『真假』结论。它只负责把可疑引用挑出来，降低你漏检的概率。最终核验责任在作者本人。"
+    }
+  },
+  "format_rules": {
+    "meta": {
+      "version": "1.0",
+      "purpose": "作业格式规范检查库：APA 7 / MLA 9 引用格式 + 文章结构完整性",
+      "rule_source": "APA 7th edition（apastyle.apa.org 官方参考指南）+ MLA 9th edition（MLA Handbook 9th ed.）",
+      "boundary": "仅做**离线形态检查**，判断引用条目是否符合格式骨架、结构是否齐全；不联网核验文献真伪，也不替代导师的评分标准。输出为『建议核对』级别，不是判分。",
+      "verified_at": "2026-10-12",
+      "verified_note": "规则已逐条对照大学图书馆官方指南核实，未凭记忆书写。"
+    },
+    "styles": [
+      {
+        "id": "apa7",
+        "name": "APA 第 7 版",
+        "full_name": "American Psychological Association, 7th edition",
+        "used_by": "心理学、教育学、商科、会计、社会科学（马来西亚高校商科/会计作业常用）",
+        "in_text_rule": {
+          "summary": "（姓, 年）括注；引用原文另加页码（姓, 年, p. 页码）",
+          "patterns": [
+            "叙述式：（Smith, 2020）",
+            "叙述式带页码：（Smith, 2020, p. 15）",
+            "正文叙述：Smith (2020) argued that…",
+            "两位作者：（Smith & Jones, 2020）",
+            "三位及以上：（Smith et al., 2020）"
+          ],
+          "key_rules": [
+            "两位作者在正文中每次都要写全，用 & 连接（括注内用 &，句子里用 and）",
+            "三位及以上作者，从**第一次出现**起就用 et al.",
+            "同姓同年的不同文献用 a/b/c 区分：（Smith, 2020a）"
+          ]
+        },
+        "reference_rule": {
+          "summary": "作者. (年). 标题. 来源, 卷(期), 页码. DOI",
+          "element_order": [
+            "Author, A. A. (Year).",
+            "Title of article: Subtitle.",
+            "Journal Name, Volume(Issue), pages.",
+            "https://doi.org/xxxxx"
+          ],
+          "key_rules": [
+            "参考文献列表按作者姓氏**字母顺序**排列",
+            "每条使用**悬挂缩进** 0.5 英寸（hanging indent）",
+            "作者写法：姓 + 名字首字母（Smith, J. A.）",
+            "两位到二十位作者全部列出；最后一位前加 &",
+            "**二十一位及以上**作者：列前十九位 + 省略号（…）+ 最后一位作者",
+            "期刊名、卷号用**斜体**；文章标题不用斜体、不倾斜",
+            "文章标题只大写首词首字母（句中首字母大写，sentence case）",
+            "**DOI 后不加句点**，DOI 写成 https://doi.org/ 形式",
+            "无 DOI 时，新版 APA 不建议写数据库名或期刊主页 URL",
+            "无日期用 (n.d.)"
+          ]
+        },
+        "checks": [
+          {
+            "id": "APA_RE_ENTRY_YEAR",
+            "desc": "条目中缺少括号年份",
+            "pattern": "\\((?:19|20)\\d{2}[a-z]?\\)|n\\.d\\.",
+            "expect": "present",
+            "weight": 12,
+            "hint": "APA 参考文献每条都应包含 (年份) 或 (n.d.)，缺年份通常意味着条目不完整。"
+          },
+          {
+            "id": "APA_RE_INITIALS",
+            "desc": "作者名未用首字母形式",
+            "note": "只在条目开头检查：APA 要求 姓, 首字母.",
+            "weight": 8,
+            "hint": "APA 作者应写成「姓, 名首字母.」如 Smith, J. A.；写成全名 Smith, John 不符合规范。"
+          },
+          {
+            "id": "APA_RE_DOI_FORM",
+            "desc": "DOI 未写成 https://doi.org/ 形式",
+            "pattern": "(?<!https?://doi\\.org/)\\b10\\.\\d{4,9}/[^\\s]+",
+            "expect": "absent",
+            "weight": 10,
+            "hint": "APA 7 要求 DOI 写成完整链接 https://doi.org/10.xxxx/yyyy，不要只写 10.xxxx/yyyy。"
+          },
+          {
+            "id": "APA_RE_DOI_PERIOD",
+            "desc": "DOI 后误加了句点",
+            "pattern": "https?://doi\\.org/[^\\s]+\\.[\\s\\n]",
+            "expect": "absent",
+            "weight": 8,
+            "hint": "APA 7 明确规定 **DOI 后不加句点**。加了是常见扣分点。"
+          },
+          {
+            "id": "APA_RE_RETRIEVED_FROM",
+            "desc": "使用了过时的 Retrieved from",
+            "pattern": "Retrieved\\s+(?:on\\s+[^,]+,\\s*)?from\\b",
+            "expect": "absent",
+            "weight": 10,
+            "hint": "APA 7 已**取消** Retrieved from（第 6 版的写法）。除少数会变动的网页外，不应再使用。"
+          },
+          {
+            "id": "APA_RE_HARVARD_ETAL",
+            "desc": "参考文献列表中误用 et al.（APA 参考文献应列全作者）",
+            "pattern": "^\\s*[A-Z][A-Za-z'\\-]+.*\\bet\\s+al\\.",
+            "flags": "m",
+            "expect": "absent",
+            "weight": 10,
+            "hint": "APA 参考文献列表**不使用 et al.**（除 21 位以上作者用省略号）；et al. 只能用在正文引用里。"
+          }
+        ]
+      },
+      {
+        "id": "mla9",
+        "name": "MLA 第 9 版",
+        "full_name": "Modern Language Association, 9th edition",
+        "used_by": "文学、语言、人文、文化研究（英语专业、通识写作）",
+        "in_text_rule": {
+          "summary": "（作者 页码）括注，**不带年份、不带逗号**",
+          "patterns": [
+            "（Smith 15）",
+            "（Smith and Jones 15）",
+            "（Smith et al. 15）",
+            "整部作品：（Smith）"
+          ],
+          "key_rules": [
+            "正文引用是「姓 页码」，**中间不加逗号**，不用年份",
+            "没有页码时才用别的定位（如章节名），不要编页码",
+            "与其他体系混用时最容易错的就是这里（写成 APA 的「Smith, 2020」）"
+          ]
+        },
+        "reference_rule": {
+          "summary": "九大核心要素，按序排列，能填则填",
+          "core_elements": [
+            "1. Author 作者",
+            "2. Title of Source 来源标题",
+            "3. Title of Container 容器标题",
+            "4. Other Contributors 其他贡献者",
+            "5. Version 版本",
+            "6. Number 编号",
+            "7. Publisher 出版者",
+            "8. Publication Date 出版日期",
+            "9. Location 位置"
+          ],
+          "key_rules": [
+            "参考文献页标题固定为 **Works Cited**（居中，不加引号、不斜体）",
+            "条目按作者姓氏**字母顺序**排列",
+            "每条使用**悬挂缩进** 0.5 英寸",
+            "**自足作品**（书、整部电影）标题用**斜体**",
+            "**较大作品的一部分**（文章、短篇、单集）标题用**引号**",
+            "两位作者：只倒置第一位（Dorris, Michael, and Louise Erdrich）",
+            "**三位及以上**作者：第一位 + et al.",
+            "无作者：从标题开始排",
+            "**容器**（container）是承载来源的更大整体（期刊、网站、选集）",
+            "引用 AIGC/工具时也有规范（MLA 已发布 ChatGPT 引用指引）"
+          ]
+        },
+        "checks": [
+          {
+            "id": "MLA_RE_IN_TEXT_APA_STYLE",
+            "desc": "MLA 正文引用混入了 APA 式年份",
+            "pattern": "\\([A-Z][A-Za-z'\\-]+,\\s+(?:19|20)\\d{2}",
+            "expect": "absent",
+            "weight": 14,
+            "hint": "MLA 正文引用不写年份，格式是（Smith 15）。出现（Smith, 2020）说明混用了 APA。"
+          },
+          {
+            "id": "MLA_RE_IN_TEXT_COMMA",
+            "desc": "MLA 正文引用在姓与页码之间误加逗号",
+            "pattern": "\\([A-Z][A-Za-z'\\-]+,\\s+\\d{1,4}\\)",
+            "expect": "absent",
+            "weight": 10,
+            "hint": "MLA 是（Smith 15），姓与页码之间**不加逗号**。"
+          },
+          {
+            "id": "MLA_RE_WORKS_CITED_TITLE",
+            "desc": "参考文献页标题不是 Works Cited",
+            "note": "由模块单独判定：若用 MLA 但标题写成 References，提示改。",
+            "weight": 6,
+            "hint": "MLA 的参考文献页标题应为 Works Cited（APA 才叫 References）。"
+          },
+          {
+            "id": "MLA_RE_DOI_LINK",
+            "desc": "MLA 中 DOI 写法",
+            "pattern": "doi:\\s*10\\.\\d{4,9}/",
+            "expect": "absent",
+            "weight": 6,
+            "hint": "MLA 9 推荐用 https://doi.org/10.xxxx 或 DOI 后的稳定链接，不写 doi: 前缀。"
+          }
+        ]
+      }
+    ],
+    "structure": {
+      "id": "essay_structure",
+      "name": "文章结构完整性",
+      "requirement": "Introduction（引言）、Body（主体）、Conclusion（结论）缺一不可",
+      "core_sections": [
+        {
+          "key": "introduction",
+          "name": "Introduction 引言",
+          "purpose": "交代背景、引出议题、点明主旨（thesis statement）",
+          "signals": [
+            "开篇段落含背景/现象描述",
+            "出现 thesis / 论点句（常见于首段末句）",
+            "常见标记词：This essay/report/paper examines/argues… · The purpose of this … · In recent years…"
+          ],
+          "must_have": [
+            "主旨句或明确议题",
+            "背景铺垫"
+          ],
+          "weight": 1.0
+        },
+        {
+          "key": "body",
+          "name": "Body 主体",
+          "purpose": "分论点 + 论据 + 分析，通常 ≥2 段",
+          "signals": [
+            "多个段落各承载一个分论点",
+            "有例证/数据/引用支撑",
+            "常见标记词：First/Firstly… · Moreover/Furthermore… · For example… · On the other hand…"
+          ],
+          "must_have": [
+            "至少两个分论点段落",
+            "论据支撑"
+          ],
+          "weight": 1.2
+        },
+        {
+          "key": "conclusion",
+          "name": "Conclusion 结论",
+          "purpose": "总结论点、回应引言、给出结论或建议",
+          "signals": [
+            "结尾段落回扣主旨",
+            "常见标记词：In conclusion… · To conclude… · In summary… · Overall… · To sum up…"
+          ],
+          "must_have": [
+            "总结性表述"
+          ],
+          "weight": 1.0
+        }
+      ],
+      "detect": {
+        "conclusion_markers": [
+          "in conclusion",
+          "to conclude",
+          "in summary",
+          "to sum up",
+          "in closing",
+          "overall,",
+          "all in all",
+          "on the whole",
+          "in the final analysis",
+          "综上所述",
+          "总而言之",
+          "总之"
+        ],
+        "intro_markers": [
+          "this essay",
+          "this report",
+          "this paper",
+          "this study",
+          "this assignment",
+          "the purpose of this",
+          "in recent years",
+          "nowadays",
+          "the aim of this",
+          "this analysis"
+        ],
+        "body_markers": [
+          "firstly",
+          "first,",
+          "first of all",
+          "secondly",
+          "second,",
+          "thirdly",
+          "third,",
+          "moreover",
+          "furthermore",
+          "in addition",
+          "additionally",
+          "more importantly",
+          "for example",
+          "for instance",
+          "on the other hand",
+          "however,",
+          "in contrast",
+          "as a result",
+          "consequently",
+          "therefore,"
+        ],
+        "heading_pattern": "^(?:[IVX]+|[0-9]+)[.)]?\\s+[A-Z][^\\n]{0,60}$|^(introduction|background|literature review|methodology|methods|results|findings|discussion|analysis|conclusion|recommendation[s]?|references|works cited|bibliography|appendix)\\b",
+        "heading_flags": "im"
+      },
+      "boundary": "结构判定基于段落排布与标记词，属**启发式提示**。分点式（bullet）作业、诗歌、代码报告等非典型文体可能不适用，此时会标注『结构本项不适用』而非判缺失。"
+    },
+    "common_mistakes": [
+      {
+        "id": "CM01",
+        "title": "正文引用与参考文献不匹配（dangling / orphan）",
+        "detail": "正文引了但参考文献里没有，或参考文献里有但正文从没引用。两端必须一一对应。",
+        "belongs_to": "citation"
+      },
+      {
+        "id": "CM02",
+        "title": "把 APA 与 MLA 混着用",
+        "detail": "最常见：正文用（Smith 15）却把参考文献页写成 References；或正文带年份但参考文献不列。**一篇作业只能用一种体系。**",
+        "belongs_to": "format"
+      },
+      {
+        "id": "CM03",
+        "title": "参考文献页缺悬挂缩进 / 未按字母排序",
+        "detail": "Word 里需手动设置 0.5 英寸悬挂缩进；条目要严格按姓氏字母序，不能按引用先后排。",
+        "belongs_to": "format"
+      },
+      {
+        "id": "CM04",
+        "title": "DOI 格式错误",
+        "detail": "APA 7：写成 https://doi.org/xxxx 且**末尾不加句点**；只写 10.xxxx 或写成 doi: 都不规范。",
+        "belongs_to": "format"
+      },
+      {
+        "id": "CM05",
+        "title": "标题大小写与斜体错误",
+        "detail": "APA 文章标题用 sentence case、不斜体，期刊名斜体；MLA 自足作品斜体、文章用引号。",
+        "belongs_to": "format"
+      },
+      {
+        "id": "CM06",
+        "title": "结构缺 Conclusion",
+        "detail": "只写完主体就收尾，没有回扣主旨的结论段。多数评分标准里这是硬性扣分项。",
+        "belongs_to": "structure"
+      },
+      {
+        "id": "CM07",
+        "title": "套用旧版规范",
+        "detail": "如 APA 6 的 Retrieved from、MLA 8 的固定标签格式，在 7/9 版里已改。确认导师要求的是哪一版。",
+        "belongs_to": "format"
+      }
+    ],
+    "guide": {
+      "title": "格式自查清单（打印出来对着改）",
+      "steps": [
+        "确认导师要求的是 APA 还是 MLA、第几版（APA 7 / MLA 9 为现行版本）",
+        "检查正文引用的括注格式：APA 带年份（Smith, 2020）；MLA 只带页码（Smith 15）",
+        "检查参考文献页标题：APA 用 References；MLA 用 Works Cited",
+        "检查条目是否按作者姓氏字母排序、是否设置了 0.5 英寸悬挂缩进",
+        "检查条目作者写法：APA 用首字母（Smith, J. A.）；MLA 只倒置第一位作者",
+        "检查 DOI：APA 写成 https://doi.org/xxxx 且末尾无句点；MLA 不写 doi: 前缀",
+        "逐条核对正文引用与参考文献是否一一对应（不悬空、不孤立）",
+        "检查结构：有没有 Introduction、Body（≥2 段分论点）、Conclusion",
+        "确保全文只用一种引用体系，不要 APA/MLA 混用"
+      ]
+    }
+  }
+}

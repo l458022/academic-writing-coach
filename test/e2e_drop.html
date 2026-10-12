@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>E2E</title>
+<style>.hidden{display:none!important}</style></head>
+<body style="font:13px sans-serif">
+<div id="dropZone" class="drop-zone">把文档拖到这里<input type="file" id="fileInput" hidden></div>
+<div id="fileMeta" class="file-meta hidden">
+  <span id="fmName"></span><span id="fmInfo"></span><button id="fmClear">×</button>
+</div>
+<textarea id="inputText" style="width:96%;height:140px"></textarea>
+<div><span id="wordCount">0 词</span></div>
+<pre id="out" style="background:#f4f4f4;padding:8px">…</pre>
+<script src="../web/assets/vendor/jszip.min.js"></script>
+<script src="../web/assets/vendor/pdf.min.js"></script>
+<script src="../web/assets/docparser.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const log=[]; const el=$('#out'); const p=s=>{log.push(s);el.textContent=log.join('\n');};
+function wordCount(t){ return (t.trim().match(/\b[A-Za-z][A-Za-z'\-]*\b/g)||[]).length; }
+
+/* ——— 以下是 app.js 中拖拽逻辑的逐字拷贝 ——— */
+const dropZone=$('#dropZone'), fileInput=$('#fileInput'), fileMeta=$('#fileMeta');
+function setStatus(msg,cls){ dropZone.classList.remove('loading','error'); if(msg) dropZone.classList.add(cls||'loading');
+  let st=dropZone.querySelector('.drop-status'); if(!st){st=document.createElement('div');st.className='drop-status';dropZone.appendChild(st);} st.textContent=msg||''; }
+function fmtSize(n){ return n<1024?n+' B': n<1048576? (n/1024).toFixed(1)+' KB':(n/1048576).toFixed(2)+' MB'; }
+async function handleFile(file){
+  if(!file) return;
+  dropZone.classList.remove('error'); setStatus('正在解析 '+file.name+' …','loading');
+  try{
+    const r=await DocParser.parse(file); const text=(r.text||'').trim();
+    if(!text) throw new Error('未能从该文件中提取到文本');
+    $('#inputText').value=text; updateCount();
+    $('#fmName').textContent=r.name;
+    $('#fmInfo').textContent=fmtSize(r.size)+' · '+r.kind.toUpperCase()+' · 提取 '+wordCount(text)+' 词';
+    fileMeta.classList.remove('hidden'); dropZone.classList.remove('error','loading');
+    setStatus('✅ 已识别 '+r.name,p);
+    p('==> handleFile OK  kind='+r.kind+' words='+wordCount(text)+' textareaLen='+$('#inputText').value.length);
+    p('    前 90 字: '+text.slice(0,90).replace(/\n/g,' ⏎ '));
+  }catch(err){ dropZone.classList.add('error'); setStatus('❌ '+(err&&err.message||'解析失败'),'error'); p('==> handleFile ERR: '+(err&&err.message||err)); }
+}
+function updateCount(){ $('#wordCount').textContent = wordCount($('#inputText').value)+' 词'; }
+
+/* ——— 逐字拷贝 app.js 的事件绑定 ——— */
+dropZone.addEventListener('click',()=>fileInput.click());
+['dragenter','dragover'].forEach(ev=>dropZone.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();dropZone.classList.add('dragover');}));
+dropZone.addEventListener('dragleave',e=>{e.preventDefault();e.stopPropagation();dropZone.classList.remove('dragover');});
+dropZone.addEventListener('drop',e=>{e.preventDefault();e.stopPropagation();dropZone.classList.remove('dragover');
+  const f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0]; handleFile(f);});
+['dragover','drop'].forEach(ev=>window.addEventListener(ev,e=>{ if(!dropZone.contains(e.target)) e.preventDefault(); }));
+fileInput.addEventListener('change',()=>handleFile(fileInput.files[0]));
+$('#fmClear').addEventListener('click',e=>{e.stopPropagation();fileMeta.classList.add('hidden');fileInput.value='';setStatus('');
+  $('#inputText').value='';updateCount();});
+
+(async()=>{
+  const params=new URLSearchParams(location.search);
+  const name=params.get('f')||'sample.docx';
+  const resp=await fetch('fixtures/'+name);
+  const blob=await resp.blob();
+  const f=new File([blob],name,{type:blob.type});
+  const dt=new DataTransfer(); dt.items.add(f);
+  dropZone.dispatchEvent(new DragEvent('dragover',{bubbles:true,cancelable:true,dataTransfer:dt}));
+  p('dragover 后 class 含 dragover = '+dropZone.classList.contains('dragover'));
+  dropZone.dispatchEvent(new DragEvent('drop',{bubbles:true,cancelable:true,dataTransfer:dt}));
+  await new Promise(r=>setTimeout(r,4000));
+  p('fileMeta 可见 = '+!fileMeta.classList.contains('hidden'));
+  p('=== E2E DONE ('+name+') ===');
+  document.title='DONE';
+})();
+</script></body></html>

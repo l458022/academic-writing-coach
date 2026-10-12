@@ -1,0 +1,56 @@
+[
+  {
+    "key": "darwin_origin",
+    "gutenberg_id": 1228,
+    "title": "On the Origin of Species",
+    "author": "Charles Darwin",
+    "genre": "科学论述",
+    "segments": 12,
+    "license": "Public Domain (Project Gutenberg)"
+  },
+  {
+    "key": "descartes_method",
+    "gutenberg_id": 59,
+    "title": "Discourse on the Method",
+    "author": "Rene Descartes",
+    "genre": "哲学论证",
+    "segments": 12,
+    "license": "Public Domain (Project Gutenberg)"
+  },
+  {
+    "key": "darwin_voyage",
+    "gutenberg_id": 944,
+    "title": "The Voyage of the Beagle",
+    "author": "Charles Darwin",
+    "genre": "科学观察",
+    "segments": 12,
+    "license": "Public Domain (Project Gutenberg)"
+  },
+  {
+    "key": "mill_liberty",
+    "gutenberg_id": 34901,
+    "title": "On Liberty",
+    "author": "John Stuart Mill",
+    "genre": "社会论述",
+    "segments": 12,
+    "license": "Public Domain (Project Gutenberg)"
+  },
+  {
+    "key": "machiavelli_prince",
+    "gutenberg_id": 1232,
+    "title": "The Prince",
+    "author": "Niccolo Machiavelli",
+    "genre": "政治论述",
+    "segments": 12,
+    "license": "Public Domain (Project Gutenberg)"
+  },
+  {
+    "key": "hume_understanding",
+    "gutenberg_id": 9662,
+    "title": "An Enquiry Concerning Human Understanding",
+    "author": "David Hume",
+    "genre": "哲学论证",
+    "segments": 12,
+    "license": "Public Domain (Project Gutenberg)"
+  }
+]

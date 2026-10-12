@@ -1,0 +1,3 @@
+In today's fast-paced world, artificial intelligence plays a crucial role in modern education. It is important to note that AI tools have fundamentally transformed the way students learn and write. Moreover, these technologies offer numerous benefits. Firstly, AI can help students improve their writing skills.
+
+In my opinion, I think this is a very important development. Some students may make a research without proper thinking. We should discuss about how to use it correctly. The teacher said we must not open the light of cheating. We should learn knowledge by ourselves and improve our English level step by step.

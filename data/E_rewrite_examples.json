@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "name": "学术英语改写范式库（Before → After）",
+    "purpose": "针对中式英语与 AI 腔问题，给出可模仿的改写示例与手法说明",
+    "positioning": "写作辅导工具（示范改写思路，帮助学生自己改），非代写",
+    "version": "1.0",
+    "created": "2026-10-11",
+    "total": 36,
+    "techniques": [
+      "拆分长句",
+      "合并碎句",
+      "去套话",
+      "增加具体性",
+      "变换句式节奏",
+      "加入限定语",
+      "主动化",
+      "去名词化",
+      "精确化用词",
+      "调整语序",
+      "补充论证",
+      "删除冗余"
+    ]
+  },
+  "examples": [
+    {
+      "id": "RW01",
+      "before": "In my opinion, I think that online learning is very very good for students.",
+      "after": "Online learning benefits students in several concrete ways.",
+      "technique": "去套话 + 增加具体性 + 删除冗余",
+      "note": "删去观点引导词叠加与 very very，把笼统评价转为可展开的论点句，便于后续给出具体理由"
+    },
+    {
+      "id": "RW02",
+      "before": "With the rapid development of society, more and more people pay attention to mental health.",
+      "after": "Public concern with mental health has grown sharply since 2015, when Malaysia's national health survey first reported a rise in diagnosed anxiety.",
+      "technique": "增加具体性 + 去套话",
+      "note": "以具体时间、事件和数据替换『随着……发展』『越来越』等模板开头"
+    },
+    {
+      "id": "RW03",
+      "before": "Although the theory is old, but it is still useful for us.",
+      "after": "Although the theory is dated, it still offers a useful analytical lens.",
+      "technique": "精确化用词 + 删除冗余",
+      "note": "修正 although/but 同现错误；old/useful for us 改为更精确的 dated / analytical lens"
+    },
+    {
+      "id": "RW04",
+      "before": "The research was done by our group, and we found that the result is very important.",
+      "after": "Our group's study found the result to be significant.",
+      "technique": "主动化 + 合并碎句 + 精确化用词",
+      "note": "删去无必要被动 was done by，合并两个分句；important 在统计语境应为 significant"
+    },
+    {
+      "id": "RW05",
+      "before": "Firstly, the cost is high. Secondly, the quality is not good. Thirdly, the service is slow.",
+      "after": "Three linked problems undermine the service: high cost, poor quality and slow response.",
+      "technique": "合并碎句 + 调整语序",
+      "note": "将机械清单合并为主题句 + 并列，把序数连接词换成逻辑关系，节奏更自然"
+    },
+    {
+      "id": "RW06",
+      "before": "It is important to note that the implementation of the optimization of the system is necessary.",
+      "after": "The system needs to be optimized.",
+      "technique": "去套话 + 去名词化",
+      "note": "删去元话语引导语，拆解 implementation/optimization 名词化堆叠，还原动词"
+    },
+    {
+      "id": "RW07",
+      "before": "This paper will delve into the multifaceted nature of the intricate interplay between AI and education.",
+      "after": "This paper examines how AI tools affect classroom assessment in Malaysian secondary schools.",
+      "technique": "去套话 + 增加具体性",
+      "note": "删去 delve into / multifaceted / intricate interplay 等 AI 腔抽象词，明确研究对象与范围"
+    },
+    {
+      "id": "RW08",
+      "before": "Technology plays a crucial role in modern society.",
+      "after": "Digital payments now handle 60% of retail transactions in urban Malaysia.",
+      "technique": "增加具体性 + 去套话",
+      "note": "把 plays a crucial role 这一空洞论断替换为可核验的具体事实"
+    },
+    {
+      "id": "RW09",
+      "before": "In today's fast-paced world, students need to learn knowledge quickly. Moreover, they should also develop skills. Furthermore, they must adapt to change.",
+      "after": "Students today must acquire knowledge rapidly and keep adapting as conditions shift.",
+      "technique": "去套话 + 合并碎句 + 变换句式节奏",
+      "note": "删去 fast-paced world 开头与 Moreover/Furthermore 堆叠，合并三句为一，长句承载递进"
+    },
+    {
+      "id": "RW10",
+      "before": "It is widely believed that exercise is good for health. Everyone knows that.",
+      "after": "Regular exercise reduces the risk of cardiovascular disease (WHO, 2020).",
+      "technique": "补充论证 + 去套话",
+      "note": "把诉诸常识的断言改为带引用的具体结论"
+    },
+    {
+      "id": "RW11",
+      "before": "I think maybe probably the government should do something to solve this problem.",
+      "after": "The government could address the problem by tightening emission standards.",
+      "technique": "加入限定语 + 补充论证",
+      "note": "删去情态词叠加，把『做点什么』具体化为可操作的举措，同时保留 could 的审慎语气"
+    },
+    {
+      "id": "RW12",
+      "before": "The company should be responsible for the pollution. They must be punished.",
+      "after": "Because the company knowingly discharged waste, it bears legal responsibility for the resulting pollution.",
+      "technique": "补充论证 + 精确化用词",
+      "note": "补上因果前提，把价值判断转为有依据的推论；punished 改为更中性的 legal responsibility"
+    },
+    {
+      "id": "RW13",
+      "before": "There is a growing tendency for the majority of the students to use social media every day.",
+      "after": "Most students now use social media daily.",
+      "technique": "去名词化 + 删除冗余",
+      "note": "there be + 抽象名词结构改为直陈主谓，信息量不变而更简洁"
+    },
+    {
+      "id": "RW14",
+      "before": "We need to make an investigation of the causes and conduct an analysis of the data.",
+      "after": "We investigated the causes and analysed the data.",
+      "technique": "去名词化 + 精确化用词",
+      "note": "拆解轻动词 + 名词化结构，还原为单一动词"
+    },
+    {
+      "id": "RW15",
+      "before": "As we all know, education is very important for a country's development.",
+      "after": "Education strongly predicts a country's long-run economic growth (Hanushek & Woessmann, 2015).",
+      "technique": "去套话 + 补充论证 + 增加具体性",
+      "note": "删去 As we all know，把空泛断言转为可引用的实证结论"
+    },
+    {
+      "id": "RW16",
+      "before": "The problem is very serious. It affects many people. It needs to be solved as soon as possible.",
+      "after": "The problem affects millions and demands urgent attention.",
+      "technique": "合并碎句 + 变换句式节奏 + 精确化用词",
+      "note": "三句短句合并为一句，用 demands urgent attention 收束，避免同构短句堆叠"
+    },
+    {
+      "id": "RW17",
+      "before": "In conclusion, in a nutshell, to sum up, AI is important for education.",
+      "after": "Overall, AI is reshaping how students are assessed.",
+      "technique": "删除冗余 + 去套话 + 增加具体性",
+      "note": "删去重复收束语，只保留一个，并把 important 落到具体作用上"
+    },
+    {
+      "id": "RW18",
+      "before": "On the one hand, AI saves time. On the other hand, AI saves money.",
+      "after": "AI cuts both time and cost.",
+      "technique": "去套话 + 合并碎句",
+      "note": "两点并非对立，不应套用 on one hand/on the other hand 平衡句式"
+    },
+    {
+      "id": "RW19",
+      "before": "The reason is because the data was not collected properly.",
+      "after": "The problem arose because the data were collected inconsistently.",
+      "technique": "删除冗余 + 精确化用词 + 主动化",
+      "note": "修正 reason/because 重复，data 复数一致，not properly 改为更具体的 inconsistently"
+    },
+    {
+      "id": "RW20",
+      "before": "He didn't went to the library yesterday because he must prepare for the exam.",
+      "after": "He did not go to the library yesterday because he had to prepare for the exam.",
+      "technique": "精确化用词",
+      "note": "修正 didn't went 时态错误；过去语境中 must 应改为 had to"
+    },
+    {
+      "id": "RW21",
+      "before": "In recent years, with the development of the Internet, online shopping has become more and more popular among the young people.",
+      "after": "Online shopping has grown fastest among young adults since 2018.",
+      "technique": "去套话 + 增加具体性 + 变换句式节奏",
+      "note": "删去双重套话开头与 more and more，用具体群体与时间替代"
+    },
+    {
+      "id": "RW22",
+      "before": "The essay will discuss about the advantages and disadvantages of working from home. It is worth noting that this is a hot topic.",
+      "after": "This essay weighs the benefits of remote work against its costs.",
+      "technique": "拆分长句 + 去套话 + 精确化用词",
+      "note": "修正 discuss about 搭配错误，删去 It is worth noting 元话语与 hot topic 空话"
+    },
+    {
+      "id": "RW23",
+      "before": "This is not just about saving money, it's about saving the environment.",
+      "after": "The policy reduces both household costs and carbon emissions.",
+      "technique": "去套话 + 增加具体性",
+      "note": "删去 not just about... it's about 模板句式，直接列出两个具体效果"
+    },
+    {
+      "id": "RW24",
+      "before": "A myriad of studies have shed light on the importance of sleep.",
+      "after": "Numerous studies have linked poor sleep to reduced academic performance.",
+      "technique": "去套话 + 增加具体性 + 精确化用词",
+      "note": "a myriad of 改为 numerous；shed light on the importance 改为具体因果结论"
+    },
+    {
+      "id": "RW25",
+      "before": "As a student, we should study hard to get a bright future.",
+      "after": "As students, we study hard partly because it widens our career options.",
+      "technique": "调整语序 + 补充论证",
+      "note": "修正主谓人称不一致；get a bright future 改为可论证的具体理由"
+    },
+    {
+      "id": "RW26",
+      "before": "The implementation of the new policy has caused a significant reduction in the number of accidents.",
+      "after": "The new policy has significantly reduced accidents.",
+      "technique": "去名词化 + 精确化用词",
+      "note": "implementation/has caused a reduction 名词化链缩短，还原为动词 reduced"
+    },
+    {
+      "id": "RW27",
+      "before": "Nowadays, many people think that the education system should be changed. I agree with it.",
+      "after": "Public opinion increasingly favours reforming the education system.",
+      "technique": "去套话 + 合并碎句 + 精确化用词",
+      "note": "删去 Nowadays 与 I agree with it 这类表态句，把观点融进主句"
+    },
+    {
+      "id": "RW28",
+      "before": "The data shows that the result is statistically significant, and it proves our hypothesis is correct.",
+      "after": "The data indicate a statistically significant result, which supports our hypothesis.",
+      "technique": "精确化用词 + 加入限定语",
+      "note": "data 复数一致；proves 过强，改为 supports；避免宣称『证明』"
+    },
+    {
+      "id": "RW29",
+      "before": "In order to better understand the problem, it is important to note that we need more research.",
+      "after": "Understanding the problem requires further research into its causes.",
+      "technique": "去套话 + 合并碎句",
+      "note": "删去 In order to better understand 与 It is important to note 双重填充，压缩为一句"
+    },
+    {
+      "id": "RW30",
+      "before": "The ever-evolving landscape of technology has transformed the way we live and work in today's digital age.",
+      "after": "Mobile computing has changed how Malaysians shop, study and bank.",
+      "technique": "去套话 + 增加具体性 + 变换句式节奏",
+      "note": "删去 ever-evolving landscape / digital age，落到具体技术、地域与活动，句子由抽象变具体"
+    },
+    {
+      "id": "RW31",
+      "before": "The theory which is proposed by Zhang is very useful for us to solve this problem.",
+      "after": "Zhang's theory offers a workable solution to the problem.",
+      "technique": "拆分长句 + 精确化用词 + 删除冗余",
+      "note": "which is proposed by 改为所有格；very useful for us to 改为 workable，结构紧凑"
+    },
+    {
+      "id": "RW32",
+      "before": "Many researches show that feedback is good for learning, but some researches disagree.",
+      "after": "Most studies find that feedback improves learning, although findings on its timing remain mixed.",
+      "technique": "精确化用词 + 加入限定语",
+      "note": "researches 改为 studies；笼统的 some disagree 改为有分歧点的具体限定"
+    },
+    {
+      "id": "RW33",
+      "before": "It is undeniable that climate change is a serious problem that we must face together.",
+      "after": "Malaysia's mean temperature has risen about 0.9°C since 1970, intensifying flood risk along the east coast.",
+      "technique": "去套话 + 增加具体性",
+      "note": "删去 It is undeniable that 与 we must face together 空话，用具体数据与后果替代"
+    },
+    {
+      "id": "RW34",
+      "before": "The study of the cultural influence on consumer behavior was carried out by the researcher, and the result obtained shows that culture has an important effect.",
+      "after": "The study shows that culture strongly shapes consumer behaviour.",
+      "technique": "主动化 + 去名词化 + 合并碎句",
+      "note": "删去 was carried out by / the result obtained，合并为一句；an important effect 改为 strongly shapes"
+    },
+    {
+      "id": "RW35",
+      "before": "Last but not least, I want to say that protecting the environment is good. In a word, we should protect it.",
+      "after": "Protecting the environment ultimately benefits both public health and the economy.",
+      "technique": "去套话 + 删除冗余 + 增加具体性",
+      "note": "删去 Last but not least / I want to say / In a word，把 good 落到具体受益面"
+    },
+    {
+      "id": "RW36",
+      "before": "With the development of the economy, the living standard of people becomes higher and higher, and this phenomenon is very significant in the society.",
+      "after": "Rising incomes have steadily improved living standards across Malaysian cities.",
+      "technique": "去套话 + 合并碎句 + 精确化用词 + 变换句式节奏",
+      "note": "删去套话开头与 higher and higher；多个分句合并为一句，避免『现象很显著』这类自证式收尾"
+    }
+  ]
+}

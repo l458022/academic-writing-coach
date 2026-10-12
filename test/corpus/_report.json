@@ -1,0 +1,74 @@
+{
+  "generated": "2026-10-12T12:32:06.096Z",
+  "human_count": 72,
+  "ai_count": 9,
+  "confusion": {
+    "tp": 8,
+    "fn": 1,
+    "tn": 72,
+    "fp": 0
+  },
+  "metrics": {
+    "miss_rate": "11.1%",
+    "false_positive_rate": "0.0%",
+    "recall": "88.9%",
+    "precision": "100.0%"
+  },
+  "distribution": {
+    "human": "均 12.0 · 中位 12 · 范围 1-33",
+    "ai": "均 78.9 · 中位 85 · 范围 48-89"
+  },
+  "features": [
+    {
+      "key": "readability",
+      "name": "可读性",
+      "ai_avg": 90.8,
+      "human_avg": 0,
+      "separation": 90.7
+    },
+    {
+      "key": "lexical",
+      "name": "词汇丰富度",
+      "ai_avg": 85,
+      "human_avg": 5.7,
+      "separation": 79.3
+    },
+    {
+      "key": "burstiness",
+      "name": "句式波动",
+      "ai_avg": 81.4,
+      "human_avg": 25.9,
+      "separation": 55.6
+    },
+    {
+      "key": "punct",
+      "name": "标点形式",
+      "ai_avg": 72.4,
+      "human_avg": 20.6,
+      "separation": 51.9
+    },
+    {
+      "key": "starter",
+      "name": "句首多样性",
+      "ai_avg": 48.8,
+      "human_avg": 1.8,
+      "separation": 47
+    },
+    {
+      "key": "cliche",
+      "name": "AI 套话密度",
+      "ai_avg": 14.9,
+      "human_avg": 1,
+      "separation": 13.9
+    }
+  ],
+  "misses": [
+    {
+      "name": "educational_ai.txt",
+      "score": 48,
+      "words": 150,
+      "clicheHits": 0
+    }
+  ],
+  "false_positives": []
+}

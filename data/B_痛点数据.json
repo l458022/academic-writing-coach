@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "research_topic": "在马来西亚留学的中国本科生：查重/AI检测痛点调研",
+    "created": "2026-10-11",
+    "researcher": "用户研究员",
+    "channels_attempted": [
+      "WebSearch（中/英文）",
+      "知乎 zhuanlan.zhihu.com",
+      "CSDN / 博客园 / 搜狐 / 58sci 等中文垂直内容站",
+      "studymy.org.cn（马来西亚留学网）",
+      "Turnitin 官方博客",
+      "马来西亚本地代写/润色服务官网（assignmenthelp.my 等）",
+      "Reddit（经第三方文章转述）"
+    ],
+    "channels_restricted": [
+      "X (Twitter) — 未能直接抓取到带可核验 URL 的原帖，仅通过二手内容站间接反映",
+      "TikTok — 平台内容未被搜索引擎有效索引，未能抓取原始视频描述",
+      "Facebook 马来西亚留学群组 — 需登录，受限无法抓取，未编造内容",
+      "小红书 — 站内内容未被通用搜索有效索引，仅通过 CSDN/博客园转述的『小红书文案降AI』话题间接反映",
+      "Reddit 原始帖 — 目标聚合页在本地被地区限制，仅获得二手转述"
+    ],
+    "confidence_notes": "所有条目标注 [事实] 表示有明确来源支撑；[推测] 表示基于多来源归纳的合理推断。马来西亚专属的直接原帖证据在公开网络中较少，多数痛点与全球留学生共性重合，已在 source 中标明其地域相关性。"
+  },
+  "pain_points": [
+    {
+      "id": "P01",
+      "pain_point": "AI检测报告默认对学生不可见，只能在老师后台看到，学生提交前无法自查AI率",
+      "scene": "提交作业后能查到的只有重复率，AI率多少、有没有被标记自己完全不知情，直到老师约谈才知道出事",
+      "frequency": "极高",
+      "source": "58sci.com/content/399.html（2026-06）；知乎 p/17148799051",
+      "quote": "AI检测报告默认只有老师后台能看到，学生自己是看不到的……直到老师找你谈话才知道出事了。你能反复自查重复率，却没法提前自查AI率",
+      "category": "信息不对称",
+      "evidence_type": "事实（多来源一致）"
+    },
+    {
+      "id": "P02",
+      "pain_point": "非英语母语/ESL 学生被 AI 检测误判概率显著更高",
+      "scene": "纯手写也被标红；规整句式、保守用词与AI文本特征重合",
+      "frequency": "极高",
+      "source": "58sci.com/content/399.html 引斯坦福2023研究；gpthumanizer.ai、eyesift.com（Stanford HAI）",
+      "quote": "斯坦福大学2023年的一项研究显示，非英语母语者写的文章，被AI检测器误判的比例高达61.2%",
+      "category": "误判",
+      "evidence_type": "事实（引用学术研究，二手转述）"
+    },
+    {
+      "id": "P03",
+      "pain_point": "用 Grammarly 等工具润色后 AI 率飙升，被误判",
+      "scene": "自己手写初稿AI率仅8%，用Grammarly高级版润色后飙到32%",
+      "frequency": "高",
+      "source": "58sci.com/content/399.html（2026-06）",
+      "quote": "纯自己写的初稿AI率只有8%，用Grammarly高级版润色完再查，直接飙到32%，连他自己都懵了",
+      "category": "误判",
+      "evidence_type": "事实（个案）"
+    },
+    {
+      "id": "P04",
+      "pain_point": "『中文打草稿→翻译→润色』是最常见写法，但恰恰最容易被判AI",
+      "scene": "中国留学生先用中文写，DeepL翻译后用Quillbot润色，句式逻辑像中文、用词又标准，酷似AI翻译",
+      "frequency": "高",
+      "source": "58sci.com/content/399.html；知乎 p/17148799051",
+      "quote": "这是绝大多数中国留学生的写作方式……被误判的概率特别高，尤其是商科、理工科 Essay，更容易中枪",
+      "category": "误判",
+      "evidence_type": "事实（多来源一致）"
+    },
+    {
+      "id": "P05",
+      "pain_point": "AI 率超标导致被约谈/听证会/指控学术不端，产生强烈恐慌",
+      "scene": "收到学术不端通知邮件，或被叫去非正式会谈，面临F/重修/停学",
+      "frequency": "高",
+      "source": "知乎 p/2052786414228713696；studymy.org.cn 学术不端申诉指南",
+      "quote": "如果你刚刚收到学校发来的学术不端通知，不要慌……AI率偏高被标记，不等于你一定会被处罚",
+      "category": "后果恐惧",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P06",
+      "pain_point": "Turnitin 官方承认 AI 检测有 ±15 个百分点浮动误差，结果本身不可靠",
+      "scene": "显示30%的文章真实可能是15%，也可能是45%",
+      "frequency": "高",
+      "source": "58sci.com/content/399.html（2026-06）",
+      "quote": "Turnitin官方自己也承认，AI检测结果有±15个百分点的浮动误差……本身就不是个精确数字",
+      "category": "工具不可靠",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P07",
+      "pain_point": "查重率超标但不会改写/降重，尤其文献综述与研究方法章节重复率最高",
+      "scene": "文献综述大量引用前人研究，重复率失控；改写只会同义词替换，被判『改写指数』可疑",
+      "frequency": "高",
+      "source": "studymy.org.cn 毕业论文格式与查重指南；studymy.org.cn 学术诚信制度解析",
+      "quote": "文献综述章节往往是查重率最高的部分……单纯替换同义词的降重效果已明显减弱",
+      "category": "能力不足",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P08",
+      "pain_point": "『伪释义』——边看边改几个词，句式与逻辑仍与原文吻合，构成抄袭",
+      "scene": "打开文献边看边改写，只替换关键词，整体句式逻辑吻合，被判定抄袭",
+      "frequency": "高",
+      "source": "studymy.org.cn 学术诚信制度解析",
+      "quote": "中国留学生常犯的错误是『伪释义』……这在马来西亚高校的判定中，依然构成抄袭",
+      "category": "能力不足",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P09",
+      "pain_point": "把国内文献翻译后使用仍会被查重，且用百度百科/知乎作论据不可接受",
+      "scene": "将中文文献翻译成英文使用，或引用百度百科/知乎，被Turnitin标记或不被学术语境接受",
+      "frequency": "中高",
+      "source": "studymy.org.cn 学术诚信制度解析",
+      "quote": "Turnitin的比对范围包括中文资料的英译版本，简单地将国内文献翻译后使用，依然会被标记……百度百科或知乎作为论据来源完全不可接受",
+      "category": "认知误区",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P10",
+      "pain_point": "AI使用规范模糊——各校政策不一，『允许润色但须声明』，学生怕踩线",
+      "scene": "马来西亚多数高校尚无专门禁令，但将AI生成内容提交等同于代写；学生不知边界在哪",
+      "frequency": "中高",
+      "source": "studymy.org.cn 学术诚信制度解析；Turnitin 吉隆坡圆桌博客",
+      "quote": "除非教师明确授权，否则使用AI生成内容并作为自己的作业提交，等同于代写，属于严重学术不端",
+      "category": "政策不明",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P11",
+      "pain_point": "自我抄袭/一稿多投在同校不同课程也属违规，学生普遍不知情",
+      "scene": "把同一份作业提交给不同课程，即便全是自己写的也构成学术不端",
+      "frequency": "中",
+      "source": "studymy.org.cn 学术不端申诉指南；学术诚信制度解析",
+      "quote": "自我抄袭在马来西亚同样受到严格限制……即使该作品完全由本人完成，也构成学术不端",
+      "category": "认知误区",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P12",
+      "pain_point": "第25%-30% 相似度警戒线模糊，且『单源匹配率』另有更严标准",
+      "scene": "本科一般要求低于25%，硕士15-20%；博士单源匹配率不得超过3%，学生常只盯总相似度",
+      "frequency": "中",
+      "source": "studymy.org.cn 学术诚信制度解析；毕业论文格式与查重指南",
+      "quote": "本科生论文的总体相似度通常要求低于25%，研究生论文则更为严格，多数设在15%至20%之间",
+      "category": "标准不清",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P13",
+      "pain_point": "降重/降AI存在大量『野路子』与钓鱼工具，学生花了钱反被认定为刻意掩盖",
+      "scene": "用翻译法/替换词/打乱句式降AI，被新模型识别，或被认定『刻意掩盖AI使用』加重处分",
+      "frequency": "中高",
+      "source": "58sci.com/content/399.html；CSDN 降AI教程多篇",
+      "quote": "别信『AI降重/降AI率』的野路子……还可能被认定为『刻意掩盖AI使用』，属于更严重的学术不端",
+      "category": "解决方案风险",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P14",
+      "pain_point": "OCR/公式转换文本排版极度规整，易被整体拉高AI率",
+      "scene": "理工科手写公式、图表用OCR识别插入论文，排版规整被误判AI，最夸张一例公式部分把整体AI率拉到82%",
+      "frequency": "中（理工科为主）",
+      "source": "58sci.com/content/399.html",
+      "quote": "我见过最夸张的一例，光公式部分就把整体AI率拉到了82%",
+      "category": "误判（理工科）",
+      "evidence_type": "事实（个案）"
+    },
+    {
+      "id": "P15",
+      "pain_point": "申诉流程陌生、时限紧（7-21天），举证责任落在学生身上",
+      "scene": "收到指控后不知如何申诉，举证责任在于解释为何出现高重复率/AI率；逾期无法申诉",
+      "frequency": "中高",
+      "source": "studymy.org.cn 学术不端申诉指南；知乎 p/2052786414228713696",
+      "quote": "举证责任往往在于解释为何出现高重复率或数据异常……逾期申请除非有不可抗力证明，否则不予受理",
+      "category": "程序焦虑",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P16",
+      "pain_point": "学术不端后果涉及签证与毕业——停学/开除会被报告移民局，风险极高",
+      "scene": "被停学或开除，学校有义务向移民局报告，学生签证可能被缩短或取消；毕业论文抄袭可撤销已授学位",
+      "frequency": "中（但后果极重）",
+      "source": "studymy.org.cn 学术不端申诉指南",
+      "quote": "2026年第一季度，有47名国际学生因学术不端导致签证被撤销……泰莱大学一名硕士生因论文核心章节抄袭率达62%而被撤销已授予的学位",
+      "category": "后果恐惧",
+      "evidence_type": "事实"
+    },
+    {
+      "id": "P17",
+      "pain_point": "英文essay降AI比中文更难——连接词/指代紧密，乱改破坏逻辑；学术术语与引用格式不能动",
+      "scene": "改一句容易破坏前后逻辑；methodology/theoretical framework 等固定表达不能乱换；APA引用格式不能被工具改动",
+      "frequency": "中高",
+      "source": "CSDN why_not_do_som/article/details/159254372",
+      "quote": "英文句子之间连接词、指代关系紧密，改一句容易破坏前后逻辑……References和in-text citation部分不被修改，否则格式乱掉比AI率高更麻烦",
+      "category": "能力不足",
+      "evidence_type": "事实（服务方教程，可能含营销倾向）"
+    },
+    {
+      "id": "P18",
+      "pain_point": "同校各学院双率（查重率+AI率）标准不统一，学生信息混乱",
+      "scene": "普通essay要求similarity index低于10-30%，具体要求各老师不同；AI率红线各校从0-5%到15-30%不等",
+      "frequency": "中",
+      "source": "知乎 p/562883700；58sci.com/content/399.html",
+      "quote": "学校普通essay的要求是similarity index低于10-30%（具体要求各个老师有区别）",
+      "category": "标准不清",
+      "evidence_type": "事实"
+    }
+  ]
+}

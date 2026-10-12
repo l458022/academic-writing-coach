@@ -1,0 +1,642 @@
+{
+  "meta": {
+    "name": "AI 腔（AI-typical）特征词与句式库",
+    "purpose": "识别 AI 生成文本的典型标志词与句式，用于本地扫描与改写建议（降低被 AI 检测误判的风险）",
+    "positioning": "写作辅导工具（帮助学生自己修改），非规避检测作弊",
+    "version": "1.0",
+    "created": "2026-10-11",
+    "total": 55,
+    "severity_scale": {
+      "high": "强信号，几乎为 AI 文本标志，建议必改",
+      "medium": "中信号，频繁出现才构成风险，建议少量保留",
+      "low": "弱信号，单次出现影响小，可酌情优化"
+    },
+    "type_legend": [
+      "过渡词套话",
+      "模板句式",
+      "空洞总结",
+      "抽象名词堆砌",
+      "语义过度平衡",
+      "泛化修饰",
+      "元话语填充"
+    ]
+  },
+  "patterns": [
+    {
+      "id": "AI01",
+      "phrase": "It is important to note that",
+      "type": "元话语填充",
+      "severity": "high",
+      "rewrite_hint": "直接陈述内容；若需强调改用 Notably, / Importantly, 或删去该引导语"
+    },
+    {
+      "id": "AI02",
+      "phrase": "In today's fast-paced world",
+      "type": "过渡词套话",
+      "severity": "high",
+      "rewrite_hint": "替换为具体时空语境，如 In contemporary urban Malaysia, / Since 2020,"
+    },
+    {
+      "id": "AI03",
+      "phrase": "plays a crucial role in",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "换用具体动词：drives / enables / underpins / constrains"
+    },
+    {
+      "id": "AI04",
+      "phrase": "delve into",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 examine / investigate / explore / analyse"
+    },
+    {
+      "id": "AI05",
+      "phrase": "a rich tapestry of",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "删除比喻式抽象短语，直接列出具体成分"
+    },
+    {
+      "id": "AI06",
+      "phrase": "underscores the importance of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 demonstrates / highlights / confirms，并说明具体指向"
+    },
+    {
+      "id": "AI07",
+      "phrase": "In the realm of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 in / within / in the field of，或直接名词作主语"
+    },
+    {
+      "id": "AI08",
+      "phrase": "It is worth noting that",
+      "type": "元话语填充",
+      "severity": "high",
+      "rewrite_hint": "删去引导语，直接陈述事实"
+    },
+    {
+      "id": "AI09",
+      "phrase": "navigating the complexities of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 manage / address / work through + 具体难题"
+    },
+    {
+      "id": "AI10",
+      "phrase": "In conclusion, it is clear that",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为 In sum, / Overall, 并陈述具体结论而非『显而易见』"
+    },
+    {
+      "id": "AI11",
+      "phrase": "the key to success lies in",
+      "type": "模板句式",
+      "severity": "high",
+      "rewrite_hint": "改用具体因果陈述：X depends on Y because Z"
+    },
+    {
+      "id": "AI12",
+      "phrase": "a testament to",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 evidence of / illustrates / reflects"
+    },
+    {
+      "id": "AI13",
+      "phrase": "unlock the potential of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 realise / develop / improve the potential of，或直接动词"
+    },
+    {
+      "id": "AI14",
+      "phrase": "embark on a journey",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "删除比喻，改用 begin / undertake / start"
+    },
+    {
+      "id": "AI15",
+      "phrase": "In an era where",
+      "type": "过渡词套话",
+      "severity": "high",
+      "rewrite_hint": "改为 When / As / Since + 具体条件"
+    },
+    {
+      "id": "AI16",
+      "phrase": "the ever-evolving landscape of",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "删除 landscape/ever-evolving，改用具体领域名词"
+    },
+    {
+      "id": "AI17",
+      "phrase": "Moreover, Furthermore, Additionally（三段连用）",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "交替或省略，用句意本身承载递进关系"
+    },
+    {
+      "id": "AI18",
+      "phrase": "On the one hand... On the other hand...",
+      "type": "语义过度平衡",
+      "severity": "medium",
+      "rewrite_hint": "仅当真对立/权衡时使用；否则用 However / Conversely"
+    },
+    {
+      "id": "AI19",
+      "phrase": "Firstly... Secondly... Thirdly... Finally...",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改为逻辑连接：First / A further factor is / Finally"
+    },
+    {
+      "id": "AI20",
+      "phrase": "This is not just about X, it's about Y",
+      "type": "模板句式",
+      "severity": "high",
+      "rewrite_hint": "改直陈：X and Y matter because..."
+    },
+    {
+      "id": "AI21",
+      "phrase": "not only... but also...（高频）",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改为 X as well as Y / X and Y alike，避免模板感"
+    },
+    {
+      "id": "AI22",
+      "phrase": "serves as a reminder that",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为 This shows / demonstrates + 具体结论"
+    },
+    {
+      "id": "AI23",
+      "phrase": "the importance of X cannot be overstated",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为 X is critical because + 具体论据"
+    },
+    {
+      "id": "AI24",
+      "phrase": "opens up new avenues for",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 enables / allows / creates opportunities for，并具体说明"
+    },
+    {
+      "id": "AI25",
+      "phrase": "a double-edged sword",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改用 has both benefits and costs，或直接分述利弊"
+    },
+    {
+      "id": "AI26",
+      "phrase": "sheds light on",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 clarifies / explains / reveals"
+    },
+    {
+      "id": "AI27",
+      "phrase": "paves the way for",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 enables / facilitates / contributes to"
+    },
+    {
+      "id": "AI28",
+      "phrase": "In the digital age, ...",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "替换为具体语境：With the spread of X, ... / Since Y, ..."
+    },
+    {
+      "id": "AI29",
+      "phrase": "It goes without saying that",
+      "type": "元话语填充",
+      "severity": "high",
+      "rewrite_hint": "直接陈述，或补充引用支撑"
+    },
+    {
+      "id": "AI30",
+      "phrase": "Needless to say",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "删除，直接陈述"
+    },
+    {
+      "id": "AI31",
+      "phrase": "It is no exaggeration to say that",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改为直接陈述，或以数据支撑"
+    },
+    {
+      "id": "AI32",
+      "phrase": "Last but not least",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "改用 Finally / Ultimately"
+    },
+    {
+      "id": "AI33",
+      "phrase": "In a nutshell",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改用 In sum / Overall（学术写作用语）"
+    },
+    {
+      "id": "AI34",
+      "phrase": "When it comes to",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改用 Regarding / As for，或直接以名词短语作主语"
+    },
+    {
+      "id": "AI35",
+      "phrase": "At the end of the day",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改用 Ultimately / In the final analysis"
+    },
+    {
+      "id": "AI36",
+      "phrase": "With that being said",
+      "type": "过渡词套话",
+      "severity": "medium",
+      "rewrite_hint": "改用 However / Nevertheless"
+    },
+    {
+      "id": "AI37",
+      "phrase": "It is undeniable that",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为 The evidence suggests / It is widely accepted"
+    },
+    {
+      "id": "AI38",
+      "phrase": "This highlights the need for",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为 Consequently, X should...，直接给出行动指向"
+    },
+    {
+      "id": "AI39",
+      "phrase": "the multifaceted nature of",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "删除 multifaceted，具体列出各面：X involves A, B and C"
+    },
+    {
+      "id": "AI40",
+      "phrase": "the intricate interplay between",
+      "type": "抽象名词堆砌",
+      "severity": "high",
+      "rewrite_hint": "改用 the relationship between / how X and Y interact"
+    },
+    {
+      "id": "AI41",
+      "phrase": "a holistic approach",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 an integrated approach，或说明整合了哪些要素"
+    },
+    {
+      "id": "AI42",
+      "phrase": "paradigm shift",
+      "type": "泛化修饰",
+      "severity": "low",
+      "rewrite_hint": "若为实质范式转移可保留，否则改用 major change"
+    },
+    {
+      "id": "AI43",
+      "phrase": "transformative / groundbreaking / revolutionary（高频叠加）",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 significant / novel，并以证据说明其影响"
+    },
+    {
+      "id": "AI44",
+      "phrase": "seamlessly integrate",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 integrate，并说明整合方式"
+    },
+    {
+      "id": "AI45",
+      "phrase": "robust and comprehensive framework",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "改用 sound framework，或描述框架构成"
+    },
+    {
+      "id": "AI46",
+      "phrase": "In essence, ...",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为直接陈述核心结论"
+    },
+    {
+      "id": "AI47",
+      "phrase": "Taken together, these findings suggest",
+      "type": "空洞总结",
+      "severity": "low",
+      "rewrite_hint": "学术可用，但避免与 In sum/Overall 连用造成重复"
+    },
+    {
+      "id": "AI48",
+      "phrase": "further research is needed（作为结尾万能句）",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为具体方向：Future work should test X in Y setting"
+    },
+    {
+      "id": "AI49",
+      "phrase": "It is a widely held belief that",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改用 Many researchers argue that + 引用"
+    },
+    {
+      "id": "AI50",
+      "phrase": "This paper aims to explore/delve into",
+      "type": "模板句式",
+      "severity": "medium",
+      "rewrite_hint": "改用 This paper examines / argues that，明确研究问题"
+    },
+    {
+      "id": "AI51",
+      "phrase": "In order to better understand",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "改为 To understand / To explain，简洁化"
+    },
+    {
+      "id": "AI52",
+      "phrase": "a myriad of / a plethora of",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "改用 many / numerous / a range of"
+    },
+    {
+      "id": "AI53",
+      "phrase": "It should come as no surprise that",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "改为直接陈述，或省略"
+    },
+    {
+      "id": "AI54",
+      "phrase": "the ever-growing demand for",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "改用 the rising demand for，或给出具体数据"
+    },
+    {
+      "id": "AI55",
+      "phrase": "In conclusion, ... In summary, ... To conclude, ...（结论段重复收束）",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "结论段仅用一个收束表达，其余改为具体结论句"
+    },
+    {
+      "id": "AI56",
+      "phrase": "is very important for",
+      "type": "空洞评价",
+      "severity": "medium",
+      "rewrite_hint": "给出具体原因或数据，而非空泛评价"
+    },
+    {
+      "id": "AI57",
+      "phrase": "play an important role in",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "换具体动词：determines / constrains / enables"
+    },
+    {
+      "id": "AI58",
+      "phrase": "play a vital role in",
+      "type": "泛化修饰",
+      "severity": "high",
+      "rewrite_hint": "换具体动词，指出实际机制"
+    },
+    {
+      "id": "AI59",
+      "phrase": "is essential for",
+      "type": "空洞评价",
+      "severity": "medium",
+      "rewrite_hint": "说明为什么必要，或改成条件句"
+    },
+    {
+      "id": "AI60",
+      "phrase": "is crucial for",
+      "type": "空洞评价",
+      "severity": "medium",
+      "rewrite_hint": "改为具体因果：without X, Y fails because..."
+    },
+    {
+      "id": "AI61",
+      "phrase": "it is clear that",
+      "type": "元话语填充",
+      "severity": "medium",
+      "rewrite_hint": "直接陈述，删去引导语"
+    },
+    {
+      "id": "AI62",
+      "phrase": "there are many",
+      "type": "空泛数量",
+      "severity": "medium",
+      "rewrite_hint": "给出具体数字或范围"
+    },
+    {
+      "id": "AI63",
+      "phrase": "there are several",
+      "type": "空泛数量",
+      "severity": "low",
+      "rewrite_hint": "列出具体项"
+    },
+    {
+      "id": "AI64",
+      "phrase": "many things",
+      "type": "空泛数量",
+      "severity": "high",
+      "rewrite_hint": "具体化：which aspects?"
+    },
+    {
+      "id": "AI65",
+      "phrase": "leads to better",
+      "type": "空洞因果",
+      "severity": "medium",
+      "rewrite_hint": "给出机制与衡量方式"
+    },
+    {
+      "id": "AI66",
+      "phrase": "this will help them",
+      "type": "空洞承诺",
+      "severity": "medium",
+      "rewrite_hint": "改为可验证的结果"
+    },
+    {
+      "id": "AI67",
+      "phrase": "in modern business",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "替换为具体年份/行业/地区"
+    },
+    {
+      "id": "AI68",
+      "phrase": "in recent years",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "写出具体年份区间"
+    },
+    {
+      "id": "AI69",
+      "phrase": "has become increasingly",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "给出起点与数据"
+    },
+    {
+      "id": "AI70",
+      "phrase": "it is hard to",
+      "type": "空泛表述",
+      "severity": "low",
+      "rewrite_hint": "直接说明困难所在"
+    },
+    {
+      "id": "AI71",
+      "phrase": "we should pay attention to",
+      "type": "空洞建议",
+      "severity": "high",
+      "rewrite_hint": "改为具体行动项"
+    },
+    {
+      "id": "AI72",
+      "phrase": "achieve success",
+      "type": "空洞目标",
+      "severity": "medium",
+      "rewrite_hint": "定义成功指标"
+    },
+    {
+      "id": "AI73",
+      "phrase": "long-term sustainability",
+      "type": "空洞目标",
+      "severity": "low",
+      "rewrite_hint": "给出可持续性的衡量口径"
+    },
+    {
+      "id": "AI74",
+      "phrase": "cannot be overstated",
+      "type": "夸张套话",
+      "severity": "high",
+      "rewrite_hint": "删去夸张，用数据支撑重要性"
+    },
+    {
+      "id": "AI75",
+      "phrase": "serves as a critical foundation",
+      "type": "空洞总结",
+      "severity": "high",
+      "rewrite_hint": "改为具体功能描述"
+    },
+    {
+      "id": "AI76",
+      "phrase": "strike a balance between",
+      "type": "语义过度平衡",
+      "severity": "high",
+      "rewrite_hint": "指出实际取舍标准"
+    },
+    {
+      "id": "AI77",
+      "phrase": "the key is to",
+      "type": "空洞总结",
+      "severity": "medium",
+      "rewrite_hint": "删去，直接给结论"
+    },
+    {
+      "id": "AI78",
+      "phrase": "ultimately",
+      "type": "过渡词套话",
+      "severity": "low",
+      "rewrite_hint": "过度使用；多数情况可删"
+    },
+    {
+      "id": "AI79",
+      "phrase": "comprehensive disclosure",
+      "type": "抽象名词堆砌",
+      "severity": "low",
+      "rewrite_hint": "具体到披露项目"
+    },
+    {
+      "id": "AI80",
+      "phrase": "robust mechanisms",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "换成具体控制手段"
+    },
+    {
+      "id": "AI81",
+      "phrase": "informed decision-making",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "改为具体决策场景"
+    },
+    {
+      "id": "AI82",
+      "phrase": "decision-useful information",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "具体说明谁用它做什么决策"
+    },
+    {
+      "id": "AI83",
+      "phrase": "exercise professional judgment",
+      "type": "抽象名词堆砌",
+      "severity": "medium",
+      "rewrite_hint": "改为具体判断内容"
+    },
+    {
+      "id": "AI84",
+      "phrase": "fundamentally transformed",
+      "type": "泛化修饰",
+      "severity": "medium",
+      "rewrite_hint": "给出变化前后对比"
+    },
+    {
+      "id": "AI85",
+      "phrase": "rapidly evolving",
+      "type": "时空空泛",
+      "severity": "medium",
+      "rewrite_hint": "给出变化速度的证据"
+    },
+    {
+      "id": "AI86",
+      "phrase": "it affects many",
+      "type": "空洞陈述",
+      "severity": "medium",
+      "rewrite_hint": "具体说明影响哪些方面"
+    },
+    {
+      "id": "AI87",
+      "phrase": "good governance leads",
+      "type": "空洞因果",
+      "severity": "low",
+      "rewrite_hint": "给出治理与结果的机制"
+    },
+    {
+      "id": "AI88",
+      "phrase": "in conclusion",
+      "type": "过渡词套话",
+      "severity": "low",
+      "rewrite_hint": "结论段可删此引导"
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>写作助手 · 马来西亚中国留学生学术写作辅导</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">✦</span>
+    <div>
+      <h1>写作助手 <span class="ver">v0.6</span></h1>
+      <p class="sub">马来西亚 · 中国留学生本科 · 学术写作辅导</p>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="tab active" data-view="analyze">文本分析</button>
+    <button class="tab" data-view="policies">院校政策库</button>
+    <button class="tab" data-view="kb">知识库</button>
+    <button class="tab" data-view="learn">经验进化</button>
+    <button class="tab" data-view="about">说明</button>
+  </nav>
+</header>
+
+<div class="disclaimer-bar">
+  ⚠️ 本工具用于<b>写作辅导</b>：帮你发现写作问题、给出修改建议，帮助你<b>自己</b>把文章改得更好。不提供代写，不承诺通过任何检测系统。检测结果是概率性信号，非定案证据。
+</div>
+
+<main>
+
+<!-- ================= 文本分析 ================= -->
+<section id="view-analyze" class="view active">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>粘贴 / 拖入 你的英文作业 · 论文</h2>
+      <span id="wordCount" class="muted">0 词</span>
+    </div>
+
+    <div id="dropZone" class="drop-zone">
+      <div class="drop-icon">📄</div>
+      <div class="drop-text">
+        <b>把文档拖到这里</b>，或 <span class="drop-link">点击选择文件</span>
+      </div>
+      <div class="drop-hint">支持 .docx · .pdf · .txt · .md · .csv · .html（≤20MB）</div>
+      <input type="file" id="fileInput" accept=".docx,.pdf,.txt,.md,.markdown,.csv,.tsv,.json,.html,.htm,.rtf,.log" hidden>
+    </div>
+
+    <div id="fileMeta" class="file-meta hidden">
+      <span class="fm-name" id="fmName"></span>
+      <span class="fm-info" id="fmInfo"></span>
+      <button id="fmClear" class="fm-clear" title="移除文件">×</button>
+    </div>
+
+    <textarea id="inputText" placeholder="在此粘贴你的英文 essay / report / dissertation 段落，建议 150 词以上……也可以直接把文档拖到上面的虚线框里。"></textarea>
+
+    <div class="controls">
+      <label class="field">
+        <span>目标院校</span>
+        <select id="uniSelect"><option value="">-- 不指定 --</option></select>
+      </label>
+      <label class="field">
+        <span>专业方向</span>
+        <select id="majorSelect"><option value="">-- 不指定 --</option></select>
+      </label>
+      <button id="btnAnalyze" class="primary">开始分析</button>
+      <button id="btnDemo" class="ghost">载入示例</button>
+      <button id="btnClear" class="ghost">清空</button>
+    </div>
+  </div>
+
+  <div id="results" class="results hidden">
+
+    <div class="verdict-wrap">
+      <div class="verdict" id="verdictBox">
+        <div class="verdict-head">
+          <span class="verdict-label" id="verdictLabel">--</span>
+          <span class="verdict-sub" id="verdictSub"></span>
+        </div>
+        <p class="verdict-note" id="verdictNote"></p>
+      </div>
+      <div class="reliable-warn hidden" id="reliableWarn">
+        ⚠️ 文本过短（&lt; 120 词），统计特征不稳定，结果仅供参考，不代表真实检测结果。
+      </div>
+    </div>
+
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="score-ring" id="ringAi"><span id="scoreAi">--</span></div>
+        <h3>AI 倾向分</h3>
+        <p class="muted">多项文体特征综合，越高越像 AI</p>
+      </div>
+      <div class="score-card">
+        <div class="score-ring" id="ringDup"><span id="scoreDup">--</span></div>
+        <h3>重复风险</h3>
+        <p class="muted">文内重复 + 本地模板重叠</p>
+      </div>
+      <div class="score-card">
+        <div class="score-ring" id="ringBurst"><span id="scoreBurst">--</span></div>
+        <h3>句式变化度</h3>
+        <p class="muted">越低说明句子节奏越单一</p>
+      </div>
+      <div class="score-card">
+        <div class="score-ring" id="ringChing"><span id="scoreChing">--</span></div>
+        <h3>中式英语风险</h3>
+        <p class="muted">中式表达与搭配问题</p>
+      </div>
+      <div class="score-card">
+        <div class="score-ring" id="ringCite"><span id="scoreCite">--</span></div>
+        <h3>文献可疑度</h3>
+        <p class="muted">引用形态是否像 AI 编造</p>
+      </div>
+      <div class="score-card">
+        <div class="score-ring" id="ringFmt"><span id="scoreFmt">--</span></div>
+        <h3>格式规范度</h3>
+        <p class="muted">APA/MLA 引用 + 三段结构</p>
+      </div>
+    </div>
+
+    <div class="result-block">
+      <h2>① AI 特征明细（可解释）</h2>
+      <p class="muted">每项都是可计算的文体特征。**这些不是 GPTZero/Turnitin 的输出**，不能预测能否通过检测。</p>
+      <div id="styloList" class="stylo-list"></div>
+    </div>
+
+    <div class="result-block">
+      <h2>② 重复检测</h2>
+      <p class="muted" id="dupSummary"></p>
+      <div id="dupBoundary" class="dup-boundary"></div>
+      <div id="dupList" class="hit-list"></div>
+    </div>
+
+    <div class="result-block">
+      <h2>③ AI 套话与模板句命中</h2>
+      <p class="muted" id="aiTellSummary"></p>
+      <div id="aiTellList" class="hit-list"></div>
+    </div>
+
+    <div class="result-block">
+      <h2>④ 中式英语与搭配问题</h2>
+      <p class="muted" id="chingSummary"></p>
+      <div id="chingList" class="hit-list"></div>
+    </div>
+
+    <div class="result-block">
+      <h2>⑤ 句式节奏分析</h2>
+      <div id="burstChart" class="burst-chart"></div>
+      <p class="muted" id="burstSummary"></p>
+    </div>
+
+    <div class="result-block">
+      <h2>⑥ 修改示范</h2>
+      <p class="muted">参考改写手法（对照学习，不要直接照抄）：</p>
+      <div id="rewriteList" class="rewrite-list"></div>
+    </div>
+
+    <div class="result-block" id="policyBlock">
+      <h2>⑦ 院校政策提示</h2>
+      <div id="policyDetail" class="policy-detail"></div>
+    </div>
+
+    <div class="result-block" id="citeBlock">
+      <h2>⑧ 文献真实性溯源审查</h2>
+      <p class="muted">
+        <b>查什么</b>：AI 编造的文献（幻觉引用）—— 作者、年份、期刊、DOI 都像真的，实际不存在。
+        <b>怎么查</b>：只做<b>可疑度筛查</b>，<b>不联网核验</b>，把可疑引用挑出来交给你逐条核查。
+      </p>
+      <div id="citeSummary" class="cite-summary"></div>
+      <div id="citeBoundary" class="dup-boundary"></div>
+      <div id="citeList" class="hit-list"></div>
+      <div id="citeGuide" class="cite-guide"></div>
+    </div>
+
+    <div class="result-block" id="fmtBlock">
+      <h2>⑨ 格式规范检查（APA / MLA / 结构）</h2>
+      <p class="muted">
+        <b>查什么</b>：引用体系识别（APA 7 / MLA 9）、引用格式是否规范、以及
+        <b>Introduction / Body / Conclusion</b> 三段结构是否齐全。
+        <b>怎么查</b>：离线形态检查，输出的是<b>建议核对清单</b>，<b>不判分</b>，也不替代导师的评分标准。
+      </p>
+      <div id="fmtSummary" class="fmt-summary"></div>
+      <div id="fmtStructure" class="fmt-structure"></div>
+      <div id="fmtIssues" class="hit-list"></div>
+      <div id="fmtGuide" class="cite-guide"></div>
+    </div>
+
+    <div class="result-block" id="feedbackBlock">
+      <h2>⑩ 这个判断准吗？</h2>
+      <div id="feedbackBox" class="feedback-box hidden"></div>
+    </div>
+
+    <div class="result-block" id="learnerInline">
+      <h2>⑪ 本地经验速览</h2>
+      <p class="muted">以下是本机累积的检测经验（只存特征统计，不存原文）。完整面板见顶部「经验进化」标签。</p>
+      <div id="learnerBox" class="learner-box"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 院校政策库 ================= -->
+<section id="view-policies" class="view">
+  <div class="panel">
+    <h2>马来西亚高校 AI / 学术诚信政策库</h2>
+    <p class="muted">共 <b id="uniCount">0</b> 所院校 · 数据来源均为官方页面，未查到者已明确标注（不编造）</p>
+    <div class="filters">
+      <input id="uniSearch" type="text" placeholder="搜索院校名…">
+      <select id="uniType"><option value="">全部类型</option><option value="公立">公立</option><option value="私立">私立</option><option value="海外分校">海外分校</option></select>
+      <select id="uniPolicy"><option value="">全部政策状态</option><option value="明确">有明确政策</option><option value="部分">部分政策</option><option value="未知">未查到</option><option value="无">无 AI 条款</option></select>
+    </div>
+  </div>
+  <div id="uniGrid" class="uni-grid"></div>
+</section>
+
+<!-- ================= 知识库 ================= -->
+<section id="view-kb" class="view">
+  <div class="panel">
+    <h2>知识库总览</h2>
+    <p class="muted">本地整合数据库，供产品各模块调用</p>
+  </div>
+  <div id="kbStats" class="stats-grid"></div>
+  <div class="panel">
+    <div class="kb-tabs">
+      <button class="kb-tab active" data-kb="chinglish">中式英语模式</button>
+      <button class="kb-tab" data-kb="ai_tells">AI 腔特征</button>
+      <button class="kb-tab" data-kb="rewrite_examples">改写范式</button>
+      <button class="kb-tab" data-kb="pain_points">用户痛点</button>
+      <button class="kb-tab" data-kb="competitors">竞品拆解</button>
+      <button class="kb-tab" data-kb="majors">专业术语</button>
+    </div>
+    <div id="kbContent" class="kb-content"></div>
+  </div>
+</section>
+
+<!-- ================= 经验进化 ================= -->
+<section id="view-learn" class="view">
+  <div class="panel">
+    <h2>经验进化 · 本地自我校准</h2>
+    <p class="muted">
+      这个面板记录<b>本机的检测经验</b>：每分析一篇文章，系统就记住它的特征分布；你标注判断对错后，
+      系统会统计出哪些特征能区分 AI 与真人、哪些特征在误报真人，并给出调参建议。<br>
+      <b>注意</b>：①数据只存在你这台电脑的浏览器里，不上传；②只记特征统计量，<b>绝不记录原文</b>；
+      ③系统<b>不会自动改阈值</b>，所有调整都由你确认。
+    </p>
+  </div>
+  <div class="panel">
+    <div id="learnerFull" class="learner-box"></div>
+  </div>
+</section>
+
+<!-- ================= 说明 ================= -->
+<section id="view-about" class="view">
+  <div class="panel prose">
+    <h2>关于本工具</h2>
+    <h3>定位</h3>
+    <p>面向<b>在马来西亚读本科的中国留学生</b>的学术写作辅导工具。核心价值是<b>帮你发现写作问题、教你改</b>，而不是替你写。</p>
+
+    <h3>为什么不做「帮你过检测」</h3>
+    <ul>
+      <li><b>技术上行不通</b>：Turnitin / iThenticate 的比对库是闭源付费资产，没有任何对个人开放的 API。任何声称「接入 Turnitin 真库」的工具都是假的。</li>
+      <li><b>规则上会被抓</b>：Turnitin 已于 2025 年 8 月上线改写检测，Pangram 第 4 代模型可识别 13 款主流降 AI 工具，准确率 98.83%。「改词」路线已失效。</li>
+      <li><b>后果由学生承担</b>：海外高校普遍将未声明的 AI 使用列为学术不端，可判零分、停学、开除，留学生还可能影响签证。</li>
+    </ul>
+    <p>所以我们做的是：<b>帮你把文章写得更好、更像你自己写的、更符合学术规范</b>，责任在你自己手里。</p>
+
+    <h3>六个分析维度</h3>
+    <ol>
+      <li><b>AI 倾向分</b>：六项可解释文体特征综合（词汇丰富度、句式波动、标点形态、虚词占比、词形复杂度、AI 套话）</li>
+      <li><b>重复风险</b>：文内重复 + 本地模板重叠 + 万能套语密度</li>
+      <li><b>中式英语风险</b>：冗余表达、中式直译、搭配错误的命中</li>
+      <li><b>文献真实性溯源审查</b>：筛查 AI 编造的文献（幻觉引用），提示逐条核查</li>
+      <li><b>格式规范检查</b>：APA 7 / MLA 9 引用体系识别与格式合规提示 + Introduction / Body / Conclusion 三段结构完整性（<b>建议核对清单，不判分</b>）</li>
+      <li><b>院校合规提示</b>：按你选的学校，提示它的 AI 政策与相似度红线</li>
+    </ol>
+
+    <h3>数据来源</h3>
+    <ul>
+      <li>A 类：18 所马来西亚高校官方政策页（未查到者已标注）</li>
+      <li>B 类：公开社群/平台调研（受限平台已说明）</li>
+      <li>C 类：GPTZero / Turnitin / Originality.ai 等公开技术说明</li>
+      <li>D 类：12 个竞品功能与定价拆解</li>
+      <li>E 类：中式英语 48 条、AI 腔 88 条、改写范式 36 组、专业术语 8×22 条</li>
+      <li>F 类：文献幻觉形态库 8 类 + 核验指引（离线筛查，不联网核验）</li>
+      <li>G 类（v0.6）：现代真实学生作业语料（4 篇真人 + 1 篇纯 AI），用于校正检测阈值的<b>时代偏差</b></li>
+      <li>H 类：APA 第 7 版 / MLA 第 9 版格式规则库（逐条对照大学图书馆官方指南核实，非凭记忆书写）</li>
+    </ul>
+
+    <h3>v0.6 阈值重标定说明（请务必了解其局限）</h3>
+    <p>v0.5 及之前的阈值是在 <b>19 世纪公版英文 vs 现代 AI</b> 语料上标定的，存在明显的<b>时代偏差</b>——现代学生的句子波动远大于 19 世纪文本，导致旧阈值对现代 AI 文本<b>漏报</b>。</p>
+    <p>v0.6 依据用户提供的真实现代学生作业做了重标定，主要改动：</p>
+    <ul>
+      <li><b>句式波动</b>：句长 CV 起算点由 0.32 上移至 0.60（现代真人区间下沿 0.682），并<b>剔除已失效的「平均句长」子项</b></li>
+      <li><b>词形复杂度</b>：权重由 0.10 上调至 0.14（该项在现代语料上仍完全分离）</li>
+      <li><b>融合策略</b>：修正「证据分被低分特征稀释」的缺陷，并新增单项极强时的放行通道</li>
+    </ul>
+    <p class="muted">⚠️ <b>诚实边界</b>：本次重标定所用现代 AI 样本仅 <b>1 篇</b>，仅能支持<b>方向性校正</b>，不足以支撑精确标定。所有阈值取值均以「现代真人区间下沿再留安全余量」为准，宁可保守。随着样本积累会持续再校准。已实测确认：4 篇现代真人作业全部判低（0 误报），标注为纯 AI 的作业由 41 分（漏报）升至 79 分。</p>
+
+    <h3>格式规范检查（APA / MLA / 结构）说明</h3>
+    <p>这一维度检查两件事：<b>引用格式是否规范</b>，以及<b>三段结构是否齐全</b>。</p>
+    <ul>
+      <li><b>引用体系识别</b>：依据正文括注形态与参考文献页标记，判断你用的是 APA 7 还是 MLA 9；若两者特征同时出现，会明确提示「一篇作业只能用一种体系」。</li>
+      <li><b>格式合规提示</b>：DOI 是否写成完整链接 <code>https://doi.org/…</code>（APA 7 要求且末尾不加句点）、是否残留 APA 6 的 <code>Retrieved from</code>、参考文献页标题是否配对（APA 用 References，MLA 用 Works Cited）等。</li>
+      <li><b>三段结构</b>：检查 Introduction / Body / Conclusion 是否齐全。带小标题、三段式（各一段）、多段论述三种形态都能识别；<b>表格 / 清单型文档会明确标注「本项不适用」，而不是扣分</b>。</li>
+    </ul>
+    <p class="muted">⚠️ <b>能力边界</b>：本项是<b>离线形态检查</b>，输出为「<b>建议核对清单</b>」，<b>不判分</b>，也<b>不替代导师的 rubric</b>。它只能发现「写法是否符合格式骨架」，不能核验文献真伪（那属于上一项「文献真实性溯源审查」，且同样不联网）。各校各导师要求可能有差异，请以你收到的评分标准为准。</p>
+
+    <h3>免责声明</h3>
+    <p>本工具输出为<b>启发式建议</b>，非任何官方检测系统结果，不构成学术合规保证。检测类工具的分数均为概率性信号，各校政策也以其最新官方发布为准。请始终遵守你所在学校的学术诚信规定。</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>写作助手 v0.6 · 本地运行 · 数据构建于 <span id="buildTime">--</span></span>
+</footer>
+
+<script src="assets/vendor/jszip.min.js"></script>
+<script src="assets/vendor/pdf.min.js"></script>
+<script src="assets/docparser.js"></script>
+<script src="assets/learner.js"></script>
+<script src="assets/stylometry.js"></script>
+<script src="assets/duplicate.js"></script>
+<script src="assets/citation.js"></script>
+<script src="assets/format.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

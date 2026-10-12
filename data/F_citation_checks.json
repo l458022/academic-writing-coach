@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "name": "文献真实性溯源审查知识库",
+    "purpose": "识别 AI 生成的『编造文献』（幻觉引用）—— 即引用了看起来像真、实则不存在或无法核实的文献",
+    "positioning": "写作辅导工具：帮学生发现自己文章里的可疑引用，避免因编造文献构成学术不端",
+    "version": "1.0",
+    "created": "2026-10-11",
+    "honest_scope": "本模块**不做联网核验**（离线运行、无 DOI 数据库访问权限）。它做的是『可疑度筛查』：把看起来像幻觉的引用挑出来，提示你逐条去 DOI/Google Scholar 核查。因此它的结论是『可疑 / 需人工核实』，不是『确定为假』。",
+    "reference": [
+      "GPTZero / Turnitin 均在其技术说明中指出：AI 幻觉引用（fabricated citations）是 AI 写作最典型、也最难被表面语法检查发现的缺陷",
+      "学术出版实践中，Crossref 可核验的 DOI 是判断文献真伪的最低成本手段",
+      "Retraction Watch 统计：2023-2025 年撤稿论文中相当比例涉及引用链污染"
+    ]
+  },
+
+  "hallucination_patterns": [
+    {
+      "id": "HC01",
+      "type": "作者名存疑",
+      "severity": "medium",
+      "pattern": "et\\s+al\\.\\s*,?\\s*(19|20)\\d{2}",
+      "desc": "「et al. + 年份」是 AI 最常编造的引用形态，因为模型只需编出一个像样的姓氏与年份组合",
+      "hint": "核对第一位作者是否真实存在、以及该年是否确有该文；常见的幻觉形态是作者姓名组合看起来合理但从无合作"
+    },
+    {
+      "id": "HC02",
+      "type": "期刊名泛化",
+      "severity": "medium",
+      "pattern": "(Journal of Advanced|Journal of Modern|International Journal of|Research in|Studies in)\\s+([A-Z][a-z]+\\s+){0,3}(Studies|Research|Science|Technology|Management|Education|Economics|Analysis|Innovation|Perspectives)",
+      "desc": "AI 倾向生成「国际某某研究杂志」这类听起来权威但可能根本不存在的期刊名",
+      "hint": "去 ISSN 门户或 JCR 名单查该期刊是否真实收录；不存在于任何数据库的刊名高度可疑"
+    },
+    {
+      "id": "HC03",
+      "type": "DOI 形态异常",
+      "severity": "high",
+      "pattern": "10\\.\\d{4}/[A-Za-z]{1,6}\\b",
+      "desc": "DOI 是 AI 幻觉的重灾区：格式看似标准，但后缀常过短、只含字母，实际并不存在",
+      "hint": "把 DOI 粘到 doi.org 或 Crossref 查询——真 DOI 会立即解析；查不到的几乎可确定为编造"
+    },
+    {
+      "id": "HC04",
+      "type": "顶刊卷期异常",
+      "severity": "medium",
+      "pattern": "(Nature|Science|Cell|The Lancet|NEJM|JAMA)[^.]{0,40}\\b(19|20)\\d{2}\\b[^.]{0,30}(pp?\\.|pages)",
+      "desc": "顶刊常被 AI 拿来当『权威背书』，但给出的卷期页码往往对不上",
+      "hint": "顶刊文献需精确到卷/期/页码核对，AI 编造的页码常与真实论文不符"
+    },
+    {
+      "id": "HC05",
+      "type": "统计数字无出处",
+      "severity": "high",
+      "pattern": "\\b\\d{1,3}(\\.\\d+)?\\s*%",
+      "desc": "出现具体百分比但附近没有引用标记，是 AI 编造数据与真实学术写作的分水岭",
+      "hint": "学术写作中每一个具体数字都应有来源；找不到出处的数字必须删除或补引用"
+    },
+    {
+      "id": "HC06",
+      "type": "'研究表明'类空引",
+      "severity": "high",
+      "pattern": "(studies|research|researchers|scholars|experts|evidence|findings)\\s+(have\\s+|has\\s+)?(shown|suggests?|suggested|indicates?|indicated|finds?|found|reveals?|revealed|demonstrates?|demonstrated|confirms?|confirmed|proves?|proven)\\s+that",
+      "desc": "『研究表明/研究发现』却不说谁的研究 —— AI 极爱用这种『有背书但无出处』的句式",
+      "hint": "补上具体作者与年份（如 Smith et al., 2021），否则删除该论断"
+    },
+    {
+      "id": "HC07",
+      "type": "'大量研究'类模糊量化",
+      "severity": "medium",
+      "pattern": "(a\\s+(growing|large|significant|substantial)\\s+body\\s+of\\s+(research|literature|evidence)|numerous\\s+studies|many\\s+researchers|extensive\\s+research|prior\\s+studies\\s+have)",
+      "desc": "『越来越多的研究』『大量研究表明』也是无出处的模糊背书，AI 高频句式",
+      "hint": "改为引用 2-3 篇具体文献，或删去该笼统论断"
+    },
+    {
+      "id": "HC08",
+      "type": "作者名重复异常",
+      "severity": "medium",
+      "pattern": "\\b(Smith|Johnson|Williams|Brown|Jones|Davis|Miller|Wilson|Anderson|Lee|Wang|Zhang|Chen|Liu|Yang|Kumar|Singh|Ahmed)\\s+et\\s+al\\.",
+      "desc": "AI 编造引用时高度偏好少数几个常见姓氏，同一篇文章里反复出现同一批『万能作者』极可疑",
+      "hint": "检查文中引用的作者是否集中在极少数常见姓氏上；真实文献综述的作者谱通常更分散"
+    }
+  ],
+
+  "fabrication_signals": {
+    "note": "以下信号用于加权『编造风险分』，非独立判定依据",
+    "signals": [
+      {"key": "no_reference_section", "desc": "文中出现大量引用标记却没有任何参考文献列表", "weight": 18},
+      {"key": "dangling_marker", "desc": "正文有 (Author, 2020) 形式标记，但文献列表里找不到对应条目", "weight": 22},
+      {"key": "orphan_entry", "desc": "文献列表有条目，但正文从未引用过它", "weight": 10},
+      {"key": "doi_unformatted", "desc": "有 DOI 字样但格式不完整（缺 10. 前缀或后缀过短）", "weight": 16},
+      {"key": "unsourced_number", "desc": "具体统计数字附近无任何引用标记", "weight": 20},
+      {"key": "vague_attribution", "desc": "『研究表明』类空引句出现", "weight": 14},
+      {"key": "author_concentration", "desc": "引用作者过度集中在少数常见姓氏", "weight": 12},
+      {"key": "year_anomaly", "desc": "出现未来年份或不合理久远的引用年份", "weight": 14},
+      {"key": "journal_not_verifiable", "desc": "期刊名形态可疑", "weight": 16}
+    ]
+  },
+
+  "verification_guide": {
+    "title": "手动核验清单（本工具做不到的，必须你自己做）",
+    "steps": [
+      "把每个 DOI 复制到 https://doi.org —— 能解析 = 真实存在",
+      "作者+年份+标题丢进 Google Scholar —— 找不到完全匹配 = 高度可疑",
+      "期刊名到 https://portal.issn.org 或 Scopus 期刊列表 —— 查不到 ISSN = 期刊可能不存在",
+      "顶刊文献到 PubMed/官网核对卷期页码",
+      "核对参考文献列表与正文引用是否一一对应（正文有的列表要有，列表有的正文要引）",
+      "数字类论断：找到原始出处，找不到就删掉数字或标注为估算"
+    ],
+    "disclaimer": "本工具不联网、不查 DOI 数据库，无法给出『真假』结论。它只负责把可疑引用挑出来，降低你漏检的概率。最终核验责任在作者本人。"
+  }
+}

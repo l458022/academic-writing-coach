@@ -1,0 +1,47 @@
+[
+  {
+    "key": "academic_abstract_ai",
+    "words": 190,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "academic_abstract_ai2",
+    "words": 172,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "technical_dense_ai",
+    "words": 154,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "technical_dense_ai2",
+    "words": 178,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "business_report_ai",
+    "words": 148,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "educational_ai",
+    "words": 150,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "educational_ai2",
+    "words": 154,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "paraphrased_ai",
+    "words": 146,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  },
+  {
+    "key": "argumentative_ai",
+    "words": 124,
+    "source": "AI-generated (manually authored to simulate LLM output styles)"
+  }
+]

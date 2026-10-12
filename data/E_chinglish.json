@@ -1,0 +1,359 @@
+{
+  "meta": {
+    "name": "中式英语（Chinglish）常见错误模式库",
+    "purpose": "面向马来西亚中国留学生的学术写作辅导：识别中式英语病灶，给出学术英语改法",
+    "positioning": "写作辅导工具（帮助学生自己修改），非代写",
+    "version": "1.0",
+    "created": "2026-10-11",
+    "total": 48,
+    "categories": [
+      "冗余表达",
+      "中式直译",
+      "搭配错误",
+      "连接词滥用",
+      "被动与名词化滥用",
+      "冠词与单复数",
+      "时态与语态",
+      "情态与语气",
+      "语序与句式"
+    ]
+  },
+  "patterns": [
+    {
+      "id": "CH01",
+      "wrong": "In my opinion, I think that...",
+      "issue": "观点引导语叠加，两种表态词重复，属中式冗余习惯（中文常说『在我看来，我认为』）",
+      "suggestion": "直接用 I argue / I contend / This paper argues，或删去引导语让论点自己说话",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH02",
+      "wrong": "very very important / extremely extremely useful",
+      "issue": "用副词叠加强调，而非换用更精确的形容词，口语化且显稚嫩",
+      "suggestion": "改用单一强形容词：crucial / pivotal / critical / indispensable",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH03",
+      "wrong": "The reason is because...",
+      "issue": "reason 与 because 语义重叠，中文『原因是……因为』直译",
+      "suggestion": "The reason is that... / This is because... / 直接用 because 引导",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH04",
+      "wrong": "repeat again / return back / advance forward / discuss together",
+      "issue": "动词已含方向或重复义，再加副词属同义重复",
+      "suggestion": "删去冗余副词：repeat / return / advance / discuss",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH05",
+      "wrong": "In recent years, with the rapid development of society, ...",
+      "issue": "万能开头套话，信息量为零，几乎所有作文同构",
+      "suggestion": "用具体的时间、现象或数据切入：Since 2018, ... / The rise of X has...",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH06",
+      "wrong": "first of all, last but not least, all in all, in a word",
+      "issue": "口语化套话堆砌，学术写作中显空泛",
+      "suggestion": "用 First / Finally / In sum / Overall，或直接以论点句替代",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH07",
+      "wrong": "make a research / do a research",
+      "issue": "research 作不可数名词，不与 make/do 搭配；研究本身用 conduct",
+      "suggestion": "conduct research / carry out a study",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH08",
+      "wrong": "discuss about the issue",
+      "issue": "discuss 是及物动词，无需 about，中文『讨论关于』直译",
+      "suggestion": "discuss the issue / debate the issue",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH09",
+      "wrong": "learn knowledge / study knowledge",
+      "issue": "knowledge 不能 learn，只能 acquire/gain/obtain；中文『学习知识』直译",
+      "suggestion": "acquire knowledge / gain knowledge / learn about X",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH10",
+      "wrong": "open the light / close the light",
+      "issue": "中文『开灯/关灯』直译，英语用 turn on/off",
+      "suggestion": "turn on the light / switch off the light",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH11",
+      "wrong": "How to say this in English?",
+      "issue": "疑问句缺主语，中文『怎么说』直译",
+      "suggestion": "How do you say this in English? / What is the English for this?",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH12",
+      "wrong": "I very like this theory.",
+      "issue": "very 不能修饰动词，中文『很喜欢』直译",
+      "suggestion": "I like this theory very much. / I am strongly drawn to this theory.",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH13",
+      "wrong": "Although..., but...",
+      "issue": "英语中 although 与 but 不能同现，中文『虽然……但是』直译",
+      "suggestion": "Although X, Y. / X, but Y.（二选一）",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH14",
+      "wrong": "Because..., so...",
+      "issue": "because 与 so 不能同现，中文『因为……所以』直译",
+      "suggestion": "Because X, Y. / X, so Y.（二选一）",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH15",
+      "wrong": "With the development of..., people's living standard has improved.",
+      "issue": "『随着……的发展』句式模板化，缺乏具体论据",
+      "suggestion": "以具体机制或证据开头：Falling infant mortality since 1990 reflects...",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH16",
+      "wrong": "more and more students / more and more important",
+      "issue": "『越来越』直译，口语化且笼统",
+      "suggestion": "a growing number of students / increasingly important / rising",
+      "category": "中式直译"
+    },
+    {
+      "id": "CH17",
+      "wrong": "Nowadays, ... / With the rapid development of modern society...",
+      "issue": "Nowadays 起手为典型中式作文开头，信息空泛",
+      "suggestion": "用具体时间或语境：In contemporary Malaysia, ... / Since the 2020 pandemic, ...",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH18",
+      "wrong": "give a suggestion / give an advice",
+      "issue": "advice 不可数，不用 an；give 与 advice 搭配弱",
+      "suggestion": "offer a suggestion / provide advice / recommend that...",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH19",
+      "wrong": "pay attention on / focus in",
+      "issue": "介词搭配错误，应为 pay attention to / focus on",
+      "suggestion": "pay attention to / focus on / concentrate on",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH20",
+      "wrong": "according to my opinion",
+      "issue": "according to 只引他人/来源，不引自己观点",
+      "suggestion": "In my view / I believe / From my perspective",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH21",
+      "wrong": "affect to / influence on the result（动词误用）",
+      "issue": "affect 为及物动词，不加 to；influence 作动词亦及物",
+      "suggestion": "affect the result / influence the result / have an influence on the result",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH22",
+      "wrong": "play an important role in...（滥用）",
+      "issue": "该短语被无限套用，成为模板填充物，缺乏具体动词",
+      "suggestion": "改用具体动词：X drives / enables / constrains / shapes Y",
+      "category": "搭配错误"
+    },
+    {
+      "id": "CH23",
+      "wrong": "Firstly, ... Secondly, ... Thirdly, ... Lastly, ...",
+      "issue": "序数连接词机械排列，段落沦为清单，缺乏逻辑层级",
+      "suggestion": "用逻辑关系连接：First / In addition / A further factor is / Finally，或省去显式标记",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH24",
+      "wrong": "Moreover, ... Furthermore, ... In addition, ...（连续堆叠）",
+      "issue": "近义递进词连用，逻辑关系被稀释，读来重复",
+      "suggestion": "交替使用 Moreover / Also / Beyond this / Equally，并让句子本身承载递进",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH25",
+      "wrong": "In conclusion, as mentioned above, to sum up, in a nutshell...",
+      "issue": "结论段引导语叠加，中文『综上所述』多次出现",
+      "suggestion": "一段一个收束表达：In sum / Overall / These findings suggest that...",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH26",
+      "wrong": "On the one hand, ... On the other hand, ...（每段硬套）",
+      "issue": "强行平衡句式，为对仗而配对，观点其实并不对立",
+      "suggestion": "仅在真正对立/权衡时使用；否则用 However / Conversely / By contrast",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH27",
+      "wrong": "It is worth noting that... / It should be noted that...（频繁使用）",
+      "issue": "提示语滥用，稀释信息密度，属典型论文腔填充",
+      "suggestion": "直接陈述该内容，或改用 Notably, / Importantly,",
+      "category": "连接词滥用"
+    },
+    {
+      "id": "CH28",
+      "wrong": "The problem was solved by us. / The data was analyzed by the researcher.",
+      "issue": "无必要使用被动语态，中文习惯『被……』迁移；主动更直接",
+      "suggestion": "We solved the problem. / I analyzed the data.（方法学中被动可保留，但勿滥用）",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH29",
+      "wrong": "The implementation of the optimization of the system is necessary.",
+      "issue": "名词化堆叠（implementation/optimization），动词被抽象化，句意模糊",
+      "suggestion": "The system must be optimized. / We need to optimize the system.",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH30",
+      "wrong": "There is a growing tendency for the majority of the students to...",
+      "issue": "there be + 抽象名词 + of 结构，冗长绕口",
+      "suggestion": "Most students now... / Students increasingly...",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH31",
+      "wrong": "make an investigation of / conduct an analysis of / perform a comparison of",
+      "issue": "轻动词 + 名词化结构，啰嗦且书面冗余",
+      "suggestion": "investigate / analyze / compare",
+      "category": "被动与名词化滥用"
+    },
+    {
+      "id": "CH32",
+      "wrong": "a lot of / lots of / plenty of（学术语境）",
+      "issue": "口语化量词，学术写作不当",
+      "suggestion": "many / numerous / a substantial number of / considerable",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH33",
+      "wrong": "good / bad / nice / big / small（无具体性）",
+      "issue": "笼统评价词，缺乏学术精确度",
+      "suggestion": "effective / beneficial / detrimental / substantial / negligible",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH34",
+      "wrong": "get / got（学术语境）",
+      "issue": "get 过于口语，且语义模糊",
+      "suggestion": "obtain / receive / acquire / become / achieve",
+      "category": "冗余表达"
+    },
+    {
+      "id": "CH35",
+      "wrong": "the society / the nature / the life（抽象名词误加冠词）",
+      "issue": "泛指抽象概念时误加定冠词，中文无冠词系统迁移",
+      "suggestion": "society / nature / life（泛指）",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH36",
+      "wrong": "many researches / several knowledges / various informations",
+      "issue": "不可数名词误用复数，中文名词无复数形态迁移",
+      "suggestion": "much research / several studies / various pieces of information",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH37",
+      "wrong": "a research / an evidence / a feedback",
+      "issue": "不可数名词误加不定冠词",
+      "suggestion": "a study / a piece of evidence / some feedback",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH38",
+      "wrong": "In this essay I will write about...（可写性陈述）",
+      "issue": "声明『我要写什么』而非直接写，属中文作文习惯",
+      "suggestion": "直接进入论证：This essay examines... 或直接陈述论点",
+      "category": "语序与句式"
+    },
+    {
+      "id": "CH39",
+      "wrong": "I think maybe probably it is...",
+      "issue": "情态词叠加，立场含糊，显得不确定",
+      "suggestion": "I argue that... / It is likely that... / The evidence suggests...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH40",
+      "wrong": "Everyone knows that... / As we all know, ...",
+      "issue": "诉诸常识，未提供引用，学术论证缺失",
+      "suggestion": "删除，或补充引用：As Smith (2020) demonstrates, ...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH41",
+      "wrong": "It is undoubted that... / There is no doubt that...",
+      "issue": "绝对化断言，缺乏限定语，易被质疑",
+      "suggestion": "加限定：The evidence strongly suggests that... / It is widely accepted that...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH42",
+      "wrong": "The company should be responsible for...（应然陈述未加论证）",
+      "issue": "直接下价值判断，缺中间论证步骤",
+      "suggestion": "补论证：Because X, the company bears responsibility for...",
+      "category": "情态与语气"
+    },
+    {
+      "id": "CH43",
+      "wrong": "He didn't went / She have went",
+      "issue": "时态错误，助动词后误用动词过去式，中文无时态屈折迁移",
+      "suggestion": "He didn't go / She has gone",
+      "category": "时态与语态"
+    },
+    {
+      "id": "CH44",
+      "wrong": "In the past ten years, the technology change rapidly.",
+      "issue": "现在完成/一般时态与时间状语不匹配，主语单复数与动词不一致",
+      "suggestion": "Over the past decade, technology has changed rapidly.",
+      "category": "时态与语态"
+    },
+    {
+      "id": "CH45",
+      "wrong": "Please give me some good advices about my study.",
+      "issue": "advice 不可数误加 s，study 单复数与语境不符，口语化请求",
+      "suggestion": "I would welcome any advice on my studies.",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH46",
+      "wrong": "The data shows that... / The data is...（单复数误判）",
+      "issue": "data 在学术写作中常作复数（datum 的复数），部分语境已语法化为单数，需一致",
+      "suggestion": "The data show that... / The dataset shows...（全篇统一）",
+      "category": "冠词与单复数"
+    },
+    {
+      "id": "CH47",
+      "wrong": "I believe the theory which is proposed by Smith is very useful for us to solve the problem.",
+      "issue": "定语从句冗长、which is 冗余、very useful for us to 结构笨重",
+      "suggestion": "Smith's theory offers a useful framework for solving the problem.",
+      "category": "语序与句式"
+    },
+    {
+      "id": "CH48",
+      "wrong": "As a student, we should study hard.",
+      "issue": "主语人称不一致（As a student 单数 vs we 复数），中文泛指迁移",
+      "suggestion": "As students, we should... / As a student, one should...",
+      "category": "语序与句式"
+    }
+  ]
+}

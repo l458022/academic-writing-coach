@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "project": "马来西亚中国留学生学术写作辅导产品 - 竞品拆解",
+    "analyst_role": "竞品分析师",
+    "date": "2026-10-11",
+    "currency_note": "价格均为调研当日公开标价，促销活动会浮动；USD/RMB/MYR 未统一折算",
+    "usd_to_rmb_ref": 7.2,
+    "usd_to_myr_ref": 4.7
+  },
+  "competitors": [
+    {
+      "id": "grammarly",
+      "name": "Grammarly (现隶属 Superhuman)",
+      "category": "通用写作助手 + 查重 + AI检测",
+      "target_users": "全球通用写作人群（学生/职场/英文非母语者）",
+      "core_features": {
+        "语法拼写检查": true,
+        "全文改写rewrite": true,
+        "语气调整tone": true,
+        "查重plagiarism": true,
+        "AI文本检测": true,
+        "改写paraphrase": true,
+        "生成式AI写作": true,
+        "引用管理": false,
+        "降AI率humanize": false,
+        "Turnitin兼容报告": false,
+        "中文本地化": false,
+        "马来语支持": false,
+        "实时协作/团队": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {"name": "Free", "price_annual": 0, "price_monthly": 0, "note": "100 AI prompts/月，基础语法"},
+          {"name": "Pro", "price_annual_effective_monthly": 12, "price_monthly": 30, "price_annual_total": 144, "quarterly": 60, "note": "含查重+AI检测，2000 AI prompts/月，7天试用"},
+          {"name": "Business (Superhuman suite)", "price_annual_effective_monthly": 33, "price_monthly": 40},
+          {"name": "Enterprise", "price": "contact sales"}
+        ],
+        "student_discount": "无明确公开学生折扣"
+      },
+      "strengths": ["品牌认知度最高", "免安装/多平台集成好", "免费档能覆盖基础语法", "查重+AI检测同一入口"],
+      "weaknesses": ["面向通用英文写作，非学术/非查重专精", "查重库远小于 Turnitin/知网", "AI检测非强项，与 Turnitin 结果不一致", "无中文/马来语本地化", "无降AI率功能"],
+      "localization": "多语言但以英文为核心，无中文/马来语深度支持",
+      "compliance_stance": "中性；官方不鼓励学术作弊，但未反对使用；提供AI检测间接服务于院校",
+      "malaysia_relevance": "低-中：学生可能用作语法检查，但无法满足马来西亚大学 Turnitin 报告要求"
+    },
+    {
+      "id": "turnitin_draft_coach",
+      "name": "Turnitin Draft Coach",
+      "category": "院校授权 - 学生自查工具",
+      "target_users": "已购 Turnitin Feedback Studio / Originality 的院校学生",
+      "access_model": "必须由院校购买 Turnitin 授权；学生无法单独订阅",
+      "core_features": {
+        "相似度自查similarity": true,
+        "引用格式检查citation": true,
+        "语法检查grammar": true,
+        "AI检测": false,
+        "降AI率humanize": false,
+        "改写paraphrase": false,
+        "Google Docs支持": true,
+        "Word for the web支持": true,
+        "中文本地化": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "note": "学生端免费（由院校统一付费）",
+        "institutional_price": "机构定制报价，未公开"
+      },
+      "limitations": ["仍为 Beta 状态", "仅覆盖相似度/引用/语法，不含AI检测", "依赖院校订阅，学生无法自购", "有单次检查次数限制", "仅支持 Google Docs 和 Word 网页版"],
+      "strengths": ["与最终 Turnitin 提交系统同源，结果与学校一致", "学生免费", "官方定位为'提交前自查'，合规无争议"],
+      "weaknesses": ["无自购通道，未订阅院校学生用不上", "不含AI检测（学生最担心的恰恰是AI率）", "无降重/降AI服务", "无中文界面外的本地化服务"],
+      "localization": "有简体中文界面；但服务模式为机构授权，非个人化服务",
+      "compliance_stance": "强反对学术作弊；工具本身即诚信工具",
+      "malaysia_relevance": "高（院校依托）但学生不可自购 → 产生付费代检/代降的灰色需求"
+    },
+    {
+      "id": "writefull",
+      "name": "Writefull",
+      "category": "学术写作专精工具",
+      "target_users": "科研作者、ESL 研究人员、期刊投稿者",
+      "core_features": {
+        "学术语法/措辞": true,
+        "改写paraphrase": true,
+        "标题生成": true,
+        "摘要生成": true,
+        "Academic Phrasebank句式库": true,
+        "Word集成": true,
+        "Overleaf/LaTeX集成": true,
+        "查重plagiarism": false,
+        "AI检测": false,
+        "降AI率humanize": false,
+        "中文本地化": false,
+        "Turnitin兼容": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {"name": "Free", "price": 0, "note": "有限额度"},
+          {"name": "Premium", "price_annual_effective_monthly": 5.46, "price_monthly": 15, "note": "按年约 $5.46/月"},
+          {"name": "Institutional", "price": "机构定制"}
+        ]
+      },
+      "strengths": ["学术语域训练，纠正符合期刊规范", "Overleaf 集成近唯一", "价格极低", "被多家出版社采用"],
+      "weaknesses": ["功能窄（只做语言）", "无查重、无AI检测、无引用检索", "界面偏旧，非LLM原生", "无中文/马来语支持", "无降AI率"],
+      "localization": "无中文支持，仅英文（部分学术语言）",
+      "compliance_stance": "中性偏学术诚信；定位语言辅助，非规避工具",
+      "malaysia_relevance": "低-中：适合硕博投稿，不适合本科作业场景"
+    },
+    {
+      "id": "quillbot",
+      "name": "QuillBot",
+      "category": "改写/paraphrase 工具",
+      "target_users": "学生、非母语写作者、内容写手",
+      "core_features": {
+        "改写paraphrase": true,
+        "语法检查": true,
+        "查重plagiarism": true,
+        "AI检测": true,
+        "总结summarizer": true,
+        "翻译translator": true,
+        "生成式AI": true,
+        "降AI率humanize": true,
+        "中文本地化": "部分（支持多语言但非本土化）",
+        "Turnitin兼容": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {"name": "Free", "price": 0, "note": "改写上限125词/次，2种模式，AI检测1200词"},
+          {"name": "Premium", "price_monthly": 19.95, "price_annual_effective_monthly": 4.17, "note": "无限改写、查重25000词/月、无限AI检测"},
+          {"name": "Team", "price_annual_effective_monthly": 3.75, "note": "2-10人$3.75；11-50人$3.33；51+ $2.91"}
+        ]
+      },
+      "strengths": ["改写好用、价格便宜（年付$4.17/月）", "与学生需求高度匹配", "含查重+AI检测"],
+      "weaknesses": ["查重库小，结果与院校不一致", "AI检测被报告为不可靠", "易被误用于学术不端，部分院校限制", "转换/改写痕迹易被2026版Turnitin AI改写子分数识别", "无本地化服务"],
+      "localization": "多语言但无中文/马来语本土化服务",
+      "compliance_stance": "声称反对学术不端，但工具本身常被院校限制/警告",
+      "malaysia_relevance": "中：学生用于改写降重，但2026 Turnitin升级后效果下降，风险升高"
+    },
+    {
+      "id": "undetectable_ai",
+      "name": "Undetectable.ai",
+      "category": "降AI/人性化工具",
+      "target_users": "需规避AI检测的用户（含学生）",
+      "core_features": {
+        "降AI率humanize": true,
+        "AI检测": true,
+        "查重": false,
+        "语法": true,
+        "可读性": true,
+        "API": true,
+        "中文本地化": "有中文页面（/zh/pricing）",
+        "退款保证": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {"name": "10K词/月", "price_monthly": 9.99, "price_annual_effective_monthly": 5.0, "price_annual_total": 60},
+          {"name": "20K词/月", "price_monthly": 19.0, "price_annual_effective_monthly": 9.5, "price_annual_total": 114},
+          {"name": "35K词/月", "price_monthly": 31.0, "price_annual_effective_monthly": 15.75, "price_annual_total": 189},
+          {"name": "50K词/月", "price_monthly": 42.5, "price_annual_effective_monthly": 21.25},
+          {"name": "Enterprise", "price": "contact"}
+        ],
+        "guarantee": "被标记非人类则退款"
+      },
+      "strengths": ["价格档位低（年付$5/月起）", "宣称通过多家检测器", "有API/白标"],
+      "weaknesses": ["合规风险最高：定位即规避检测", "效果随检测器升级而衰减", "售后/水印争议", "无院校/学术场景公信力"],
+      "localization": "有中文界面，但无中文本地化服务",
+      "compliance_stance": "消极/回避；本质是规避工具，明面上不承诺学术用途",
+      "malaysia_relevance": "中-高（学生需求端）但风险极高，不宜作为产品主体"
+    },
+    {
+      "id": "stealthgpt",
+      "name": "StealthGPT",
+      "category": "降AI/人性化工具",
+      "target_users": "学生、内容写手",
+      "core_features": {
+        "降AI率humanize": true,
+        "AI检测": true,
+        "100+语言支持": true,
+        "iOS app": true,
+        "Chrome扩展": true,
+        "MCP (Claude/Cursor)": true,
+        "中文本地化": "无独立中文站"
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {"name": "Pro", "price": "首3天$1，随后$6.99/周", "words_per_week": 12500, "per_request": 1000},
+          {"name": "Max", "price": "首3天$1，随后$19.99/周", "words_per_week": 50000, "per_request": 2000, "seats": 3},
+          {"name": "Enterprise", "price_monthly": 179.99, "words_per_month": "1000000+", "seats": 5}
+        ]
+      },
+      "strengths": ["周付低门槛($1试用)", "语言覆盖广", "有MCP/API集成"],
+      "weaknesses": ["按周计费长期成本高", "定位规避检测，合规风险高", "无学术公信力"],
+      "localization": "无本地化服务",
+      "compliance_stance": "回避；营销直接面向'作业/报告'，风险高",
+      "malaysia_relevance": "中（需求端）但风险高"
+    },
+    {
+      "id": "hix_bypass",
+      "name": "HIX Bypass (HIX.AI suite)",
+      "category": "降AI/人性化工具",
+      "target_users": "学生、内容创作者",
+      "core_features": {
+        "降AI率humanize": true,
+        "内置AI检测": true,
+        "多语言": true,
+        "两种humanizer模式": true,
+        "中文本地化": "有中文站",
+        "套装锁定": true
+      },
+      "pricing": {
+        "currency": "USD",
+        "note": "订阅隶属 HIX.AI 套装，价格随档位浮动；具体数字建议以官网/实测为准",
+        "indicative": "约 $14.99/月起（参考第三方评测）"
+      },
+      "strengths": ["有中文界面", "套装集成多工具"],
+      "weaknesses": ["套装锁定（billing reality 复杂）", "退款条款受限", "检测对抗效果不稳定", "合规风险高"],
+      "localization": "有中文站，无本地化服务",
+      "compliance_stance": "回避；定位规避工具",
+      "malaysia_relevance": "中（需求端）风险高"
+    },
+    {
+      "id": "originality_ai",
+      "name": "Originality.ai",
+      "category": "AI检测 + 查重（面向机构/内容团队）",
+      "target_users": "出版社、内容机构、SEO团队、HR",
+      "core_features": {
+        "AI检测": true,
+        "查重plagiarism": true,
+        "事实核查fact-check": true,
+        "可读性": true,
+        "API": true,
+        "团队席位": true,
+        "降AI率": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans_note": "按扫描credits/按100词计费，含免费试用与按月订阅档（Starter/Pro/Enterprise）+ API credits",
+        "indicative": "起步档约 $14.95/月起(参考)，API 按量计费"
+      },
+      "strengths": ["检测准确率较高（改写内容96.7%）", "API 成熟", "面向机构采购"],
+      "weaknesses": ["非面向学生个人", "对原生AI检测弱于GPTZero", "无降AI/改写服务", "无中文本地化工作流"],
+      "localization": "英文为主",
+      "compliance_stance": "强立场反AI滥用；面向诚信检测场景",
+      "malaysia_relevance": "低（学生端）：机构工具，学生不直接使用"
+    },
+    {
+      "id": "gptzero",
+      "name": "GPTZero",
+      "category": "AI检测（教育市场领先）",
+      "target_users": "教师、学生、院校（宣称10M+师生，100+国家）",
+      "core_features": {
+        "AI检测": true,
+        "句级高亮": true,
+        "多模型检测(Gemini/Claude/LLaMa等)": true,
+        "改写/绕过工具检测": true,
+        "查重plagiarism": true,
+        "语法": true,
+        "引用生成": true,
+        "LMS集成(Canvas/Google Classroom)": true,
+        "API": true,
+        "降AI率": false
+      },
+      "pricing": {
+        "currency": "USD",
+        "plans": [
+          {"name": "Free", "price": 0, "words_per_month": 10000, "note": "1次高级扫描，NZ$0显示"},
+          {"name": "Premium", "price_monthly_annual_billed": 12.99, "words_per_month": 300000, "note": "多语言检测、下载报告、Chrome高亮"},
+          {"name": "Professional", "price_monthly_annual_billed": 24.99, "words_per_month": 500000, "note": "批扫250文件、逐页扫描、LMS集成；多席位$49.98/mo for 2"},
+          {"name": "Enterprise/Team", "price": "contact sales", "note": "共享额度、统一账单"}
+        ],
+        "api": "提供 API（17种语言示例代码），具体按量报价需 contact sales",
+        "education_partner": "美国教师联合会(AFT)官方AI检测合作伙伴"
+      },
+      "strengths": ["教育市场品牌最强", "多语言检测（利于留学生）", "句级高亮易解释", "有LMS集成"],
+      "weaknesses": ["误报争议（非母语者误报率高）", "无降AI/改写服务", "无中文/马来西亚本地化服务与人工服务", "价格按词量，重用户成本不低"],
+      "localization": "多语言检测能力，但无中文/马来语本地化服务",
+      "compliance_stance": "强立场反AI作弊；官方诚信工具",
+      "malaysia_relevance": "中：部分马来西亚院校在用；学生看到GPTZero报告往往高AI率 → 产生辅导需求"
+    },
+    {
+      "id": "cnki_zhiwang",
+      "name": "知网 CNKI",
+      "category": "中文查重（权威）+ AIGC检测",
+      "target_users": "中国本硕博毕业生、院校",
+      "core_features": {"查重": true, "AIGC检测": "部分高校支持（非公开对外）"},
+      "pricing": {
+        "currency": "RMB",
+        "plans": [
+          {"name": "本科论文查重", "price": "约 200-300 元/篇"},
+          {"name": "硕士论文查重", "price": "约 300-500 元/篇"},
+          {"name": "官方 AIGC 检测", "price": "不公开对外销售"}
+        ]
+      },
+      "strengths": ["国内权威、院校认可", "库最全"],
+      "weaknesses": ["贵、不能反复查", "无降重/降AI官方服务", "对马来西亚院校无认可度"],
+      "localization": "纯中文",
+      "compliance_stance": "强反抄袭",
+      "malaysia_relevance": "极低：马来西亚院校用 Turnitin，不看知网"
+    },
+    {
+      "id": "vip_wanfang_paperpass_paperyy",
+      "name": "维普 / 万方 / PaperPass / PaperYY / PaperRed 等中文查重",
+      "category": "中文查重（中低成本）+ 部分AIGC检测",
+      "target_users": "中国学生（初筛/中期查重）",
+      "core_features": {"查重": true, "AIGC检测": "PaperPass/PaperRed等支持", "降重": "部分平台提供AI降重"},
+      "pricing": {
+        "currency": "RMB",
+        "plans": [
+          {"name": "维普", "price": "约 3 元/千字（3万字≈90元）/ 或 50-80元/次"},
+          {"name": "万方", "price": "约 3 元/千字"},
+          {"name": "PaperPass", "price": "约 3 元/千字（含空格标点）；新用户免费1-2千字"},
+          {"name": "PaperRed", "price": "万字内几元, 10-20元/篇"}
+        ]
+      },
+      "strengths": ["便宜、可高频自查", "AIGC检测部分覆盖", "PaperRed等提供查重+AI检测一次完成"],
+      "weaknesses": ["库小于知网，重复率虚高（PaperPass平均高出知网6.4个百分点）", "不能作定稿依据", "免费渠道有泄露论文风险", "对马来西亚院校无认可度"],
+      "localization": "纯中文",
+      "compliance_stance": "反抄袭，部分提供AI降重（合规灰区）",
+      "malaysia_relevance": "低：马来西亚用Turnitin；但中文查重方法论（高频自查+终审）可借鉴"
+    },
+    {
+      "id": "yimipass",
+      "name": "一米学术 (yimipass.com)",
+      "category": "直接竞品：面向海外留学生的人工降重+降AI+Turnitin查重服务",
+      "target_users": "海外留学生（含马来西亚）、SCI投稿者",
+      "core_features": {
+        "Turnitin查重+AI检测": true,
+        "人工降重": true,
+        "人工降AI率": true,
+        "英文润色": true,
+        "人工深度改写（非工具）": true,
+        "附官方AI检测报告": true,
+        "不达标免费重做": true,
+        "中文本地化": true,
+        "马来西亚专向内容": true
+      },
+      "pricing": {
+        "currency": "RMB",
+        "plans": [
+          {"name": "英文论文人工润色", "price": "¥0.35/词起（加急¥0.55/词起）"},
+          {"name": "Turnitin论文降重", "price": "¥0.50/词起（加急¥0.70/词起）"},
+          {"name": "Turnitin降AI率", "price": "¥0.60/词起（加急¥0.80/词起）"},
+          {"name": "Turnitin查重+AI检测", "price": "¥15/篇/次（加急最快2小时）"}
+        ],
+        "turnaround": "常规3-5个工作日；加急48小时；查重当天/2小时",
+        "payment": "微信、支付宝、PayPal",
+        "sample_quote": "500词 × ¥0.35 = ¥175起"
+      },
+      "strengths": ["精准切入马来西亚中国留学生场景", "人工深度改写，附官方报告", "中文本地化+微信支付", "有马来西亚专向内容营销（Turnitin安全线解释、申诉指导）"],
+      "weaknesses": ["人工交付，产能与规模化受限", "客单价按词计费，长文成本高（3000词降AI约¥1800起）", "人工服务难以标准化/质检", "存在合规灰区（帮学生降AI率）", "无自助工具/产品化"],
+      "localization": "强本地化（中文+马来西亚场景内容）",
+      "compliance_stance": "弱-中性；定位'人工深度改写、保留原创观点'，回避'作弊'表述，但业务本质是帮降AI率",
+      "malaysia_relevance": "极高 —— 这是本项目最应盯防的直接竞品"
+    }
+  ],
+  "risk_cases": [
+    {
+      "case": "Adelphi University (Orion Newby) 诉校方案",
+      "date": "2026-02",
+      "court": "纽约州最高法院 / 联邦",
+      "summary": "Turnitin 判其论文100% AI生成，实际相似度仅4%；学生提交Grammarly与ZeroGPT人工写作证明仍被处分。2026年2月法院裁定校方'缺乏依据'。",
+      "significance": "确立：AI检测分数不能作为自证证据，学生享有正当程序权"
+    },
+    {
+      "case": "斯坦福研究：非母语者误报",
+      "date": "2023起持续引用至2026",
+      "summary": "AI检测器将61.3%的非母语英语者作文误判为AI生成。",
+      "significance": "直接说明中国留学生是误报高危人群 → 申诉/辅导刚需"
+    },
+    {
+      "case": "澳洲天主教大学(ACU)弃用Turnitin AI检测",
+      "date": "2024-2025",
+      "summary": "2024年约6000起学术不端指控，约90%为AI相关，大量被撤销；ACU随后弃用Turnitin AI检测。",
+      "significance": "机构层面信任崩塌；多校（Vanderbilt/Michigan State/Northwestern/Temple）暂停或退出"
+    },
+    {
+      "case": "Turnitin 是否用学生数据训练AI 争议",
+      "date": "2026-09",
+      "summary": "媒体质疑Turnitin用学生论文数据训练AI，Turnitin否认。",
+      "significance": "隐私与数据伦理风险，可作为差异化卖点（隐私承诺）"
+    }
+  ],
+  "malaysia_context": {
+    "primary_tool": "Turnitin（几乎所有马来西亚高校采用）",
+    "similarity_threshold": "无全马统一红线；因院系/课程大纲而异，常见20%，UM/UPM/UKM判例24%未究、11%被要求重写",
+    "ai_flag_2026": "Turnitin 2026版新增'AI改写子分数'，专门抓中译英回译等绕道；单蓝高亮标记",
+    "ai_threshold_general": "1-19%模糊区间(标*)，≥20%显示百分比并进入人工核查",
+    "consequence": "相似率绿≠安全：AI标蓝同样触发学术诚信审查；主动解释比被动回应宽容",
+    "student_pain": "中国留学生因语言风格平滑易被误报；看不懂报告；不会逐段人工重写；不知课程大纲政策边界"
+  }
+}

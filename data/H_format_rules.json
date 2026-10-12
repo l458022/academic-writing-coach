@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "version": "1.0",
+    "purpose": "作业格式规范检查库：APA 7 / MLA 9 引用格式 + 文章结构完整性",
+    "rule_source": "APA 7th edition（apastyle.apa.org 官方参考指南）+ MLA 9th edition（MLA Handbook 9th ed.）",
+    "boundary": "仅做**离线形态检查**，判断引用条目是否符合格式骨架、结构是否齐全；不联网核验文献真伪，也不替代导师的评分标准。输出为『建议核对』级别，不是判分。",
+    "verified_at": "2026-10-12",
+    "verified_note": "规则已逐条对照大学图书馆官方指南核实，未凭记忆书写。"
+  },
+
+  "styles": [
+    {
+      "id": "apa7",
+      "name": "APA 第 7 版",
+      "full_name": "American Psychological Association, 7th edition",
+      "used_by": "心理学、教育学、商科、会计、社会科学（马来西亚高校商科/会计作业常用）",
+      "in_text_rule": {
+        "summary": "（姓, 年）括注；引用原文另加页码（姓, 年, p. 页码）",
+        "patterns": [
+          "叙述式：（Smith, 2020）",
+          "叙述式带页码：（Smith, 2020, p. 15）",
+          "正文叙述：Smith (2020) argued that…",
+          "两位作者：（Smith & Jones, 2020）",
+          "三位及以上：（Smith et al., 2020）"
+        ],
+        "key_rules": [
+          "两位作者在正文中每次都要写全，用 & 连接（括注内用 &，句子里用 and）",
+          "三位及以上作者，从**第一次出现**起就用 et al.",
+          "同姓同年的不同文献用 a/b/c 区分：（Smith, 2020a）"
+        ]
+      },
+      "reference_rule": {
+        "summary": "作者. (年). 标题. 来源, 卷(期), 页码. DOI",
+        "element_order": [
+          "Author, A. A. (Year).",
+          "Title of article: Subtitle.",
+          "Journal Name, Volume(Issue), pages.",
+          "https://doi.org/xxxxx"
+        ],
+        "key_rules": [
+          "参考文献列表按作者姓氏**字母顺序**排列",
+          "每条使用**悬挂缩进** 0.5 英寸（hanging indent）",
+          "作者写法：姓 + 名字首字母（Smith, J. A.）",
+          "两位到二十位作者全部列出；最后一位前加 &",
+          "**二十一位及以上**作者：列前十九位 + 省略号（…）+ 最后一位作者",
+          "期刊名、卷号用**斜体**；文章标题不用斜体、不倾斜",
+          "文章标题只大写首词首字母（句中首字母大写，sentence case）",
+          "**DOI 后不加句点**，DOI 写成 https://doi.org/ 形式",
+          "无 DOI 时，新版 APA 不建议写数据库名或期刊主页 URL",
+          "无日期用 (n.d.)"
+        ]
+      },
+      "checks": [
+        {
+          "id": "APA_RE_ENTRY_YEAR",
+          "desc": "条目中缺少括号年份",
+          "pattern": "\\((?:19|20)\\d{2}[a-z]?\\)|n\\.d\\.",
+          "expect": "present",
+          "weight": 12,
+          "hint": "APA 参考文献每条都应包含 (年份) 或 (n.d.)，缺年份通常意味着条目不完整。"
+        },
+        {
+          "id": "APA_RE_INITIALS",
+          "desc": "作者名未用首字母形式",
+          "note": "只在条目开头检查：APA 要求 姓, 首字母.",
+          "weight": 8,
+          "hint": "APA 作者应写成「姓, 名首字母.」如 Smith, J. A.；写成全名 Smith, John 不符合规范。"
+        },
+        {
+          "id": "APA_RE_DOI_FORM",
+          "desc": "DOI 未写成 https://doi.org/ 形式",
+          "pattern": "(?<!https?://doi\\.org/)\\b10\\.\\d{4,9}/[^\\s]+",
+          "expect": "absent",
+          "weight": 10,
+          "hint": "APA 7 要求 DOI 写成完整链接 https://doi.org/10.xxxx/yyyy，不要只写 10.xxxx/yyyy。"
+        },
+        {
+          "id": "APA_RE_DOI_PERIOD",
+          "desc": "DOI 后误加了句点",
+          "pattern": "https?://doi\\.org/[^\\s]+\\.[\\s\\n]",
+          "expect": "absent",
+          "weight": 8,
+          "hint": "APA 7 明确规定 **DOI 后不加句点**。加了是常见扣分点。"
+        },
+        {
+          "id": "APA_RE_RETRIEVED_FROM",
+          "desc": "使用了过时的 Retrieved from",
+          "pattern": "Retrieved\\s+(?:on\\s+[^,]+,\\s*)?from\\b",
+          "expect": "absent",
+          "weight": 10,
+          "hint": "APA 7 已**取消** Retrieved from（第 6 版的写法）。除少数会变动的网页外，不应再使用。"
+        },
+        {
+          "id": "APA_RE_HARVARD_ETAL",
+          "desc": "参考文献列表中误用 et al.（APA 参考文献应列全作者）",
+          "pattern": "^\\s*[A-Z][A-Za-z'\\-]+.*\\bet\\s+al\\.",
+          "flags": "m",
+          "expect": "absent",
+          "weight": 10,
+          "hint": "APA 参考文献列表**不使用 et al.**（除 21 位以上作者用省略号）；et al. 只能用在正文引用里。"
+        }
+      ]
+    },
+
+    {
+      "id": "mla9",
+      "name": "MLA 第 9 版",
+      "full_name": "Modern Language Association, 9th edition",
+      "used_by": "文学、语言、人文、文化研究（英语专业、通识写作）",
+      "in_text_rule": {
+        "summary": "（作者 页码）括注，**不带年份、不带逗号**",
+        "patterns": [
+          "（Smith 15）",
+          "（Smith and Jones 15）",
+          "（Smith et al. 15）",
+          "整部作品：（Smith）"
+        ],
+        "key_rules": [
+          "正文引用是「姓 页码」，**中间不加逗号**，不用年份",
+          "没有页码时才用别的定位（如章节名），不要编页码",
+          "与其他体系混用时最容易错的就是这里（写成 APA 的「Smith, 2020」）"
+        ]
+      },
+      "reference_rule": {
+        "summary": "九大核心要素，按序排列，能填则填",
+        "core_elements": [
+          "1. Author 作者",
+          "2. Title of Source 来源标题",
+          "3. Title of Container 容器标题",
+          "4. Other Contributors 其他贡献者",
+          "5. Version 版本",
+          "6. Number 编号",
+          "7. Publisher 出版者",
+          "8. Publication Date 出版日期",
+          "9. Location 位置"
+        ],
+        "key_rules": [
+          "参考文献页标题固定为 **Works Cited**（居中，不加引号、不斜体）",
+          "条目按作者姓氏**字母顺序**排列",
+          "每条使用**悬挂缩进** 0.5 英寸",
+          "**自足作品**（书、整部电影）标题用**斜体**",
+          "**较大作品的一部分**（文章、短篇、单集）标题用**引号**",
+          "两位作者：只倒置第一位（Dorris, Michael, and Louise Erdrich）",
+          "**三位及以上**作者：第一位 + et al.",
+          "无作者：从标题开始排",
+          "**容器**（container）是承载来源的更大整体（期刊、网站、选集）",
+          "引用 AIGC/工具时也有规范（MLA 已发布 ChatGPT 引用指引）"
+        ]
+      },
+      "checks": [
+        {
+          "id": "MLA_RE_IN_TEXT_APA_STYLE",
+          "desc": "MLA 正文引用混入了 APA 式年份",
+          "pattern": "\\([A-Z][A-Za-z'\\-]+,\\s+(?:19|20)\\d{2}",
+          "expect": "absent",
+          "weight": 14,
+          "hint": "MLA 正文引用不写年份，格式是（Smith 15）。出现（Smith, 2020）说明混用了 APA。"
+        },
+        {
+          "id": "MLA_RE_IN_TEXT_COMMA",
+          "desc": "MLA 正文引用在姓与页码之间误加逗号",
+          "pattern": "\\([A-Z][A-Za-z'\\-]+,\\s+\\d{1,4}\\)",
+          "expect": "absent",
+          "weight": 10,
+          "hint": "MLA 是（Smith 15），姓与页码之间**不加逗号**。"
+        },
+        {
+          "id": "MLA_RE_WORKS_CITED_TITLE",
+          "desc": "参考文献页标题不是 Works Cited",
+          "note": "由模块单独判定：若用 MLA 但标题写成 References，提示改。",
+          "weight": 6,
+          "hint": "MLA 的参考文献页标题应为 Works Cited（APA 才叫 References）。"
+        },
+        {
+          "id": "MLA_RE_DOI_LINK",
+          "desc": "MLA 中 DOI 写法",
+          "pattern": "doi:\\s*10\\.\\d{4,9}/",
+          "expect": "absent",
+          "weight": 6,
+          "hint": "MLA 9 推荐用 https://doi.org/10.xxxx 或 DOI 后的稳定链接，不写 doi: 前缀。"
+        }
+      ]
+    }
+  ],
+
+  "structure": {
+    "id": "essay_structure",
+    "name": "文章结构完整性",
+    "requirement": "Introduction（引言）、Body（主体）、Conclusion（结论）缺一不可",
+    "core_sections": [
+      {
+        "key": "introduction",
+        "name": "Introduction 引言",
+        "purpose": "交代背景、引出议题、点明主旨（thesis statement）",
+        "signals": [
+          "开篇段落含背景/现象描述",
+          "出现 thesis / 论点句（常见于首段末句）",
+          "常见标记词：This essay/report/paper examines/argues… · The purpose of this … · In recent years…"
+        ],
+        "must_have": ["主旨句或明确议题", "背景铺垫"],
+        "weight": 1.0
+      },
+      {
+        "key": "body",
+        "name": "Body 主体",
+        "purpose": "分论点 + 论据 + 分析，通常 ≥2 段",
+        "signals": [
+          "多个段落各承载一个分论点",
+          "有例证/数据/引用支撑",
+          "常见标记词：First/Firstly… · Moreover/Furthermore… · For example… · On the other hand…"
+        ],
+        "must_have": ["至少两个分论点段落", "论据支撑"],
+        "weight": 1.2
+      },
+      {
+        "key": "conclusion",
+        "name": "Conclusion 结论",
+        "purpose": "总结论点、回应引言、给出结论或建议",
+        "signals": [
+          "结尾段落回扣主旨",
+          "常见标记词：In conclusion… · To conclude… · In summary… · Overall… · To sum up…"
+        ],
+        "must_have": ["总结性表述"],
+        "weight": 1.0
+      }
+    ],
+    "detect": {
+      "conclusion_markers": [
+        "in conclusion", "to conclude", "in summary", "to sum up", "in closing",
+        "overall,", "all in all", "on the whole", "in the final analysis",
+        "综上所述", "总而言之", "总之"
+      ],
+      "intro_markers": [
+        "this essay", "this report", "this paper", "this study", "this assignment",
+        "the purpose of this", "in recent years", "nowadays",
+        "the aim of this", "this analysis"
+      ],
+      "body_markers": [
+        "firstly", "first,", "first of all", "secondly", "second,", "thirdly", "third,",
+        "moreover", "furthermore", "in addition", "additionally", "more importantly",
+        "for example", "for instance", "on the other hand", "however,", "in contrast",
+        "as a result", "consequently", "therefore,"
+      ],
+      "heading_pattern": "^(?:[IVX]+|[0-9]+)[.)]?\\s+[A-Z][^\\n]{0,60}$|^(introduction|background|literature review|methodology|methods|results|findings|discussion|analysis|conclusion|recommendation[s]?|references|works cited|bibliography|appendix)\\b",
+      "heading_flags": "im"
+    },
+    "boundary": "结构判定基于段落排布与标记词，属**启发式提示**。分点式（bullet）作业、诗歌、代码报告等非典型文体可能不适用，此时会标注『结构本项不适用』而非判缺失。"
+  },
+
+  "common_mistakes": [
+    {
+      "id": "CM01",
+      "title": "正文引用与参考文献不匹配（dangling / orphan）",
+      "detail": "正文引了但参考文献里没有，或参考文献里有但正文从没引用。两端必须一一对应。",
+      "belongs_to": "citation"
+    },
+    {
+      "id": "CM02",
+      "title": "把 APA 与 MLA 混着用",
+      "detail": "最常见：正文用（Smith 15）却把参考文献页写成 References；或正文带年份但参考文献不列。**一篇作业只能用一种体系。**",
+      "belongs_to": "format"
+    },
+    {
+      "id": "CM03",
+      "title": "参考文献页缺悬挂缩进 / 未按字母排序",
+      "detail": "Word 里需手动设置 0.5 英寸悬挂缩进；条目要严格按姓氏字母序，不能按引用先后排。",
+      "belongs_to": "format"
+    },
+    {
+      "id": "CM04",
+      "title": "DOI 格式错误",
+      "detail": "APA 7：写成 https://doi.org/xxxx 且**末尾不加句点**；只写 10.xxxx 或写成 doi: 都不规范。",
+      "belongs_to": "format"
+    },
+    {
+      "id": "CM05",
+      "title": "标题大小写与斜体错误",
+      "detail": "APA 文章标题用 sentence case、不斜体，期刊名斜体；MLA 自足作品斜体、文章用引号。",
+      "belongs_to": "format"
+    },
+    {
+      "id": "CM06",
+      "title": "结构缺 Conclusion",
+      "detail": "只写完主体就收尾，没有回扣主旨的结论段。多数评分标准里这是硬性扣分项。",
+      "belongs_to": "structure"
+    },
+    {
+      "id": "CM07",
+      "title": "套用旧版规范",
+      "detail": "如 APA 6 的 Retrieved from、MLA 8 的固定标签格式，在 7/9 版里已改。确认导师要求的是哪一版。",
+      "belongs_to": "format"
+    }
+  ],
+
+  "guide": {
+    "title": "格式自查清单（打印出来对着改）",
+    "steps": [
+      "确认导师要求的是 APA 还是 MLA、第几版（APA 7 / MLA 9 为现行版本）",
+      "检查正文引用的括注格式：APA 带年份（Smith, 2020）；MLA 只带页码（Smith 15）",
+      "检查参考文献页标题：APA 用 References；MLA 用 Works Cited",
+      "检查条目是否按作者姓氏字母排序、是否设置了 0.5 英寸悬挂缩进",
+      "检查条目作者写法：APA 用首字母（Smith, J. A.）；MLA 只倒置第一位作者",
+      "检查 DOI：APA 写成 https://doi.org/xxxx 且末尾无句点；MLA 不写 doi: 前缀",
+      "逐条核对正文引用与参考文献是否一一对应（不悬空、不孤立）",
+      "检查结构：有没有 Introduction、Body（≥2 段分论点）、Conclusion",
+      "确保全文只用一种引用体系，不要 APA/MLA 混用"
+    ]
+  }
+}
