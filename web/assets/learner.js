@@ -160,10 +160,21 @@ const Learner = (() => {
     };
   }
 
-  /* 记录一次分析（每次点「开始分析」调用） */
-  function observe(text, stylo, dup, uniId) {
+  /* 记录一次分析（每次点「开始分析」调用）
+     initialVerdict: 'ai' | 'human' | null
+       —— 上传时用户直接标注的来源。与事后 feedback() 的区别是
+          「一开始就知道」，转化率远高于让用户回头点反馈按钮。
+          没有标注的特征指纹对校准阈值毫无用处。 */
+  function observe(text, stylo, dup, uniId, initialVerdict) {
     const d = load();
     const rec = fingerprint(text, stylo, dup, uniId);
+    if (initialVerdict === 'ai' || initialVerdict === 'human') {
+      rec.verdict = initialVerdict;
+      // 同步统计，口径与 feedback() 保持一致
+      if (initialVerdict === 'ai') d.stats.aiConfirmed += 1;
+      else d.stats.humanConfirmed += 1;
+      d.stats.feedbackCount += 1;
+    }
     d.records.push(rec);
     d.stats.total += 1;
     save(d);

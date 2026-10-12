@@ -54,6 +54,19 @@
       <button id="fmClear" class="fm-clear" title="移除文件">×</button>
     </div>
 
+    <!-- 来源标注：上传后询问一次，用于积累「有标注」的样本。
+         ⚠️ 为什么必须有这一步：只有特征指纹、没有「真人/AI」标注的数据，
+            对校准阈值毫无用处。而事后回去点反馈按钮的转化率极低。 -->
+    <div id="srcAsk" class="src-ask hidden">
+      <span class="src-q">这篇是你自己写的吗？</span>
+      <div class="src-btns">
+        <button type="button" data-src="human">我写的</button>
+        <button type="button" data-src="ai">AI 生成的</button>
+        <button type="button" data-src="skip" class="src-skip">跳过</button>
+      </div>
+      <span class="src-note">仅用于改进检测器，不会保存原文。</span>
+    </div>
+
     <textarea id="inputText" placeholder="在此粘贴你的英文 essay / report / dissertation 段落，建议 150 词以上……也可以直接把文档拖到上面的虚线框里。"></textarea>
 
     <div class="controls">

@@ -81,6 +81,12 @@ function countMatches(haystack, phrase) {
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
+/* 上传后由用户标注的来源（'ai' | 'human' | null）。
+   在「开始分析」时被写入经验记录，然后清空。
+   为什么单独拎出来：没有标注的特征指纹对校准阈值毫无用处，
+   而事后回去点反馈按钮的转化率极低。 */
+let pendingVerdict = null;
+
 function tokenize(text) {
   return (text.toLowerCase().match(/[a-z'-]+/g) || []);
 }
@@ -272,10 +278,12 @@ function renderAnalysis(text, uniId) {
   if (typeof Learner !== 'undefined') {
     try {
       const before = Learner.load().records.length;
-      Learner.observe(text, stylo, dup, uniId);
+      /* pendingVerdict 来自「上传后标注」——有标注的样本才能用于校准阈值 */
+      Learner.observe(text, stylo, dup, uniId, pendingVerdict);
       _lastRecordIndex = before;   // 新条目就是原长度对应的下标
     } catch (e) { /* 学习模块失败不得影响分析主流程 */ }
   }
+  pendingVerdict = null;   // 用掉即清空，避免污染下一篇
 
   // ---- 总分环 ----
   const aiColor = stylo.score >= 60 ? 'var(--red)' : stylo.score >= 35 ? 'var(--orange)' : 'var(--green)';
@@ -1217,6 +1225,7 @@ async function init() {
   $('#btnClear').addEventListener('click', () => {
     $('#inputText').value = ''; $('#wordCount').textContent = '0 词';
     $('#results').classList.add('hidden');
+    hideSrcAsk(); pendingVerdict = null;
   });
 
   $('#btnDemo').addEventListener('click', () => {
@@ -1282,10 +1291,37 @@ async function init() {
       dropZone.classList.remove('error', 'loading');
       setStatus('✅ 已识别 ' + r.name + '，可直接点「开始分析」', '');
       $('#results').classList.add('hidden');
+      showSrcAsk();   // 询问来源：有标注的样本才能用于校准阈值
     } catch (err) {
       dropZone.classList.add('error');
       setStatus('❌ ' + (err && err.message ? err.message : '解析失败'), 'error');
     }
+  }
+
+  /* ---------------- 来源标注（上传后询问一次）----------------
+     为什么需要：只有特征指纹、没有「真人/AI」标注的数据，
+     对校准阈值毫无用处。而事后回去点反馈按钮的转化率极低。
+     这里在用户刚上传完、最清楚来源的时候问一句，一次点击即可。 */
+  const srcAsk = $('#srcAsk');
+  function showSrcAsk() {
+    if (!srcAsk) return;
+    pendingVerdict = null;              // 新文件 → 清空上一次的标注
+    srcAsk.classList.remove('hidden');
+    srcAsk.querySelectorAll('.src-btns button').forEach(b => b.classList.remove('picked'));
+  }
+  function hideSrcAsk() {
+    if (srcAsk) srcAsk.classList.add('hidden');
+  }
+  if (srcAsk) {
+    srcAsk.querySelectorAll('.src-btns button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.src;
+        pendingVerdict = (v === 'ai' || v === 'human') ? v : null;
+        srcAsk.querySelectorAll('.src-btns button').forEach(b => b.classList.remove('picked'));
+        btn.classList.add('picked');    // 视觉确认后收起
+        setTimeout(hideSrcAsk, 350);
+      });
+    });
   }
 
   if (dropZone) {
@@ -1317,6 +1353,7 @@ async function init() {
   if (fmClear) fmClear.addEventListener('click', e => {
     e.stopPropagation();
     clearFile();
+    hideSrcAsk(); pendingVerdict = null;
     $('#inputText').value = ''; updateCount();
     $('#results').classList.add('hidden');
   });
