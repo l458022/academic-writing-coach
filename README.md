@@ -10,6 +10,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+**🌐 在线演示**：<https://l458022.github.io/academic-writing-coach/>
+（GitHub Pages 纯静态托管；跨用户云端汇总需云服务，暂未开通）
+
 ---
 
 ## ⚠️ 先读这个：为什么不做"帮你过检测"
