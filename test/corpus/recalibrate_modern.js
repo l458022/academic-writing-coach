@@ -90,11 +90,23 @@ if (!fs.existsSync(S_DIR)) {
   process.exit(0);
 }
 
-/* 按文件名约定区分 AI 与真人：含 ai/AI 的视为 AI 样本 */
+/* 语料来源分工（v0.7）：
+     · 现代**真人**：student/ —— 用户自备（真实语料有版权/许可限制，不入库）
+     · 现代 **AI**  ：ai_modern/（仓库自带，开发者撰写，无版权问题）
+                     + student/ 里文件名含 ai 的（用户自备的补充样本）
+   两边必须**同属一个时代**，否则会重蹈 v0.4 的「时代偏差」覆辙。 */
 const allStudent = fs.readdirSync(S_DIR).filter(f => f.endsWith('.txt'));
-const modernAI = allStudent
+const MODERN_AI_DIR = path.join(__dirname, 'ai_modern');
+
+const fromStudentAI = allStudent
   .filter(f => /ai/i.test(f))
-  .map(f => feats(fs.readFileSync(path.join(S_DIR, f), 'utf8')));
+  .map(f => fs.readFileSync(path.join(S_DIR, f), 'utf8'));
+const fromRepoAI = fs.existsSync(MODERN_AI_DIR)
+  ? fs.readdirSync(MODERN_AI_DIR).filter(f => f.endsWith('.txt'))
+    .map(f => fs.readFileSync(path.join(MODERN_AI_DIR, f), 'utf8'))
+  : [];
+
+const modernAI = [...fromStudentAI, ...fromRepoAI].map(feats);
 const modernHuman = allStudent
   .filter(f => !/ai/i.test(f))
   .map(f => feats(fs.readFileSync(path.join(S_DIR, f), 'utf8')));

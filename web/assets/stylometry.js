@@ -441,7 +441,7 @@ const Stylometry = (() => {
         : clamp01((wordCount - 40) / 160) * 0.6 + 0.4;
       const combined = (punctAi * 0.65 + colonAi * 0.15 + paraAi * 0.20) * punctReliability;
       signals.push({
-        key: 'punct', label: '标点与段落形态', weight: 0.16,
+        key: 'punct', label: '标点与段落形态', weight: 0.05,
         aiScore: Math.round(combined),
         value: `分号/破折号/括号 ${richPunct.toFixed(2)}‰ · 冒号 ${pu.colonPer1k.toFixed(2)}‰ · 段落 ${pu.paraCount} 段`,
         evidence: [
@@ -449,7 +449,11 @@ const Stylometry = (() => {
           `逗号 = ${pu.commaPer1k.toFixed(1)}‰，冒号 = ${pu.colonPer1k.toFixed(2)}‰`,
           `段落数 = ${pu.paraCount}，段长变异系数 = ${pu.paraLenCv.toFixed(3)}`
         ],
-        note: '实测最强信号之一：人类写作会用分号、破折号、插入语来制造停顿与补充，AI 正式文体几乎不用（本批样本中全为 0）。段落长度也更整齐。'
+        /* ⚠️ v0.7：权重 0.16 → 0.05，且已移出强证据名单。
+           该特征在 19 世纪语料上很强（AI 全 0 / 真人 1.97‰），
+           但现代学生写作同样不用富标点，导致对两类都给高分。
+           保留低权重是作为**辅助**信号（不参与判定票数），不再主导结论。 */
+        note: '历史信号：人类学术写作会用分号、破折号、插入语制造停顿，AI 正式文体几乎不用。⚠️ 但现代学生（尤其非母语）同样很少使用，本项在现代语料上已失去区分力，仅作辅助参考。'
       });
     }
 
@@ -509,7 +513,16 @@ const Stylometry = (() => {
     const peak = signals.length ? Math.max(...signals.map(x => x.aiScore)) : 0;
 
     // 统计强特征中"高分"的个数（>=65 视为明确指向 AI）
-    const strongKeys = ['punct', 'burstiness', 'lexical', 'readability', 'starter'];
+    /* ⚠️ v0.7 修正：`punct` 已从强证据名单移除。
+       原因（304 篇现代真人语料 + 16 篇 AI 的实测）：
+         · 现代学生写作（尤其非母语）**同样几乎不用**分号/破折号/括号，
+           于是 punct 对「真人」和「AI」**都给高分** → 零区分力。
+         · 但它却帮真人样本凑够 2 票，触发 `strongVotes === 2` 的 64 分封顶，
+           实测造成 5 篇真人被判「高」（分数清一色 64）。
+       这属于「时代伪信号」的**人群变体**：v0.4 的对照组是 19 世纪学者
+       （大量使用分号破折号），而现代学生的标点习惯碰巧与 AI 一致。
+       详见 test/corpus/_recalibration_modern.json 与 evaluate_modern.js。 */
+    const strongKeys = ['burstiness', 'lexical', 'readability', 'starter'];
     const strongHigh = signals
       .filter(x => strongKeys.includes(x.key) && x.aiScore >= 65)
       .sort((a, b) => b.aiScore - a.aiScore);
