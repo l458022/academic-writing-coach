@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+# 为什么用 Actions 而不是「分支目录」发布：
+#   本项目网页在 web/ 子目录，而 GitHub Pages 的分支发布只接受 / 或 /docs。
+#   Actions 方式可以直接指定 path: web，无需挪动任何文件。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload web/ as the site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
